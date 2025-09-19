@@ -1,32 +1,125 @@
-<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
-  <!-- 背景マップ画像 -->
-  <image href="images/campmap.png" x="0" y="0" width="1000" height="700" />
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Loggers Auto Camp マップ</title>
+  <style>
+    body {
+      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+      background-color: #f0f8ff;
+      text-align: center;
+    }
+    h2 {
+      margin-top: 20px;
+      color: #2e8b57;
+    }
+    svg {
+      margin-top: 20px;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h2>🗺️ Loggers Auto Camp 区画マップ</h2>
 
-  <!-- 区画ボタン配置（例） -->
-  <a xlink:href="A01.html" target="_blank">
-    <rect x="120" y="160" width="60" height="40" fill="rgba(255,255,255,0.6)" stroke="#333" />
-    <text x="125" y="185" font-size="14" fill="#000">A01</text>
-  </a>
+  <svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="shadow">
+        <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#999" />
+      </filter>
+    </defs>
 
-  <a xlink:href="A02.html" target="_blank">
-    <rect x="200" y="160" width="60" height="40" fill="rgba(255,255,255,0.6)" stroke="#333" />
-    <text x="205" y="185" font-size="14" fill="#000">A02</text>
-  </a>
+    <!-- 背景マップ画像 -->
+    <image href="images/campmap.png" x="0" y="0" width="1000" height="700" />
 
-  <a xlink:href="A03.html" target="_blank">
-    <rect x="280" y="160" width="60" height="40" fill="rgba(255,255,255,0.6)" stroke="#333" />
-    <text x="285" y="185" font-size="14" fill="#000">A03</text>
-  </a>
+    <!-- 区画ボタン（A01〜A19、A04除く） -->
+    <!-- 配置は仮の座標。調整可能です -->
+    <!-- 各区画に絵文字と色をつけてポップ化 -->
 
-  <!-- A04は欠番なのでスキップ -->
+    <!-- A01 -->
+    <a xlink:href="A01.html" target="_blank">
+      <rect x="100" y="150" width="80" height="50" rx="10"
+            fill="#d0f0c0" stroke="#4CAF50" stroke-width="2" filter="url(#shadow)" />
+      <text x="110" y="180" font-size="16" fill="#333">A01 🏕️</text>
+    </a>
 
-  <a xlink:href="A05.html" target="_blank">
-    <rect x="360" y="160" width="60" height="40" fill="rgba(255,255,255,0.6)" stroke="#333" />
-    <text x="365" y="185" font-size="14" fill="#000">A05</text>
-  </a>
+    <!-- A02 -->
+    <a xlink:href="A02.html" target="_blank">
+      <rect x="200" y="150" width="80" height="50" rx="10"
+            fill="#ffe4b5" stroke="#ff8c00" stroke-width="2" filter="url(#shadow)" />
+      <text x="210" y="180" font-size="16" fill="#333">A02 🌙</text>
+    </a>
 
-  <!-- 以下、A06〜A19を同様に配置 -->
-</svg>
+    <!-- A03 -->
+    <a xlink:href="A03.html" target="_blank">
+      <rect x="300" y="150" width="80" height="50" rx="10"
+            fill="#add8e6" stroke="#1e90ff" stroke-width="2" filter="url(#shadow)" />
+      <text x="310" y="180" font-size="16" fill="#333">A03 🏡</text>
+    </a>
+
+    <!-- A05〜A12（同系色でまとめ） -->
+    <!-- 例：A05 -->
+    <a xlink:href="A05.html" target="_blank">
+      <rect x="400" y="150" width="80" height="50" rx="10"
+            fill="#fffacd" stroke="#f0c000" stroke-width="2" filter="url(#shadow)" />
+      <text x="410" y="180" font-size="16" fill="#333">A05 👨‍👩‍👧</text>
+    </a>
+
+    <!-- 以下、A06〜A12も同様に配置（座標調整） -->
+
+    <!-- A13 -->
+    <a xlink:href="A13.html" target="_blank">
+      <rect x="100" y="250" width="80" height="50" rx="10"
+            fill="#e6e6fa" stroke="#9370db" stroke-width="2" filter="url(#shadow)" />
+      <text x="110" y="280" font-size="16" fill="#333">A13 ⛺</text>
+    </a>
+
+    <!-- A14 -->
+    <a xlink:href="A14.html" target="_blank">
+      <rect x="200" y="250" width="80" height="50" rx="10"
+            fill="#c1f0f6" stroke="#20b2aa" stroke-width="2" filter="url(#shadow)" />
+      <text x="210" y="280" font-size="16" fill="#333">A14 🌳</text>
+    </a>
+
+    <!-- A15 -->
+    <a xlink:href="A15.html" target="_blank">
+      <rect x="300" y="250" width="80" height="50" rx="10"
+            fill="#ffcccb" stroke="#ff69b4" stroke-width="2" filter="url(#shadow)" />
+      <text x="310" y="280" font-size="16" fill="#333">A15 👥</text>
+    </a>
+
+    <!-- A16 -->
+    <a xlink:href="A16.html" target="_blank">
+      <rect x="400" y="250" width="80" height="50" rx="10"
+            fill="#f5f5dc" stroke="#deb887" stroke-width="2" filter="url(#shadow)" />
+      <text x="410" y="280" font-size="16" fill="#333">A16 🌄</text>
+    </a>
+
+    <!-- A17〜A19 -->
+    <a xlink:href="A17.html" target="_blank">
+      <rect x="500" y="250" width="80" height="50" rx="10"
+            fill="#d8bfd8" stroke="#ba55d3" stroke-width="2" filter="url(#shadow)" />
+      <text x="510" y="280" font-size="16" fill="#333">A17 🚶‍♂️</text>
+    </a>
+
+    <!-- A18 -->
+    <a xlink:href="A18.html" target="_blank">
+      <rect x="600" y="250" width="80" height="50" rx="10"
+            fill="#f0fff0" stroke="#32cd32" stroke-width="2" filter="url(#shadow)" />
+      <text x="610" y="280" font-size="16" fill="#333">A18 🌿</text>
+    </a>
+
+    <!-- A19 -->
+    <a xlink:href="A19.html" target="_blank">
+      <rect x="700" y="250" width="80" height="50" rx="10"
+            fill="#ffe4e1" stroke="#ff1493" stroke-width="2" filter="url(#shadow)" />
+      <text x="710" y="280" font-size="16" fill="#333">A19 🔥</text>
+    </a>
+  </svg>
+</body>
+</html>
 
 
 
