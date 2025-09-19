@@ -1,6 +1,6 @@
 <svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
   <!-- 背景マップ画像 -->
-  <image href="campmap.jpeg" x="0" y="0" width="1000" height="700" />
+  <image href="/images/campmap.png" x="0" y="0" width="1000" height="700" />
 
   <!-- 区画ボタン配置（例） -->
   <a xlink:href="A01.html" target="_blank">
@@ -27,4 +27,5 @@
 
   <!-- 以下、A06〜A19を同様に配置 -->
 </svg>
+
 
