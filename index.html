@@ -24,72 +24,94 @@
 <body>
   <h2>🗺️ Loggers Auto Camp 区画マップ</h2>
 
-  <svg viewBox="0 0 900 1600" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <filter id="shadow">
-        <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#999" />
-      </filter>
-    </defs>
+<svg viewBox="0 0 900 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#999" />
+    </filter>
+  </defs>
 
-    <!-- 背景マップ画像（縦型） -->
-    <image href="images/9001600map.png" x="0" y="0" width="900" height="1600" />
+  <!-- 背景画像 -->
+  <image href="images/campmap.png" x="0" y="0" width="900" height="1600" />
 
-    <!-- 区画ボタン配置（座標は画像に合わせて調整済） -->
-    <!-- 各区画に絵文字＋サイズ表示＋ポップな色 -->
+  <!-- 区画ボタン（座標調整済） -->
+  <!-- A01〜A06：上段 -->
+  <a xlink:href="A01.html" target="_blank">
+    <rect x="90" y="180" width="100" height="50" rx="10" fill="#d0f0c0" stroke="#4CAF50" filter="url(#shadow)" />
+    <text x="100" y="210" font-size="16" fill="#333">A01 🏕️ 150㎡</text>
+  </a>
+  <a xlink:href="A02.html" target="_blank">
+    <rect x="220" y="180" width="100" height="50" rx="10" fill="#ffe4b5" stroke="#ff8c00" filter="url(#shadow)" />
+    <text x="230" y="210" font-size="16" fill="#333">A02 🌙 142㎡</text>
+  </a>
+  <a xlink:href="A03.html" target="_blank">
+    <rect x="350" y="180" width="100" height="50" rx="10" fill="#add8e6" stroke="#1e90ff" filter="url(#shadow)" />
+    <text x="360" y="210" font-size="16" fill="#333">A03 🏡 142㎡</text>
+  </a>
+  <a xlink:href="A04.html" target="_blank">
+    <rect x="480" y="180" width="100" height="50" rx="10" fill="#fffacd" stroke="#f0c000" filter="url(#shadow)" />
+    <text x="490" y="210" font-size="16" fill="#333">A04 👨‍👩‍👧 160㎡</text>
+  </a>
+  <a xlink:href="A05.html" target="_blank">
+    <rect x="610" y="180" width="100" height="50" rx="10" fill="#e6e6fa" stroke="#9370db" filter="url(#shadow)" />
+    <text x="620" y="210" font-size="16" fill="#333">A05 ⛺ 160㎡</text>
+  </a>
+  <a xlink:href="A06.html" target="_blank">
+    <rect x="740" y="180" width="100" height="50" rx="10" fill="#c1f0f6" stroke="#20b2aa" filter="url(#shadow)" />
+    <text x="750" y="210" font-size="16" fill="#333">A06 🌳 153㎡</text>
+  </a>
 
-    <!-- A01（150㎡） -->
-    <a xlink:href="A01.html" target="_blank">
-      <rect x="120" y="180" width="100" height="60" rx="12"
-            fill="#d0f0c0" stroke="#4CAF50" stroke-width="2" filter="url(#shadow)" />
-      <text x="130" y="215" font-size="16" fill="#333">A01 🏕️ 150㎡</text>
-    </a>
+  <!-- A07〜A12：中段 -->
+  <a xlink:href="A07.html" target="_blank">
+    <rect x="90" y="400" width="100" height="50" rx="10" fill="#ffcccb" stroke="#ff69b4" filter="url(#shadow)" />
+    <text x="100" y="430" font-size="16" fill="#333">A07 👥 123㎡</text>
+  </a>
+  <a xlink:href="A08.html" target="_blank">
+    <rect x="220" y="400" width="100" height="50" rx="10" fill="#f5f5dc" stroke="#deb887" filter="url(#shadow)" />
+    <text x="230" y="430" font-size="16" fill="#333">A08 🌿 142㎡</text>
+  </a>
+  <a xlink:href="A09.html" target="_blank">
+    <rect x="350" y="400" width="100" height="50" rx="10" fill="#d8bfd8" stroke="#ba55d3" filter="url(#shadow)" />
+    <text x="360" y="430" font-size="16" fill="#333">A09 🚶‍♂️ 142㎡</text>
+  </a>
+  <a xlink:href="A10.html" target="_blank">
+    <rect x="480" y="400" width="100" height="50" rx="10" fill="#f0fff0" stroke="#32cd32" filter="url(#shadow)" />
+    <text x="490" y="430" font-size="16" fill="#333">A10 🌲 160㎡</text>
+  </a>
+  <a xlink:href="A11.html" target="_blank">
+    <rect x="610" y="400" width="100" height="50" rx="10" fill="#ffe4e1" stroke="#ff1493" filter="url(#shadow)" />
+    <text x="620" y="430" font-size="16" fill="#333">A11 🔥 160㎡</text>
+  </a>
+  <a xlink:href="A12.html" target="_blank">
+    <rect x="740" y="400" width="100" height="50" rx="10" fill="#e0ffff" stroke="#00ced1" filter="url(#shadow)" />
+    <text x="750" y="430" font-size="16" fill="#333">A12 💧 153㎡</text>
+  </a>
 
-    <!-- A02（142㎡） -->
-    <a xlink:href="A02.html" target="_blank">
-      <rect x="250" y="180" width="100" height="60" rx="12"
-            fill="#ffe4b5" stroke="#ff8c00" stroke-width="2" filter="url(#shadow)" />
-      <text x="260" y="215" font-size="16" fill="#333">A02 🌙 142㎡</text>
-    </a>
+  <!-- A13〜A17：下段 -->
+  <a xlink:href="A13.html" target="_blank">
+    <rect x="90" y="620" width="100" height="50" rx="10" fill="#fafad2" stroke="#bdb76b" filter="url(#shadow)" />
+    <text x="100" y="650" font-size="16" fill="#333">A13 🐾 123㎡</text>
+  </a>
+  <a xlink:href="A14.html" target="_blank">
+    <rect x="220" y="620" width="100" height="50" rx="10" fill="#ffe4b5" stroke="#ff8c00" filter="url(#shadow)" />
+    <text x="230" y="650" font-size="16" fill="#333">A14 🌼 134㎡</text>
+  </a>
+  <a xlink:href="A15.html" target="_blank">
+    <rect x="350" y="620" width="100" height="50" rx="10" fill="#e6e6fa" stroke="#9370db" filter="url(#shadow)" />
+    <text x="360" y="650" font-size="16" fill="#333">A15 🧺 134㎡</text>
+  </a>
+  <a xlink:href="A16.html" target="_blank">
+    <rect x="480" y="620" width="100" height="50" rx="10" fill="#add8e6" stroke="#1e90ff" filter="url(#shadow)" />
+    <text x="490" y="650" font-size="16" fill="#333">A16 🌄 134㎡</text>
+  </a>
+  <a xlink:href="A17.html" target="_blank">
+    <rect x="610" y="620" width="100" height="50" rx="10" fill="#d0f0c0" stroke="#4CAF50" filter="url(#shadow)" />
+    <text x="620" y="650" font-size="16" fill="#333">A17 🛶 134㎡</text>
+  </a>
+</svg>
 
-    <!-- A03（142㎡） -->
-    <a xlink:href="A03.html" target="_blank">
-      <rect x="380" y="180" width="100" height="60" rx="12"
-            fill="#add8e6" stroke="#1e90ff" stroke-width="2" filter="url(#shadow)" />
-      <text x="390" y="215" font-size="16" fill="#333">A03 🏡 142㎡</text>
-    </a>
 
-    <!-- A04（160㎡） -->
-    <a xlink:href="A04.html" target="_blank">
-      <rect x="120" y="280" width="100" height="60" rx="12"
-            fill="#fffacd" stroke="#f0c000" stroke-width="2" filter="url(#shadow)" />
-      <text x="130" y="315" font-size="16" fill="#333">A04 👨‍👩‍👧 160㎡</text>
-    </a>
-
-    <!-- A05（160㎡） -->
-    <a xlink:href="A05.html" target="_blank">
-      <rect x="250" y="280" width="100" height="60" rx="12"
-            fill="#e6e6fa" stroke="#9370db" stroke-width="2" filter="url(#shadow)" />
-      <text x="260" y="315" font-size="16" fill="#333">A05 ⛺ 160㎡</text>
-    </a>
-
-    <!-- A06（153㎡） -->
-    <a xlink:href="A06.html" target="_blank">
-      <rect x="380" y="280" width="100" height="60" rx="12"
-            fill="#c1f0f6" stroke="#20b2aa" stroke-width="2" filter="url(#shadow)" />
-      <text x="390" y="315" font-size="16" fill="#333">A06 🌳 153㎡</text>
-    </a>
-
-    <!-- A07（123㎡） -->
-    <a xlink:href="A07.html" target="_blank">
-      <rect x="120" y="380" width="100" height="60" rx="12"
-            fill="#ffcccb" stroke="#ff69b4" stroke-width="2" filter="url(#shadow)" />
-      <text x="130" y="415" font-size="16" fill="#333">A07 👥 123㎡</text>
-    </a>
-
-    <!-- A08〜A17（同様に配置） -->
-    <!-- 以下略：必要に応じて座標とサイズを調整して追加可能 -->
-
-  </svg>
 </body>
 </html>
+
 
