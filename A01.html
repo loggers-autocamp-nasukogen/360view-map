@@ -1,66 +1,39 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>A01区画｜Loggers Auto Camp</title>
-  <style>
-    body {
-      font-family: 'Noto Sans JP', sans-serif;
-      background-color: #f8fff8;
-      text-align: center;
-      padding: 20px;
-    }
-    h2 {
-      color: #2e8b57;
-      margin-bottom: 10px;
-    }
-    iframe {
-      width: 90%;
-      height: 500px;
-      border: 2px solid #ccc;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .guide {
-      font-size: 18px;
-      margin: 20px auto;
-      max-width: 600px;
-      color: #444;
-      background-color: #f0fff0;
-      padding: 12px;
-      border-radius: 10px;
-    }
-    .back-button {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 12px 24px;
-      font-size: 16px;
-      background-color: #4CAF50;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-    .back-button:hover {
-      background-color: #388e3c;
-    }
-  </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <title>A01区画｜360°ビュー</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <style>
+      body { margin: 0; }
+      .back-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: #4CAF50;
+        color: white;
+        padding: 10px 16px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-family: 'Noto Sans JP', sans-serif;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 戻るボタン -->
+    <a href="../A01.html" class="back-button">← 戻る</a>
 
-  <h2>A01区画 🏕️｜360°ビュー</h2>
+    <!-- A-Frame 360°ビュー -->
+    <a-scene>
+      <a-sky src="../images/A01_360.jpg" rotation="0 -130 0"></a-sky>
+    </a-scene>
+  </body>
+</html>
 
-  <div class="guide">
-    📸 画面をドラッグして、区画の様子を360°自由にご覧いただけます。<br>
-    ピンチ操作やマウスホイールでズームも可能です。
-  </div>
 
-  <!-- ✅ ここに360°ビューの埋め込みURLを入れてください -->
-  <iframe src="360/A01_viewer.html" allowfullscreen></iframe>
-
-  <!-- ✅ 戻るボタン -->
-  <a href="index.html" class="back-button">← マップに戻る</a>
 
 </body>
 </html>
+
 
