@@ -28,19 +28,32 @@
   🎥 各区画をタップすると、<strong>360°ビュー</strong>でキャンプ場の雰囲気を体験できます！
 </p>
 <svg viewBox="0 0 900 1600" xmlns="http://www.w3.org/2000/svg">
-  <defs>
+ <defs>
+    <!-- ✅ シャドウ効果 -->
     <filter id="shadow">
       <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#999"></feDropShadow>
     </filter>
-  </defs>
 
+    <!-- ✅ 点滅アニメーション定義 -->
+    <style>
+      .blinking {
+        animation: blink 1.8s infinite;
+      }
+
+      @keyframes blink {
+        0%   { opacity: 1; }
+        50%  { opacity: 0.6; }
+        100% { opacity: 1; }
+      }
+    </style>
+  </defs>
   <!-- 背景画像 -->
   <image href="images/area_a_map.png" x="0" y="0" width="900" height="1600"></image>
 
   <!-- 区画ボタン（座標調整済） -->
   <!-- A01〜A06：上段 -->
   <a xlink:href="A01.html" target="_blank">
-    <rect x="70" y="375" width="150" height="50" rx="10" fill="#ffe4b5" stroke="#ff8c00" filter="url(#shadow)"></rect>
+    <rect x="70" y="375" width="150" height="50" rx="10" fill="#ffe4b5" stroke="#ff8c00" filter="url(#shadow)" class="blinking"></rect>
     <text x="70" y="408" font-size="25" fill="#333" font-family="Rounded Mplus 1c, Noto Sans JP" font-weight="bold">A01🏕️150㎡</text>
   </a>
   <a xlink:href="A02.html" target="_blank">
@@ -118,6 +131,7 @@
 </svg>
 </body>
 </html>
+
 
 
 
