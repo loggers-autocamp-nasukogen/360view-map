@@ -23,6 +23,10 @@
   </style>
 </head>
 <body>
+
+  <!-- 🔙 なっぷプランページに戻るボタン -->
+  <div id="back-to-nap" onclick="goToNap()">🔙 プランページへ戻る</div>
+
 <p style="font-size: 35px; color: #2e8b57; background-color: #f0fff0; padding: 12px 20px; border-radius: 10px; display: inline-block; font-weight: bold;">
  🗺️ ロガーズオートキャンプ那須高原 区画マップ <br> 🎥 各区画をタップすると、<strong>360°ビュー</strong>でキャンプ場の雰囲気を体験できます！
 </p>
@@ -56,6 +60,27 @@
       60%  { opacity: 0; }
       100% { opacity: 1; }
     }
+
+#back-to-nap {
+  position: absolute;
+  bottom: 10px;   /* ✅ 下から10px */
+  left: 10px;     /* ✅ 左から10px */
+  background: #fff;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+#back-to-nap:hover {
+  background: #f0f0f0;
+}
+
+
+    
   </style>
 </defs>
   <!-- 背景画像 -->
@@ -170,8 +195,16 @@
   <text x="550" y="345" text-anchor="middle" dominant-baseline="middle" font-size="22" fill="#333" font-family="Rounded Mplus 1c, Noto Sans JP" font-weight="bold" class="blinking-camera">📷</text>
 </a>
 </svg>
+
+  <script>
+    function goToNap() {
+      window.location.href = "https://www.nap-camp.com/tochigi/15675?status=1005";
+    }
+  </script>
+  
 </body>
 </html>
+
 
 
 
