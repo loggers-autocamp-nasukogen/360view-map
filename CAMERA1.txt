@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ロガーズオートキャンプ那須高原 360°ビュー</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  <style>
+   html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      touch-action: manipulation;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      background-color: #f0f4f1;
+    }
+
+   /* 戻る */
+   #back-button {
+  position: absolute;
+  top: 12px;
+  left: 12px; /* ✅ 右上 → 左上に変更 */
+  background:  #333;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+#back-button:hover {
+  background: #f0f0f0;
+}
+
+
+    /* ハンバーガーメニュー */
+    #menu-toggle {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      background-color: #333;
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 16px;
+      z-index: 15;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    /* 折りたたみメニュー本体 */
+    #zone-menu {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255,255,255,0.95);
+      padding: 10px;
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      z-index: 15;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
+    }
+
+    button {
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .zone-a { background-color: #2E7D32; }
+    .zone-b { background-color: #8D6E63; }
+    .zone-c { background-color: #283593; }
+    .zone-d { background-color: #BF360C; }
+    .zone-e { background-color: #EF6C00; }
+    .zone-f { background-color: #00796B; }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    @media screen and (min-width: 768px) {
+      #zone-menu {
+        position: absolute;
+        top: 60px;
+        left: 20px;
+        width: auto;
+        background-color: rgba(255,255,255,0.9);
+        flex-direction: column;
+        padding: 12px;
+        border-radius: 12px;
+      }
+
+      #menu-toggle {
+        top: 20px;
+        right: 20px;
+      }
+    }
+  </style>
+</head>
+  
+<body>.
+ <!-- 戻る -->
+<div id="back-button" onclick="goBack()">🔙 MAPに戻る</div>
+  
+  <!-- ハンバーガーメニュー -->
+  <div id="menu-toggle" onclick="toggleMenu()">☰ 📷カメラ選択</div>
+
+  <!-- 折りたたみメニュー -->
+  <div id="zone-menu">
+    <button class="zone-a" onclick="switchScene('a')">こかげの公園①</button>
+    <button class="zone-b" onclick="switchScene('b')">こかげの公園②</button>
+    <button class="zone-c" onclick="switchScene('c')">こかげの公園③</button>
+    <button class="zone-d" onclick="switchScene('d')">こかげの公園④</button>
+    <button class="zone-e" onclick="switchScene('e')">こかげの公園　入口</button>
+    <button class="zone-f" onclick="switchScene('f')">キャンプ場　入口</button>
+  </div>
+
+  <!-- A-Frameシーン -->
+<a-scene embedded vr-mode-ui="enabled: false" xr-mode-ui="enabled: false">
+  <a-assets>
+    <img id="sky-a" src="images/shaded_park1.jpg">
+    <img id="sky-b" src="images/shaded_park2.jpg">
+    <img id="sky-c" src="images/shaded_park3.jpg">
+    <img id="sky-d" src="images/shaded_park4.jpg">
+    <img id="sky-e" src="images/front_shaded_park.jpg">
+    <img id="sky-f" src="images/front_shaded_park.jpg">
+  </a-assets>
+  <a-sky id="sky" src="#sky-a" rotation="0 -90 0"></a-sky>
+<a-entity id="camera" camera look-controls position="0 1.6 0"></a-entity>
+</a-scene>
+
+  <!-- JavaScript -->
+ <script>
+     function goBack() {
+    // 例：トップページに戻る
+    window.location.href = "https://loggersautocampterauchi-lgtm.github.io/360map/";
+  }
+     function toggleMenu() {
+    const menu = document.getElementById('zone-menu');
+    // 初期状態が display: none の場合、flex に切り替える
+    menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+  }
+      function switchScene(zone) {
+        const sky = document.querySelector('#sky');
+        const camera = document.querySelector('#camera');
+
+        switch (zone) {
+          case 'a':
+            sky.setAttribute('src', '#sky-a');
+            camera.setAttribute('position', '0 1.6 0');
+            break;
+          case 'b':
+            sky.setAttribute('src', '#sky-b');
+            camera.setAttribute('position', '0 1.6 0');
+            break;
+          case 'c':
+            sky.setAttribute('src', '#sky-c');
+            camera.setAttribute('position', '0 1.6 0');
+            break;
+          case 'd':
+            sky.setAttribute('src', '#sky-d');
+            camera.setAttribute('position', '0 1.6 0');
+            break;
+          case 'e':
+            sky.setAttribute('src', '#sky-e');
+            camera.setAttribute('position', '0 1.6 0');
+            break;
+          case 'f':
+            sky.setAttribute('src', '#sky-f');
+            camera.setAttribute('position', '0 1.6 0');
+            break;
+        }
+      }
+    </script>
+</body>
+</html>
