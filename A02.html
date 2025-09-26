@@ -119,6 +119,11 @@
 
   <!-- JavaScript -->
  <script>
+     function toggleMenu() {
+    const menu = document.getElementById('zone-menu');
+    // 初期状態が display: none の場合、flex に切り替える
+    menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+  }
       function switchScene(zone) {
         const sky = document.querySelector('#sky');
         const camera = document.querySelector('#camera');
@@ -138,6 +143,7 @@
     </script>
 </body>
 </html>
+
 
 
 
