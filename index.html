@@ -58,6 +58,20 @@
       60%  { opacity: 0; }
       100% { opacity: 1; }
     }
+
+    #back-to-nap {
+  display: inline-block;
+  margin: 20px 0 10px 10px; /* ✅ マップと距離を取る */
+  background: #fff;
+  color: #333;
+  padding: 14px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+    
   </style>
 </defs>
   <!-- 背景画像 -->
@@ -172,8 +186,20 @@
   <text x="550" y="345" text-anchor="middle" dominant-baseline="middle" font-size="22" fill="#333" font-family="Rounded Mplus 1c, Noto Sans JP" font-weight="bold" class="blinking-camera">📷</text>
 </a>
 </svg>
+
+ <div id="back-to-nap" onclick="goToNap()">🔙 なっぷページへ戻る</div>
+
+  <script>
+    function goToNap() {
+      window.location.href = "https://www.nap-camp.com/tochigi/15675?status=1005";
+    }
+  </script>
+
+
+  
 </body>
 </html>
+
 
 
 
