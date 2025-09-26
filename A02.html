@@ -95,23 +95,23 @@
 
   <!-- 折りたたみメニュー -->
   <div id="zone-menu">
-    <button class="zone-a" onclick="switchScene('a')">🌳 A区画</button>
-    <button class="zone-b" onclick="switchScene('b')">🦟 B区画</button>
-    <button class="zone-c" onclick="switchScene('c')">🌟 C区画</button>
-    <button class="zone-d" onclick="switchScene('d')">🔥 D区画</button>
-    <button class="zone-e" onclick="switchScene('e')">🍁 E区画</button>
-    <button class="zone-f" onclick="switchScene('f')">🏕️ F区画</button>
+    <button class="zone-a" onclick="switchScene('a')">A02⛺</button>
+    <button class="zone-b" onclick="switchScene('b')">センターハウス内</button>
+    <button class="zone-c" onclick="switchScene('c')">センターハウス前</button>
+    <button class="zone-d" onclick="switchScene('d')">こかげの公園</button>
+    <button class="zone-e" onclick="switchScene('e')">シャワー室</button>⛺
+    <button class="zone-f" onclick="switchScene('f')">炊事場</button>
   </div>
 
   <!-- A-Frameシーン -->
 <a-scene embedded vr-mode-ui="enabled: false" xr-mode-ui="enabled: false">
   <a-assets>
-    <img id="sky-a" src="images/IMG_20250919_115656_00_003.jpg">
-    <img id="sky-b" src="images/IMG_20250919_115656_00_003.jpg">
-    <img id="sky-c" src="images/IMG_20250919_115656_00_003.jpg">
-    <img id="sky-d" src="images/IMG_20250919_115656_00_003.jpg">
-    <img id="sky-e" src="images/IMG_20250919_115656_00_003.jpg">
-    <img id="sky-f" src="images/IMG_20250919_115656_00_003.jpg">
+    <img id="sky-a" src="images/A02.jpg">
+    <img id="sky-b" src="images/centerhouse1.jpg">
+    <img id="sky-c" src="images/front_centerhouse2.jpg">
+    <img id="sky-d" src="images/shaded_park3.jpg">
+    <img id="sky-e" src="images/shower_room1.jpg">
+    <img id="sky-f" src="images/kitchen.jpg">
   </a-assets>
 
   <a-sky id="sky" src="#sky-a" rotation="0 0 0"></a-sky>
@@ -207,6 +207,7 @@ window.addEventListener('touchend', () => {
 </script>
 </body>
 </html>
+
 
 
 
