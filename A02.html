@@ -113,66 +113,32 @@
     <img id="sky-e" src="images/shower_room1.jpg">
     <img id="sky-f" src="images/kitchen.jpg">
   </a-assets>
-
-  <a-sky id="sky" src="#sky-a" rotation="0 0 0"></a-sky>
-<a-entity id="camera"
-          camera="fov: 80"
-          look-controls="enabled: true; touchEnabled: true; magicWindowTrackingEnabled: false"
-          wasd-controls="enabled: false"
-          position="0 1.6 0">
-</a-entity>
+  <a-sky id="sky" src="#sky-a" rotation="0 -90 0"></a-sky>
+<a-entity id="camera" camera look-controls position="0 1.6 0"></a-entity>
 </a-scene>
 
-
-
   <!-- JavaScript -->
-<script>
-  let isPinching = false;
-  let initialDistance = null;
-  let cameraEl = null;
+ <script>
+      function switchScene(zone) {
+        const sky = document.querySelector('#sky');
+        const camera = document.querySelector('#camera');
 
-  document.addEventListener('DOMContentLoaded', () => {
-    cameraEl = document.querySelector('#camera');
-  });
-
-  window.addEventListener('touchstart', (e) => {
-    if (e.touches.length === 2) {
-      isPinching = true;
-      if (cameraEl) {
-        cameraEl.setAttribute('look-controls', 'enabled: false');
+        switch (zone) {
+          case 'a':
+            sky.setAttribute('src', '#sky-a');
+            camera.setAttribute('position', '0 1.6 0');
+            break;
+          case 'b':
+            sky.setAttribute('src', '#sky-b');
+            camera.setAttribute('position', '2 1.6 -1');
+            break;
+          // 他の区画も追加可能
+        }
       }
-      const dx = e.touches[0].clientX - e.touches[1].clientX;
-      const dy = e.touches[0].clientY - e.touches[1].clientY;
-      initialDistance = Math.sqrt(dx * dx + dy * dy);
-    }
-  });
-
-  window.addEventListener('touchmove', (e) => {
-    if (isPinching && e.touches.length === 2 && initialDistance !== null && cameraEl) {
-      const dx = e.touches[0].clientX - e.touches[1].clientX;
-      const dy = e.touches[0].clientY - e.touches[1].clientY;
-      const currentDistance = Math.sqrt(dx * dx + dy * dy);
-      const delta = currentDistance - initialDistance;
-
-      let currentFov = cameraEl.getAttribute('camera').fov;
-      let newFov = currentFov - delta * 0.05;
-      newFov = Math.min(100, Math.max(30, newFov));
-
-      cameraEl.setAttribute('camera', 'fov', newFov);
-      initialDistance = currentDistance;
-    }
-  });
-
-  window.addEventListener('touchend', () => {
-    if (isPinching && cameraEl) {
-      isPinching = false;
-      cameraEl.setAttribute('look-controls', 'enabled: true'); // ✅ ジャイロ復活！
-    }
-    initialDistance = null;
-  });
-</script>
+    </script>
 </body>
 </html>
+
 
 
 
