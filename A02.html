@@ -17,22 +17,23 @@
 
    /* 戻る */
    #back-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #fff;
-    color: #333;
-    padding: 8px 12px;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    font-size: 16px;
-    cursor: pointer;
-    z-index: 100;
-  }
+  position: absolute;
+  top: 12px;
+  left: 12px; /* ✅ 右上 → 左上に変更 */
+  background:  #333;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 100;
+}
 
-  #back-button:hover {
-    background: #f0f0f0;
-  }
+#back-button:hover {
+  background: #f0f0f0;
+}
+
 
     /* ハンバーガーメニュー */
     #menu-toggle {
@@ -44,7 +45,7 @@
       padding: 10px 14px;
       border-radius: 8px;
       font-size: 16px;
-      z-index: 20;
+      z-index: 15;
       cursor: pointer;
       box-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
@@ -110,7 +111,7 @@
   
 <body>.
  <!-- 戻る -->
-<div id="back-button" onclick="goBack()">🔙 戻る</div>
+<div id="back-button" onclick="goBack()">🔙 MAPに戻る</div>
   
   <!-- ハンバーガーメニュー -->
   <div id="menu-toggle" onclick="toggleMenu()">☰ 📷カメラ選択</div>
@@ -184,6 +185,7 @@
     </script>
 </body>
 </html>
+
 
 
 
