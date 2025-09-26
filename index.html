@@ -25,16 +25,6 @@
 </head>
 <body>
 
- <!-- 🔙 戻るボタン（マップの外） -->
-  <div id="back-to-nap" onclick="goToNap()">🔙 なっぷページへ戻る</div>
-
-  <!-- マップ表示領域 -->
-  <div id="map-wrapper">
-    <img id="map-image" src="images/area_a_map3.png" alt="キャンプ場マップ">
-  </div>
-
-
-
 <p style="font-size: 35px; color: #2e8b57; background-color: #f0fff0; padding: 12px 20px; border-radius: 10px; display: inline-block; font-weight: bold;">
  🗺️ ロガーズオートキャンプ那須高原 区画マップ <br> 🎥 各区画をタップすると、<strong>360°ビュー</strong>でキャンプ場の雰囲気を体験できます！
 </p>
@@ -68,27 +58,6 @@
       60%  { opacity: 0; }
       100% { opacity: 1; }
     }
-
-#back-to-nap {
-  position: absolute;
-  bottom: 30px;       /* ✅ 画面下から30pxに変更（より下へ） */
-  left: 10px;
-  background: #fff;
-  color: #333;
-  padding: 14px 20px; /* ✅ ボタンサイズを大きく */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  font-size: 20px;    /* ✅ 文字サイズアップ */
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 100;
-  transition: background 0.2s ease;
-}
-
-#back-to-nap:hover {
-  background: #f0f0f0;
-}
-    
   </style>
 </defs>
   <!-- 背景画像 -->
@@ -203,15 +172,9 @@
   <text x="550" y="345" text-anchor="middle" dominant-baseline="middle" font-size="22" fill="#333" font-family="Rounded Mplus 1c, Noto Sans JP" font-weight="bold" class="blinking-camera">📷</text>
 </a>
 </svg>
-
-  <script>
-    function goToNap() {
-      window.location.href = "https://www.nap-camp.com/tochigi/15675?status=1005";
-    }
-  </script>
-  
 </body>
 </html>
+
 
 
 
