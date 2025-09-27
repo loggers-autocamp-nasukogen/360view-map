@@ -78,15 +78,18 @@
   <image href="images/area_a_map3.png" x="0" y="0" width="900" height="1600"></image>
 
  <!-- ☁️ 雲の演出 -->
-  <image href="images/cloud.png" x="100" y="50" width="300" height="100" opacity="0.4">
+  <image href="images/cloud.png" x="100" y="50" width="600" height="200" opacity="0.4">
     <animate attributeName="x" from="100" to="800" dur="60s" repeatCount="indefinite" />
   </image>
 
   <!-- 🕊️ 鳥の演出 -->
-  <image href="images/bird.png" x="0" y="200" width="80" height="80">
-    <animate attributeName="x" from="0" to="820" dur="20s" repeatCount="indefinite" />
+  <path id="birdPath" d="M900,300 Q700,200 500,300 Q300,400 100,300" fill="none" stroke="none" />
+  <image href="images/bird.png" width="200" height="200">
+    <animateMotion dur="20s" repeatCount="indefinite" rotate="auto">
+      <mpath href="#birdPath" />
+    </animateMotion>
   </image>
-  
+
   <!-- 区画ボタン（座標調整済） -->
   <!-- A01〜A06：上段 -->
   <a xlink:href="A01.html" target="_blank">
@@ -209,6 +212,7 @@
   
 </body>
 </html>
+
 
 
 
