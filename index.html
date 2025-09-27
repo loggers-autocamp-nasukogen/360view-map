@@ -28,6 +28,7 @@
 <p style="font-size: 18px; color: #2e8b57; background-color: #f0fff0; padding: 12px 20px; border-radius: 10px; display: inline-block; font-weight: bold;">
  🗺️ ロガーズオートキャンプ那須高原 🗺️<br> 🎥 各ボタンをタップすると、<strong>360°ビュー</strong>でキャンプ場の雰囲気を体験できます！
 </p>
+  
 <svg viewBox="0 0 900 1600" xmlns="http://www.w3.org/2000/svg">
 <defs>
   <filter id="shadow">
@@ -71,12 +72,21 @@
   font-weight: bold;
   cursor: pointer;
 }
-    
   </style>
 </defs>
   <!-- 背景画像 -->
   <image href="images/area_a_map3.png" x="0" y="0" width="900" height="1600"></image>
 
+ <!-- ☁️ 雲の演出 -->
+  <image href="images/cloud.png" x="100" y="50" width="300" height="100" opacity="0.4">
+    <animate attributeName="x" from="100" to="800" dur="60s" repeatCount="indefinite" />
+  </image>
+
+  <!-- 🕊️ 鳥の演出 -->
+  <image href="images/bird.png" x="0" y="200" width="80" height="80">
+    <animate attributeName="x" from="0" to="820" dur="20s" repeatCount="indefinite" />
+  </image>
+  
   <!-- 区画ボタン（座標調整済） -->
   <!-- A01〜A06：上段 -->
   <a xlink:href="A01.html" target="_blank">
@@ -199,6 +209,7 @@
   
 </body>
 </html>
+
 
 
 
