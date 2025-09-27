@@ -137,8 +137,7 @@
     <img id="sky-f" src="images/kitchen.jpg">
   </a-assets>
   <a-sky id="sky" src="#sky-a" rotation="0 -90 0"></a-sky>
-<a-entity id="camera" camera look-controls="enabled: false" position="0 1.6 0"></a-entity>
-
+<a-entity id="camera" camera look-controls="smoothingFactor: 0.01" position="0 1.6 0"></a-entity>
 </a-scene>
 
   <!-- JavaScript -->
@@ -183,40 +182,10 @@
             break;
         }
       }
-   
-   let lastAlpha = null;
-  let lastBeta = null;
-  let lastGamma = null;
-  const threshold = 1.5; // ✅ 変化が1.5度以下なら無視
-
-  window.addEventListener('deviceorientation', (event) => {
-    const { alpha, beta, gamma } = event;
-
-    if (lastAlpha === null) {
-      lastAlpha = alpha;
-      lastBeta = beta;
-      lastGamma = gamma;
-      return;
-    }
-
-    const deltaAlpha = Math.abs(alpha - lastAlpha);
-    const deltaBeta = Math.abs(beta - lastBeta);
-    const deltaGamma = Math.abs(gamma - lastGamma);
-
-    if (deltaAlpha > threshold || deltaBeta > threshold || deltaGamma > threshold) {
-      const camera = document.getElementById('camera');
-      if (camera) {
-        camera.setAttribute('rotation', `${beta} ${alpha} ${gamma}`);
-      }
-
-      lastAlpha = alpha;
-      lastBeta = beta;
-      lastGamma = gamma;
-    }
-  });
     </script>
 </body>
 </html>
+
 
 
 
