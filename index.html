@@ -77,15 +77,15 @@
   <!-- 背景画像 -->
   <image href="images/area_a_map3.png" x="0" y="0" width="900" height="1600"></image>
 
- <!-- ☁️ 雲の演出 -->
- <!-- cloud1：左→右、上部 -->
-  <image href="images/cloud.png" x="-900" y="100" width="2100" height="700" opacity="0.9">
-   <animate attributeName="x" from="-900" to="900" dur="60s" repeatCount="indefinite" />
-  </image>
- <!-- cloud2：右→左、下部 -->
-  <image href="images/cloud2.png" x="0" y="750" width="2100" height="700" opacity="0.9">
-   <animate attributeName="x" from="-1000" to="1000" dur="80s" repeatCount="indefinite" />
-  </image>
+  <!-- ☁️ cloud1：左→右、上部 -->
+<image href="images/cloud.png" x="-2100" y="100" width="2100" height="700" opacity="0.9">
+  <animate attributeName="x" from="-2100" to="900" dur="60s" repeatCount="indefinite" />
+</image>
+
+<!-- ☁️ cloud2：右→左、下部 -->
+<image href="images/cloud2.png" x="900" y="750" width="2100" height="700" opacity="0.9">
+  <animate attributeName="x" from="900" to="-2100" dur="80s" repeatCount="indefinite" />
+</image>
   
   <!-- 🕊️ 鳥の演出 -->
   <path id="birdPath" d="M900,1000 Q700,900 500,1000 Q300,1100 100,1000" fill="none" stroke="none" />
@@ -217,6 +217,7 @@
   
 </body>
 </html>
+
 
 
 
