@@ -118,23 +118,23 @@
 
   <!-- 折りたたみメニュー -->
   <div id="zone-menu">
-    <button class="zone-a" onclick="switchScene('a')">こかげの公園①</button>
-    <button class="zone-b" onclick="switchScene('b')">こかげの公園②</button>
-    <button class="zone-c" onclick="switchScene('c')">こかげの公園③</button>
-    <button class="zone-d" onclick="switchScene('d')">こかげの公園④</button>
-    <button class="zone-e" onclick="switchScene('e')">こかげの公園　入口</button>
-    <button class="zone-f" onclick="switchScene('f')">キャンプ場　入口</button>
+    <button class="zone-a" onclick="switchScene('a')">こかげの公園　中央</button>
+    <button class="zone-b" onclick="switchScene('b')">こかげの公園　左奥</button>
+    <button class="zone-c" onclick="switchScene('c')">こかげの公園　入口</button>
+    <button class="zone-d" onclick="switchScene('d')">こかげの公園　入口</button>
+    <button class="zone-e" onclick="switchScene('e')">駐車場前</button>
+    <button class="zone-f" onclick="switchScene('f')">こかげの公園</button>
   </div>
 
   <!-- A-Frameシーン -->
 <a-scene embedded vr-mode-ui="enabled: false" xr-mode-ui="enabled: false">
   <a-assets>
-    <img id="sky-a" src="images/shaded_park1.jpg">
+    <img id="sky-a" src="images/shaded_park5.jpg">
     <img id="sky-b" src="images/shaded_park2.jpg">
     <img id="sky-c" src="images/shaded_park3.jpg">
     <img id="sky-d" src="images/shaded_park4.jpg">
     <img id="sky-e" src="images/front_shaded_park.jpg">
-    <img id="sky-f" src="images/entrance.jpg">
+    <img id="sky-f" src="images/shaded_park1.jpg">
   </a-assets>
   <a-sky id="sky" src="#sky-a" rotation="0 -90 0"></a-sky>
 <a-entity id="camera" camera look-controls="smoothingFactor: 0.01" position="0 1.6 0"></a-entity>
@@ -185,6 +185,7 @@
     </script>
 </body>
 </html>
+
 
 
 
