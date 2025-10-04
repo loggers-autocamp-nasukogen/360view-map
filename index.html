@@ -126,6 +126,20 @@
   100% { opacity: 0.8; }
 }
 
+    /* 🎃 おばけかぼちゃの揺れ演出 */
+.pumpkin-shake {
+  animation: shakePumpkin 1.2s infinite ease-in-out;
+  transform-origin: center;
+}
+
+@keyframes shakePumpkin {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(2deg); }
+  50%  { transform: rotate(-2deg); }
+  75%  { transform: rotate(1deg); }
+  100% { transform: rotate(0deg); }
+}
+
     #back-to-nap {
   display: inline-block;
   margin: 20px 0 10px 10px; /* ✅ マップと距離を取る */
@@ -185,6 +199,15 @@
   </image>
 </g>
 
+<!-- 🎃 おばけかぼちゃの演出（揺れる） -->
+<g id="pumpkinGroup">
+  <image
+    href="images/pumpkin.jpg"
+    x="700" y="1350"
+    width="100" height="100"
+    class="pumpkin-shake"
+  />
+</g>
 
   <!-- 🌟 魔女の軌跡に星を配置 
 <g id="witchStars" style="display:none;">
@@ -352,6 +375,7 @@
 
 </body>
 </html>
+
 
 
 
