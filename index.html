@@ -173,18 +173,19 @@
   </image>
 </g>
 
-<!-- 🧙‍♀️ 魔女の演出（滑空するような動き） -->
+<!-- 🧙‍♀️ 魔女の演出（右上→左下へ滑空） -->
 <g id="witchGroup" style="display:none;">
-  <!-- 魔女の飛行ルート：ゆるやかな波状で滑空 -->
-  <path id="witchPath" d="M900,400 Q750,350 600,400 Q450,450 300,400 Q150,350 0,400" fill="none" stroke="none" />
+  <!-- 魔女の飛行ルート：右上から左下へ、ゆるやかな波状 -->
+  <path id="witchPath" d="M900,200 Q750,400 600,600 Q450,800 300,1000 Q150,1100 0,1200" fill="none" stroke="none" />
+
   <image href="images/witch.png" width="200" height="200">
-  <animateMotion dur="25s" repeatCount="indefinite" rotate="auto">
-    <mpath href="#witchPath" />
-  </animateMotion>
-</image>
+    <animateMotion dur="10s" repeatCount="indefinite" rotate="auto">
+      <mpath href="#witchPath" />
+    </animateMotion>
+  </image>
 </g>
 
-  <!-- 🌟 魔女の軌跡に星を配置 -->
+  <!-- 🌟 魔女の軌跡に星を配置 
 <g id="witchStars" style="display:none;">
   <text x="850" y="390" font-size="24" fill="#ffd700" class="twinkle">⭐</text>
   <text x="700" y="360" font-size="20" fill="#ffec8b" class="twinkle">⭐</text>
@@ -193,6 +194,7 @@
   <text x="250" y="390" font-size="24" fill="#ffd700" class="twinkle">⭐</text>
   <text x="100" y="360" font-size="20" fill="#ffec8b" class="twinkle">⭐</text>
 </g>
+  -->
 
   <!-- 区画ボタン（座標調整済） -->
   <!-- A01〜A06：上段 -->
@@ -349,6 +351,7 @@
 
 </body>
 </html>
+
 
 
 
