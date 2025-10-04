@@ -126,7 +126,7 @@
   100% { opacity: 0.8; }
 }
 
-/* 🎃🐱 共通の揺れ演出（揺れ＋インターバル） */
+/* 🎃🐱👻 共通の揺れ演出（揺れ＋インターバル付き） */
 .pumpkin-shake {
   animation: shakePumpkin 1.2s infinite ease-in-out;
   transform-origin: center;
@@ -220,6 +220,18 @@
     class="pumpkin-shake"
   />
 </g>
+
+  <!-- 👻 おばけ2の演出（揺れる） -->
+<g id="ghost2Group">
+  <image
+    href="images/ghost2.png"
+    x="80" y="1450"
+    width="120" height="120"
+    class="pumpkin-shake"
+  />
+</g>
+
+
 
   <!-- 🌟 魔女の軌跡に星を配置 
 <g id="witchStars" style="display:none;">
@@ -387,6 +399,7 @@
 
 </body>
 </html>
+
 
 
 
