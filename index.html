@@ -102,6 +102,18 @@
       100% { opacity: 1; }
     }
 
+    /* 👻🧙‍♀️ ハロウィン演出用：透過＋点滅 */
+.fade-blink {
+  opacity: 0.7;
+  animation: fadeBlink 3s infinite;
+}
+
+@keyframes fadeBlink {
+  0%   { opacity: 0.7; }
+  50%  { opacity: 0.2; }
+  100% { opacity: 0.7; }
+}
+
     #back-to-nap {
   display: inline-block;
   margin: 20px 0 10px 10px; /* ✅ マップと距離を取る */
@@ -142,7 +154,7 @@
 <!-- 👻 おばけ（中段をゆっくり移動） -->
 <g id="ghostGroup" style="display:none;">
   <path id="ghostPath" d="M900,1000 Q700,950 500,1000 Q300,1050 100,1000" fill="none" stroke="none" />
-  <image href="images/ghost.png" width="200" height="200">
+  <image href="images/ghost.png" width="350" height="350" class="fade-blink">
     <animateMotion dur="20s" repeatCount="indefinite" rotate="auto">
       <mpath href="#ghostPath" />
     </animateMotion>
@@ -153,11 +165,11 @@
 <g id="witchGroup" style="display:none;">
   <!-- 魔女の飛行ルート：ゆるやかな波状で滑空 -->
   <path id="witchPath" d="M900,400 Q750,350 600,400 Q450,450 300,400 Q150,350 0,400" fill="none" stroke="none" />
-  <image href="images/witch.png" width="200" height="200">
-    <animateMotion dur="25s" repeatCount="indefinite" rotate="auto">
-      <mpath href="#witchPath" />
-    </animateMotion>
-  </image>
+  <image href="images/witch.png" width="200" height="200" class="fade-blink">
+  <animateMotion dur="25s" repeatCount="indefinite" rotate="auto">
+    <mpath href="#witchPath" />
+  </animateMotion>
+</image>
 </g>
 
   <!-- 区画ボタン（座標調整済） -->
@@ -313,6 +325,7 @@
 
 </body>
 </html>
+
 
 
 
