@@ -126,19 +126,20 @@
   100% { opacity: 0.8; }
 }
 
-/* 🎃 おばけかぼちゃの繊細な揺れ演出 */
+/* 🎃🐱 共通の揺れ演出（揺れ＋インターバル） */
 .pumpkin-shake {
-  animation: shakePumpkin 0.4s infinite ease-in-out;
+  animation: shakePumpkin 1.2s infinite ease-in-out;
   transform-origin: center;
 }
 
 @keyframes shakePumpkin {
   0%   { transform: rotate(0deg); }
-  20%  { transform: rotate(1deg); }
-  40%  { transform: rotate(-1deg); }
-  60%  { transform: rotate(0.5deg); }
-  80%  { transform: rotate(-0.5deg); }
-  100% { transform: rotate(0deg); }
+  10%  { transform: rotate(1deg); }
+  20%  { transform: rotate(-1deg); }
+  30%  { transform: rotate(0.5deg); }
+  40%  { transform: rotate(-0.5deg); }
+  50%  { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); } /* インターバル：50%〜100%は静止状態 */
 }
 
     #back-to-nap {
@@ -386,6 +387,7 @@
 
 </body>
 </html>
+
 
 
 
