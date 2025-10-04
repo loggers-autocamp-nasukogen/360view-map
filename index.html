@@ -149,9 +149,10 @@
   </image>
 </g>
 
-<!-- 🧙‍♀️ 魔女（上部すぎない高さに調整） -->
+<!-- 🧙‍♀️ 魔女の演出（滑空するような動き） -->
 <g id="witchGroup" style="display:none;">
-  <path id="witchPath" d="M900,400 Q700,350 500,400 Q300,450 100,400" fill="none" stroke="none" />
+  <!-- 魔女の飛行ルート：ゆるやかな波状で滑空 -->
+  <path id="witchPath" d="M900,400 Q750,350 600,400 Q450,450 300,400 Q150,350 0,400" fill="none" stroke="none" />
   <image href="images/witch.png" width="200" height="200">
     <animateMotion dur="25s" repeatCount="indefinite" rotate="auto">
       <mpath href="#witchPath" />
@@ -312,6 +313,7 @@
 
 </body>
 </html>
+
 
 
 
