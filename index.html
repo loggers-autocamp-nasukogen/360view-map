@@ -36,30 +36,65 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   }
 
-  .hw-banner {
-    font-size: 16px;
-    color: #ffcc00; /* 🎃 パンプキンイエロー */
-    background: linear-gradient(135deg, #2f4f4f, #000000); /* 🧙‍♀️ 魔女の夜空風 */
-    padding: 14px 22px;
-    border-radius: 12px;
-    font-weight: 700;
-    display: inline-block;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    margin-top: 20px;
-    margin-bottom: 16px;
-    border: 2px dashed #ff6600; /* 🎃 オレンジの点線枠 */
-    text-shadow: 1px 1px 2px #000; /* 👻 夜っぽい立体感 */
-  }
+.hw-banner {
+  font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ffdd55; /* 🎃 明るめパンプキンイエロー */
+  background: linear-gradient(135deg, #3a3a3a, #000000); /* 🧙‍♀️ 夜空風 */
+  padding: 20px 28px;
+  border-radius: 16px;
+  font-weight: 700;
+  display: inline-block;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+  margin-top: 24px;
+  margin-bottom: 20px;
+  border: 2px dashed #ff8800; /* 🎃 オレンジ点線枠 */
+  text-shadow: 1px 1px 3px #000;
+  text-align: center;
+  animation: fadeInBanner 1s ease-out;
+}
+
+.hw-title {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #ffcc33;
+  text-shadow: 2px 2px 4px #000;
+}
+
+.hw-body {
+  font-size: 16px;
+}
+
+.hw-count {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 10px;
+  background: rgba(255, 102, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid #ff6600;
+  color: #fff;
+}
+
+/* 🎬 フェードイン演出 */
+@keyframes fadeInBanner {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 </style>
 
 </head>
 <body>
 
 <div class="hw-banner" style="display:none;">
-  🎃ハロウィン限定　おばけ探し👻<br><br>
-  360°写真の中に隠れているよ！📷カメラ選択でも探してみてね！<br><br>
-  👻×3、🧙‍♀️×1、🐱×1、🎃×2<br>
-  【全部で7つ】見つけられるかな！？
+  <div class="hw-title">🎃 ハロウィン限定 おばけ探し 👻</div>
+  <div class="hw-body">
+    360°写真の中に隠れているよ！<br>
+    📷 カメラ選択でも探してみてね！<br><br>
+    👻 ×3　🧙‍♀️ ×1　🐱 ×1　🎃 ×2<br>
+    <span class="hw-count">【全部で 7つ】見つけられるかな！？</span>
+  </div>
 </div>
   
 <!-- HW期間中は非表示
@@ -408,6 +443,7 @@
 
 </body>
 </html>
+
 
 
 
