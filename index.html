@@ -129,13 +129,35 @@
   <animate attributeName="x" from="900" to="-2100" dur="80s" repeatCount="indefinite" />
 </image>
   
-  <!-- 🕊️ 鳥の演出 -->
+<!-- 🕊️ 鳥の演出（通常時のみ表示） -->
+<g id="birdGroup">
   <path id="birdPath" d="M900,1000 Q700,900 500,1000 Q300,1100 100,1000" fill="none" stroke="none" />
   <image href="images/bird.png" width="250" height="250">
     <animateMotion dur="20s" repeatCount="indefinite" rotate="auto">
       <mpath href="#birdPath" />
     </animateMotion>
   </image>
+</g>
+
+<!-- 👻 おばけの演出（鳥と同じ軌道） -->
+<g id="ghostGroup" style="display:none;">
+  <path id="ghostPath" d="M900,1000 Q700,900 500,1000 Q300,1100 100,1000" fill="none" stroke="none" />
+  <image href="images/ghost.png" width="250" height="250">
+    <animateMotion dur="20s" repeatCount="indefinite" rotate="auto">
+      <mpath href="#ghostPath" />
+    </animateMotion>
+  </image>
+</g>
+
+<!-- 🧙‍♀️ 魔女の演出（マップ上部を飛行） -->
+<g id="witchGroup" style="display:none;">
+  <path id="witchPath" d="M900,200 Q700,100 500,200 Q300,300 100,200" fill="none" stroke="none" />
+  <image href="images/witch.png" width="250" height="250">
+    <animateMotion dur="25s" repeatCount="indefinite" rotate="auto">
+      <mpath href="#witchPath" />
+    </animateMotion>
+  </image>
+</g>
 
   <!-- 区画ボタン（座標調整済） -->
   <!-- A01〜A06：上段 -->
@@ -264,13 +286,33 @@
 
  <div id="back-to-nap" onclick="goToNap()">🔙 なっぷで予約</div>
 
-  <script>
-    function goToNap() {
-      window.location.href = "https://www.nap-camp.com/tochigi/15675?status=1005";
-    }
-  </script>
+<script>
+  function goToNap() {
+    window.location.href = "https://www.nap-camp.com/tochigi/15675?status=1005";
+  }
+
+  const today = new Date();
+  const month = today.getMonth(); // 0 = Jan, 8 = Sep, 9 = Oct
+  const date = today.getDate();
+
+  const isHalloween =
+    (month === 8 && date >= 25 && date <= 30) || // 9月25日〜30日
+    (month === 9 && date >= 1 && date <= 31);    // 10月1日〜31日
+
+  if (isHalloween) {
+    const bird = document.getElementById("birdGroup");
+    const ghost = document.getElementById("ghostGroup");
+    const witch = document.getElementById("witchGroup");
+
+    if (bird) bird.style.display = "none";
+    if (ghost) ghost.style.display = "inline";
+    if (witch) witch.style.display = "inline";
+  }
+</script>
+
 </body>
 </html>
+
 
 
 
