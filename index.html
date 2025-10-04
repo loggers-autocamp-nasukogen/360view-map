@@ -126,7 +126,7 @@
   100% { opacity: 0.8; }
 }
 
-/* 🎃 おばけかぼちゃのブルブル演出 */
+/* 🎃 おばけかぼちゃの繊細な揺れ演出 */
 .pumpkin-shake {
   animation: shakePumpkin 0.4s infinite ease-in-out;
   transform-origin: center;
@@ -134,10 +134,10 @@
 
 @keyframes shakePumpkin {
   0%   { transform: rotate(0deg); }
-  20%  { transform: rotate(4deg); }
-  40%  { transform: rotate(-4deg); }
-  60%  { transform: rotate(3deg); }
-  80%  { transform: rotate(-3deg); }
+  20%  { transform: rotate(1deg); }
+  40%  { transform: rotate(-1deg); }
+  60%  { transform: rotate(0.5deg); }
+  80%  { transform: rotate(-0.5deg); }
   100% { transform: rotate(0deg); }
 }
 
@@ -376,6 +376,7 @@
 
 </body>
 </html>
+
 
 
 
