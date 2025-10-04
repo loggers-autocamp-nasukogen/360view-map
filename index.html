@@ -139,20 +139,20 @@
   </image>
 </g>
 
-<!-- 👻 おばけの演出（鳥と同じ軌道） -->
+<!-- 👻 おばけ（中段をゆっくり移動） -->
 <g id="ghostGroup" style="display:none;">
-  <path id="ghostPath" d="M900,1000 Q700,900 500,1000 Q300,1100 100,1000" fill="none" stroke="none" />
-  <image href="images/ghost.png" width="250" height="250">
+  <path id="ghostPath" d="M900,1000 Q700,950 500,1000 Q300,1050 100,1000" fill="none" stroke="none" />
+  <image href="images/ghost.png" width="200" height="200">
     <animateMotion dur="20s" repeatCount="indefinite" rotate="auto">
       <mpath href="#ghostPath" />
     </animateMotion>
   </image>
 </g>
 
-<!-- 🧙‍♀️ 魔女の演出（マップ上部を飛行） -->
+<!-- 🧙‍♀️ 魔女（上部すぎない高さに調整） -->
 <g id="witchGroup" style="display:none;">
-  <path id="witchPath" d="M900,200 Q700,100 500,200 Q300,300 100,200" fill="none" stroke="none" />
-  <image href="images/witch.png" width="250" height="250">
+  <path id="witchPath" d="M900,400 Q700,350 500,400 Q300,450 100,400" fill="none" stroke="none" />
+  <image href="images/witch.png" width="200" height="200">
     <animateMotion dur="25s" repeatCount="indefinite" rotate="auto">
       <mpath href="#witchPath" />
     </animateMotion>
@@ -312,6 +312,7 @@
 
 </body>
 </html>
+
 
 
 
