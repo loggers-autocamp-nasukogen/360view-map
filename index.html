@@ -114,6 +114,18 @@
   100% { opacity: 0.7; }
 }
 
+    /* 👻🧙‍♀️ ハロウィン演出用：魔女の後の★ */
+.twinkle {
+ animation: twinkle 2s infinite;
+ opacity: 0.8;
+}
+
+ @keyframes twinkle {
+  0%   { opacity: 0.8; }
+  50%  { opacity: 0.2; }
+  100% { opacity: 0.8; }
+}
+
     #back-to-nap {
   display: inline-block;
   margin: 20px 0 10px 10px; /* ✅ マップと距離を取る */
@@ -170,6 +182,16 @@
     <mpath href="#witchPath" />
   </animateMotion>
 </image>
+</g>
+
+  <!-- 🌟 魔女の軌跡に星を配置 -->
+<g id="witchStars" style="display:none;">
+  <text x="850" y="390" font-size="24" fill="#ffd700" class="twinkle">⭐</text>
+  <text x="700" y="360" font-size="20" fill="#ffec8b" class="twinkle">⭐</text>
+  <text x="550" y="410" font-size="22" fill="#fffacd" class="twinkle">⭐</text>
+  <text x="400" y="440" font-size="18" fill="#ffffe0" class="twinkle">⭐</text>
+  <text x="250" y="390" font-size="24" fill="#ffd700" class="twinkle">⭐</text>
+  <text x="100" y="360" font-size="20" fill="#ffec8b" class="twinkle">⭐</text>
 </g>
 
   <!-- 区画ボタン（座標調整済） -->
@@ -316,15 +338,18 @@
     const bird = document.getElementById("birdGroup");
     const ghost = document.getElementById("ghostGroup");
     const witch = document.getElementById("witchGroup");
+    const stars = document.getElementById("witchStars"); // ⭐ 星のグループ
 
     if (bird) bird.style.display = "none";
     if (ghost) ghost.style.display = "inline";
     if (witch) witch.style.display = "inline";
+    if (stars) stars.style.display = "inline"; // ⭐ 星を表示
   }
 </script>
 
 </body>
 </html>
+
 
 
 
