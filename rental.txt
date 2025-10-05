@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>レンタル・販売品｜Loggers Auto Camp 那須高原</title>
+  <meta name="description" content="Loggers Auto Camp 那須高原のレンタル・販売品一覧。初心者でも安心のキャンプ用品、焚き火セット、子ども向けアイテム、オリジナルグッズなどをご紹介。">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      background-color: #f8f5f0;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    header {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 26px;
+      margin: 0;
+      color: #2c2c2c;
+    }
+
+    header p {
+      font-size: 15px;
+      margin-top: 8px;
+      color: #666;
+    }
+
+    .section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section h2 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: #444;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 4px;
+    }
+
+    .item-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .item {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    .item h3 {
+      font-size: 16px;
+      margin: 8px 0;
+      color: #2c2c2c;
+    }
+
+    .item p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+      color: #999;
+      background-color: #f0ede8;
+      border-top: 1px solid #ddd;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>レンタル・販売品のご案内</h1>
+    <p>初心者の方も安心して楽しめるよう、各種キャンプ用品をご用意しています。</p>
+  </header>
+
+  <div class="section">
+    <h2>⛺ 基本キャンプ用品</h2>
+    <div class="item-grid">
+      <div class="item">
+        <img src="images/tent.webp" alt="雨天対応の2〜4人用キャンプテント" loading="lazy">
+        <h3>テント（2〜4人用）</h3>
+        <p>設営が簡単なドーム型。通気性と防水性を兼ね備えています。</p>
+      </div>
+      <div class="item">
+        <img src="images/tarp.webp" alt="日除け・雨除け用キャンプタープ" loading="lazy">
+        <h3>タープ</h3>
+        <p>広々としたリビング空間を作れる、耐水性の高いタープです。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🍳 調理・食事用品</h2>
+    <div class="item-grid">
+      <div class="item">
+        <img src="images/bbq.webp" alt="炭付きファミリーサイズBBQグリル" loading="lazy">
+        <h3>BBQグリル</h3>
+        <p>炭付きセットで手軽にBBQを楽しめます。ファミリーサイズ対応。</p>
+      </div>
+      <div class="item">
+        <img src="images/dutchoven.webp" alt="鋳鉄製ダッチオーブン鍋" loading="lazy">
+        <h3>ダッチオーブン</h3>
+        <p>煮込み料理やパン焼きに最適。アウトドア料理の定番です。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔥 焚き火・暖房用品</h2>
+    <div class="item-grid">
+      <div class="item">
+        <img src="images/firepit.webp" alt="耐熱シート付き焚き火台" loading="lazy">
+        <h3>焚き火台</h3>
+        <p>安全に焚き火を楽しめる耐熱シート付き。夜の時間を豊かに。</p>
+      </div>
+      <div class="item">
+        <img src="images/lantern.webp" alt="LEDキャンプランタン" loading="lazy">
+        <h3>ランタン（LED）</h3>
+        <p>電池式で明るさ調整可能。夜のサイトを優しく照らします。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🧒 子ども向け・遊び用品</h2>
+    <div class="item-grid">
+      <div class="item">
+        <img src="images/insectkit.webp" alt="虫取り網と観察ケースのセット" loading="lazy">
+        <h3>虫取りセット</h3>
+        <p>森の探検にぴったり。網とケースで安全に観察できます。</p>
+      </div>
+      <div class="item">
+        <img src="images/magiclantern.webp" alt="魔法ランタンづくり体験キット" loading="lazy">
+        <h3>魔法ランタンキット</h3>
+        <p>夜の森で光る、自分だけの魔法アイテムを手作りできます。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🛍 販売品</h2>
+    <div class="item-grid">
+      <div class="item">
+        <img src="images/firewood.webp" alt="乾燥済み広葉樹の薪（販売）" loading="lazy">
+        <h3>薪</h3>
+        <p>焚き火や調理に最適な乾燥済み広葉樹。1束単位で販売。</p>
+      </div>
+      <div class="item">
+        <img src="images/mug.webp" alt="Loggers Auto Campオリジナルマグカップ" loading="lazy">
+        <h3>オリジナルマグ</h3>
+        <p>キャンプの思い出に。限定デザインの陶器製マグカップです。</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Loggers Auto Camp 那須高原｜Ikeda Forestry Co., Ltd.
+  </footer>
+
+</body>
+</html>
+
