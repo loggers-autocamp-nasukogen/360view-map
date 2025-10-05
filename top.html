@@ -273,13 +273,13 @@ footer {
     森を育て、森で遊ぶ。林業とキャンプの未来をつなぐ場所。
   </footer>
 
-  <script>
-  function generateWavePath(width, height, segments) {
+<script>
+  function generateSmoothWavePath(width, height, segments, amplitude, frequency) {
     const step = width / segments;
     let path = `M0 ${height / 2}`;
     for (let i = 0; i <= segments; i++) {
       const x = i * step;
-      const y = height / 2 + Math.sin(i + Math.random() * 2) * 20;
+      const y = height / 2 + Math.sin((i / segments) * frequency * Math.PI * 2) * amplitude;
       path += ` L${x} ${y}`;
     }
     path += ` L${width} ${height} L0 ${height} Z`;
@@ -289,14 +289,18 @@ footer {
   const svg = document.getElementById("wave-svg");
   const width = 1920;
   const height = 100;
-  const segments = 30;
+  const segments = 60;         // 細かく分割して滑らかに
+  const amplitude = 20;        // 波の高さ（px）
+  const frequency = 1.5;       // 波の数（1.5回分の波）
+
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  path.setAttribute("d", generateWavePath(width, height, segments));
+  path.setAttribute("d", generateSmoothWavePath(width, height, segments, amplitude, frequency));
   svg.appendChild(path);
 </script>
 
 </body>
 </html>
+
 
 
 
