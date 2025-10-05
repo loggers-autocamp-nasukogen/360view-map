@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SITE CHOICE™ & SPEC VALUE™｜Loggers Auto Camp 那須高原</title>
+  <meta name="description" content="SITE CHOICE™とSPEC VALUE™は、キャンプ場運営の新しいスタンダード。区画選択の安心感と価格の納得感を両立する、革新的な運営モデルをご紹介します。">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      background-color: #f8f5f0;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    header {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+      margin: 0;
+      color: #2c2c2c;
+    }
+
+    header p {
+      font-size: 16px;
+      margin-top: 8px;
+      color: #666;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    section h2 {
+      font-size: 22px;
+      margin-bottom: 16px;
+      color: #444;
+    }
+
+    section h3 {
+      font-size: 18px;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      color: #555;
+    }
+
+    section p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .highlight {
+      background-color: #fff;
+      border-left: 4px solid #2c2c2c;
+      padding: 16px 20px;
+      margin: 24px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+      color: #999;
+      background-color: #f0ede8;
+      border-top: 1px solid #ddd;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SITE CHOICE™ & SPEC VALUE™</h1>
+    <p>キャンプ場運営の未来を切り拓く、二つの革新モデル</p>
+  </header>
+
+  <section>
+    <h2>第1章：キャンプ場運営の現実と課題</h2>
+    <p>キャンプブームにより、ファミリー層や初心者が急増。従来の「当日選択型」では不安や混乱が生まれ、顧客満足度を下げる要因となっていました。</p>
+    <div class="highlight">
+      <strong>課題：</strong> 区画の「当たり外れ」、受付の混雑、価格の不透明さ
+    </div>
+    <p>これらを解決するために、SITE CHOICE™（区画指定予約）と SPEC VALUE™（価格の透明化）を開発しました。</p>
+  </section>
+
+  <section>
+    <h2>第2章：SITE CHOICE™ ― 区画番号指定予約制度</h2>
+    <h3>2-1. 顧客心理を理解する</h3>
+    <p>「どんな場所に泊まれるのか」という不安を解消するため、事前に区画情報を公開し、顧客自身が選べる仕組みを導入。</p>
+
+    <h3>2-2. 情報の透明性</h3>
+    <ul>
+      <li>サイズ（縦横・面積）</li>
+      <li>日当たり・木陰の有無</li>
+      <li>車の横付け可否</li>
+      <li>水場・トイレまでの距離</li>
+      <li>プライバシー性（間仕切りの有無）</li>
+    </ul>
+
+    <h3>2-3. 導入効果</h3>
+    <p>チェックイン時間が平均15分短縮。案内トラブル70%減。顧客満足度とスタッフの余裕が向上。</p>
+  </section>
+
+  <section>
+    <h2>第3章：SPEC VALUE™ ― 価格の透明化制度</h2>
+    <h3>3-1. なぜ必要か</h3>
+    <p>「高いけど理由がわからない」という不満をなくすため、価格の根拠を数値化・明文化。</p>
+
+    <h3>3-2. 価格構成の例</h3>
+    <ul>
+      <li>標準区画（100㎡）：5,000円</li>
+      <li>広め区画（150㎡）：＋1,000円</li>
+      <li>電源付き：＋500円</li>
+      <li>小川沿い／展望サイト：＋500円</li>
+    </ul>
+
+    <h3>3-3. 導入効果</h3>
+    <p>料金に対する不満がほぼゼロに。高単価区画の予約率が上昇し、納得感がブランド価値に。</p>
+  </section>
+
+  <section>
+    <h2>第4章：SITE CHOICE™ × SPEC VALUE™ のシナジー</h2>
+    <p>「選べる安心感」と「納得の価格」が両立することで、リピーター率は1.5倍に増加。顧客は「また来たい」と感じる体験を得られます。</p>
+  </section>
+
+  <section>
+    <h2>第5章：区画設計と情報公開のノウハウ</h2>
+    <ul>
+      <li>区画の実測と図面化</li>
+      <li>特徴（木陰・傾斜・景観）の記録</li>
+      <li>公式サイト・予約システムへの反映</li>
+    </ul>
+    <p>「思ったより狭かった」「日陰がなかった」といったギャップを防ぎ、クレーム削減と満足度向上を同時に実現。</p>
+  </section>
+
+  <section>
+    <h2>第6章：ブランド戦略と業界への波及</h2>
+    <p>SITE CHOICE™ と SPEC VALUE™ は、制度ではなく「信頼の証」としてブランド化。SNSや予約サイトでもタグ化し、業界標準としての認知を目指します。</p>
+    <div class="highlight">
+      <strong>#SITECHOICE #SPECVALUE</strong>  
+      ― 安心して予約できるキャンプ場の新基準
+    </div>
+  </section>
+
+  <section>
+    <h2>終章：持続可能なキャンプ場運営の未来</h2>
+    <p>施設提供から「顧客体験の設計」へ。SITE CHOICE™ は「選ぶ自由」を、SPEC VALUE™ は「納得の安心」を提供します。</p>
+    <p>この運営モデルは、顧客と運営の双方を幸せにし、業界全体の健全な成長を支える礎となるでしょう。</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Loggers Auto Camp 那須高原｜Ikeda Forestry Co., Ltd.<br>
+    SITE CHOICE™ & SPEC VALUE™ は、未来のキャンプ場運営のスタンダードです。
+  </footer>
+
+</body>
+</html>
+
