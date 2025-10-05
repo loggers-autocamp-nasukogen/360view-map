@@ -3,134 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loggers Auto Camp Nasu Kogen｜360°マップでおばけ探し！</title>
+  <title>Loggers Auto Camp 那須高原｜森と過ごす静かな時間</title>
   <style>
     body {
       margin: 0;
-      font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", sans-serif;
-      background: #0b0b0b;
-      color: #fff;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      background-color: #f8f5f0;
+      color: #333;
+      line-height: 1.8;
     }
 
     header {
-      background: linear-gradient(135deg, #2f4f4f, #000);
-      padding: 20px;
+      background-color: #fff;
+      padding: 40px 20px;
       text-align: center;
-      border-bottom: 2px dashed #ff6600;
+      border-bottom: 1px solid #ddd;
     }
 
     header h1 {
       font-size: 28px;
-      color: #ffcc00;
-      text-shadow: 2px 2px 4px #000;
       margin: 0;
+      color: #2c2c2c;
+      letter-spacing: 1px;
     }
 
     header p {
       font-size: 16px;
       margin-top: 8px;
-      color: #ffdd55;
+      color: #666;
     }
 
-    .hw-banner {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #ffdd55;
-      background: linear-gradient(135deg, #3a3a3a, #000000);
-      padding: 20px 28px;
-      border-radius: 16px;
-      font-weight: 700;
-      display: none;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
-      margin: 24px auto 20px;
-      border: 2px dashed #ff8800;
-      text-shadow: 1px 1px 3px #000;
+    .intro {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
       text-align: center;
-      max-width: 600px;
     }
 
-    .hw-banner .hw-title {
-      font-size: 20px;
-      margin-bottom: 12px;
-      color: #ffcc33;
-      text-shadow: 2px 2px 4px #000;
+    .intro h2 {
+      font-size: 22px;
+      margin-bottom: 16px;
+      color: #444;
     }
 
-    .hw-banner .hw-body {
+    .intro p {
       font-size: 16px;
-    }
-
-    .hw-banner .hw-count {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 4px 10px;
-      background: rgba(255, 102, 0, 0.2);
-      border-radius: 8px;
-      border: 1px solid #ff6600;
-      color: #fff;
+      color: #555;
     }
 
     .viewer-container {
-      text-align: center;
-      margin: 40px auto;
       max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
 
     iframe {
       width: 100%;
       height: 600px;
       border: none;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     nav {
       text-align: center;
-      margin: 40px 0;
+      margin: 60px 0 40px;
     }
 
     nav a {
       display: inline-block;
-      margin: 10px 16px;
-      padding: 12px 20px;
-      background: #222;
-      color: #ffcc00;
-      border-radius: 8px;
+      margin: 0 12px;
+      padding: 10px 18px;
+      font-size: 15px;
+      color: #2c2c2c;
       text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
     }
 
     nav a:hover {
-      background: #444;
+      border-color: #999;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 30px 20px;
       font-size: 14px;
-      color: #aaa;
-      background: #111;
-      border-top: 1px solid #333;
+      color: #999;
+      background-color: #f0ede8;
+      border-top: 1px solid #ddd;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Loggers Auto Camp Nasu Kogen</h1>
-    <p>🌲 森と魔法のキャンプ場へようこそ 🎃</p>
+    <h1>Loggers Auto Camp 那須高原</h1>
+    <p>森と過ごす、静かな時間。</p>
   </header>
 
-  <div class="hw-banner" id="hwBanner">
-    <div class="hw-title">🎃 ハロウィン限定 おばけ探し 👻</div>
-    <div class="hw-body">
-      360°写真の中に隠れているよ！<br>
-      📷 カメラ選択でも探してみてね！<br><br>
-      👻 ×3　🧙‍♀️ ×1　🐱 ×1　🎃 ×2<br>
-      <span class="hw-count">【全部で 7つ】見つけられるかな！？</span>
-    </div>
-  </div>
+  <section class="intro">
+    <h2>360°ビューで、キャンプ場を散策</h2>
+    <p>
+      木々の間を歩くように、画面をぐるりと回してご覧ください。<br>
+      初めての方も、リピーターの方も、自然の中でのひとときを想像しながらお楽しみいただけます。
+    </p>
+  </section>
 
   <div class="viewer-container">
     <iframe
@@ -142,31 +120,17 @@
 
   <nav>
     <a href="facility.html">施設案内</a>
-    <a href="sightseeing.html">観光案内</a>
+    <a href="sightseeing.html">周辺観光</a>
     <a href="rental.html">レンタル品</a>
-    <a href="activity.html">アクティビティ</a>
-    <a href="faq.html">よくある質問</a>
-    <a href="access.html">ご予約・アクセス</a>
+    <a href="activity.html">体験・アクティビティ</a>
+    <a href="faq.html">よくあるご質問</a>
+    <a href="access.html">アクセス・ご予約</a>
   </nav>
 
   <footer>
-    &copy; 2025 Loggers Auto Camp Nasu Kogen｜Ikeda Forestry Co., Ltd.
+    &copy; 2025 Loggers Auto Camp 那須高原｜Ikeda Forestry Co., Ltd.
   </footer>
-
-  <script>
-    const today = new Date();
-    const month = today.getMonth(); // 0 = Jan, 8 = Sep, 9 = Oct
-    const date = today.getDate();
-
-    const isHalloween =
-      (month === 8 && date >= 25) || // 9月25日〜30日
-      (month === 9 && date <= 31);   // 10月1日〜31日
-
-    if (isHalloween) {
-      const banner = document.getElementById("hwBanner");
-      if (banner) banner.style.display = "block";
-    }
-  </script>
 
 </body>
 </html>
+
