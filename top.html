@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loggers Auto Camp 那須高原｜森と魔法のキャンプ場</title>
+  <title>Loggers Auto Camp 那須高原｜SITE CHOICE™ × SPEC VALUE™ × 林業体験</title>
+  <meta name="description" content="SITE CHOICE™で区画を選べる安心感、SPEC VALUE™で価格の納得感。林業とキャンプが融合した、森を育てる体験型キャンプ場。">
   <style>
     body {
       margin: 0;
@@ -14,35 +15,53 @@
     }
 
     header {
-      background-color: #fff;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .header-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 20px;
       position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    header video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .header-overlay {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
       text-align: center;
+      background: rgba(0, 0, 0, 0.3);
+      color: #fff;
+      padding: 0 20px;
     }
 
-    .header-inner h1 {
-      font-size: 28px;
-      margin: 0;
-      color: #2c2c2c;
-      letter-spacing: 1px;
+    .header-overlay h1 {
+      font-size: 32px;
+      margin-bottom: 12px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
     }
 
-    .header-inner p {
-      font-size: 16px;
-      margin-top: 8px;
-      color: #666;
+    .header-overlay p {
+      font-size: 18px;
+      max-width: 600px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
     }
 
     .header-links {
       position: absolute;
       top: 20px;
       right: 20px;
+      z-index: 2;
       display: flex;
       gap: 16px;
       align-items: center;
@@ -50,17 +69,18 @@
 
     .menu-link {
       font-size: 15px;
-      color: #2c2c2c;
+      color: #fff;
       text-decoration: none;
       border-bottom: 1px solid transparent;
       transition: border-color 0.3s;
     }
 
     .menu-link:hover {
-      border-color: #999;
+      border-color: #ccc;
     }
 
     .insta-link svg {
+      fill: #fff;
       transition: opacity 0.3s;
     }
 
@@ -68,31 +88,24 @@
       opacity: 0.6;
     }
 
-    .intro {
-      max-width: 800px;
-      margin: 40px auto;
+    section {
+      max-width: 1000px;
+      margin: 60px auto;
       padding: 0 20px;
-      text-align: center;
     }
 
-    .intro h2 {
+    section h2 {
       font-size: 22px;
       margin-bottom: 16px;
       color: #444;
     }
 
-    .intro p {
+    section p {
       font-size: 16px;
       color: #555;
     }
 
-    .viewer-container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    iframe {
+    .viewer-container iframe {
       width: 100%;
       height: 600px;
       border: none;
@@ -100,28 +113,13 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-    .seasonal-events {
-      max-width: 800px;
-      margin: 60px auto;
-      padding: 0 20px;
-      text-align: center;
-    }
-
-    .seasonal-events h3 {
-      font-size: 20px;
-      margin-bottom: 12px;
-      color: #444;
-    }
-
-    .seasonal-events ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .seasonal-events li {
-      margin-bottom: 12px;
-      font-size: 16px;
+    .highlight-box {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
     nav {
@@ -157,60 +155,70 @@
 <body>
 
   <header>
-    <div class="header-inner">
+    <video src="videos/main-catch.mp4" autoplay muted loop playsinline></video>
+    <div class="header-overlay">
       <h1>Loggers Auto Camp 那須高原</h1>
-      <p>🌲 森と魔法のキャンプ場へようこそ</p>
-      <div class="header-links">
-        <a href="#" class="menu-link">MENU</a>
-        <a href="https://www.instagram.com/loggers.auto.camp/" target="_blank" class="insta-link" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="#2c2c2c" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-2a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/>
-          </svg>
-        </a>
-      </div>
+      <p>SITE CHOICE™ × SPEC VALUE™ × 林業体験で、森と人をつなぐキャンプ場</p>
+    </div>
+    <div class="header-links">
+      <a href="#menu" class="menu-link">MENU</a>
+      <a href="https://www.instagram.com/loggers.auto.camp/" target="_blank" class="insta-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-2a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/>
+        </svg>
+      </a>
     </div>
   </header>
 
-  <section class="intro">
-    <h2>📷 360°マップで、森の中を探検しよう</h2>
-    <p>
-      木々の間を歩くように、画面をぐるりと回してご覧ください。<br>
-      おばけや魔女、かぼちゃたちがひっそりと隠れているかも…？<br>
-      子どもも大人も、魔法の森でのひとときをお楽しみください。
-    </p>
+  <section>
+    <h2>📷 360°ビューで、キャンプ場を探検</h2>
+    <p>木々の間を歩くように、画面をぐるりと回してご覧ください。おばけや魔女、かぼちゃたちがひっそりと隠れているかも…？</p>
+    <div class="viewer-container">
+      <iframe src="https://loggers-autocamp-nasukogen.github.io/360view-map/" title="360°ビュー・マップ" loading="lazy" allowfullscreen></iframe>
+    </div>
   </section>
 
-  <div class="viewer-container">
-    <iframe
-      src="https://loggers-autocamp-nasukogen.github.io/360view-map/"
-      title="360°ビュー・マップ"
-      allowfullscreen
-    ></iframe>
-  </div>
-
-  <section class="seasonal-events">
-    <h3>🎃 季節のイベント</h3>
-    <ul>
-      <li>👻 秋限定：おばけ探しゲーム（360°マップ内）</li>
-      <li>✨ 冬の夜：星空観察とホットドリンク体験</li>
-      <li>🌸 春の森：芽吹きのクラフトワークショップ</li>
-      <li>🔥 通年：焚き火と魔法のランタンづくり</li>
-    </ul>
+  <section>
+    <h2>🧭 SITE CHOICE™ ― 区画を選べる安心感</h2>
+    <div class="highlight-box">
+      <p>予約時に区画番号と特性を提示し、日陰・距離・サイズなどを事前に確認可能。ファミリー層も安心して選べる仕組みです。</p>
+      <p>導入後、チェックイン時間が平均15分短縮。案内トラブルも70%減少しました。</p>
+    </div>
   </section>
 
-  <nav>
-    <a href="facility.html">施設案内</a>
-    <a href="sightseeing.html">周辺観光</a>
-    <a href="rental.html">レンタル品</a>
-    <a href="activity.html">体験・アクティビティ</a>
-    <a href="faq.html">よくあるご質問</a>
-    <a href="access.html">アクセス・ご予約</a>
-  </nav>
+  <section>
+    <h2>💰 SPEC VALUE™ ― 価格の理由がわかる納得感</h2>
+    <div class="highlight-box">
+      <p>区画サイズ・電源有無・景観などを数値化し、料金表に明記。顧客は「なぜこの価格なのか」を一目で理解できます。</p>
+      <p>導入後、料金に対する不満はほぼゼロ。高単価区画の予約率も上昇しました。</p>
+    </div>
+  </section>
+
+ <section>
+    <h2>🌲 林業 × キャンプ ― 森を育て、森で遊ぶ</h2>
+    <div class="highlight-box">
+      <p>Loggers Auto Camp 那須高原は、地元林業会社が運営する「森と人をつなぐキャンプ場」です。間伐材を活用したクラフト体験、森の保全活動への参加など、自然との関わりを深めるプログラムをご用意しています。</p>
+      <p>森を守ることが、キャンプの楽しさにつながる。そんな循環型の体験を、ここ那須高原でお届けします。</p>
+    </div>
+  </section>
+
+  <section id="menu">
+    <h2>📖 ご案内メニュー</h2>
+    <nav>
+      <a href="facility.html">施設案内</a>
+      <a href="sightseeing.html">周辺観光</a>
+      <a href="rental.html">レンタル・販売品</a>
+      <a href="activity.html">体験・アクティビティ</a>
+      <a href="faq.html">よくあるご質問</a>
+      <a href="access.html">アクセス・ご予約</a>
+      <a href="concept.html">SITE CHOICE™ & SPEC VALUE™</a>
+    </nav>
+  </section>
 
   <footer>
-    &copy; 2025 Loggers Auto Camp 那須高原｜Ikeda Forestry Co., Ltd.
+    &copy; 2025 Loggers Auto Camp 那須高原｜Ikeda Forestry Co., Ltd.<br>
+    森を育て、森で遊ぶ。林業とキャンプの未来をつなぐ場所。
   </footer>
 
 </body>
 </html>
-
