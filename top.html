@@ -273,8 +273,31 @@ footer {
     森を育て、森で遊ぶ。林業とキャンプの未来をつなぐ場所。
   </footer>
 
+  <script>
+  function generateWavePath(width, height, segments) {
+    const step = width / segments;
+    let path = `M0 ${height / 2}`;
+    for (let i = 0; i <= segments; i++) {
+      const x = i * step;
+      const y = height / 2 + Math.sin(i + Math.random() * 2) * 20;
+      path += ` L${x} ${y}`;
+    }
+    path += ` L${width} ${height} L0 ${height} Z`;
+    return path;
+  }
+
+  const svg = document.getElementById("wave-svg");
+  const width = 1920;
+  const height = 100;
+  const segments = 30;
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  path.setAttribute("d", generateWavePath(width, height, segments));
+  svg.appendChild(path);
+</script>
+
 </body>
 </html>
+
 
 
 
