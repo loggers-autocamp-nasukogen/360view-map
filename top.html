@@ -5,35 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loggers Auto Camp 那須高原｜SITE CHOICE™ × SPEC VALUE™ × 林業体験</title>
   <meta name="description" content="SITE CHOICE™で区画を選べる安心感、SPEC VALUE™で価格の納得感。林業とキャンプが融合した、森を育てる体験型キャンプ場。">
+ 
   <style>
-    body {
-      margin: 0;
-      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
-      background-color: #f8f5f0;
-      color: #333;
-      line-height: 1.8;
-    }
+body {
+  margin: 0;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  background-color: #f8f5f0;
+  color: #333;
+  line-height: 1.8;
+}
 
-    header {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
+/* ヘッダー動画エリア */
+header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
 
-    header video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
+header video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
 
+/* 下寄せテキストオーバーレイ */
 .header-overlay {
   position: absolute;
-  bottom: 40px; /* 下からの距離 */
+  bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -57,118 +60,168 @@
   text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
 }
 
-    .header-links {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 2;
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
+/* メニューリンクとInstagramアイコン */
+.header-links {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
 
-    .menu-link {
-      font-size: 15px;
-      color: #fff;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.3s;
-    }
+.menu-link {
+  font-size: 15px;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
 
-    .menu-link:hover {
-      border-color: #ccc;
-    }
+.menu-link:hover {
+  border-color: #ccc;
+}
 
-    .insta-link svg {
-      fill: #fff;
-      transition: opacity 0.3s;
-    }
+.insta-link svg {
+  fill: #fff;
+  transition: opacity 0.3s;
+}
 
-    .insta-link:hover svg {
-      opacity: 0.6;
-    }
+.insta-link:hover svg {
+  opacity: 0.6;
+}
 
-    section {
-      max-width: 1000px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
+/* 波線SVGコンテナ */
+.wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 1;
+  pointer-events: none;
+}
 
-    section h2 {
-      font-size: 22px;
-      margin-bottom: 16px;
-      color: #444;
-    }
+#wave-svg {
+  width: 100%;
+  height: 100%;
+  fill: #f8f5f0; /* 波線の色（背景色と合わせる） */
+}
 
-    section p {
-      font-size: 16px;
-      color: #555;
-    }
+/* セクション共通 */
+section {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
 
-    .viewer-container iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
+section h2 {
+  font-size: 22px;
+  margin-bottom: 16px;
+  color: #444;
+}
 
-    .highlight-box {
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 20px;
-      margin-top: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
+section p {
+  font-size: 16px;
+  color: #555;
+}
 
-    nav {
-      text-align: center;
-      margin: 60px 0 40px;
-    }
+/* 360ビュー iframe */
+.viewer-container iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
-    nav a {
-      display: inline-block;
-      margin: 0 12px;
-      padding: 10px 18px;
-      font-size: 15px;
-      color: #2c2c2c;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.3s;
-    }
+/* 強調ボックス */
+.highlight-box {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
 
-    nav a:hover {
-      border-color: #999;
-    }
+/* ナビゲーションリンク */
+nav {
+  text-align: center;
+  margin: 60px 0 40px;
+}
 
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 14px;
-      color: #999;
-      background-color: #f0ede8;
-      border-top: 1px solid #ddd;
-    }
+nav a {
+  display: inline-block;
+  margin: 0 12px;
+  padding: 10px 18px;
+  font-size: 15px;
+  color: #2c2c2c;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+nav a:hover {
+  border-color: #999;
+}
+
+/* フッター */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 14px;
+  color: #999;
+  background-color: #f0ede8;
+  border-top: 1px solid #ddd;
+}
+
+/* スマホ対応 */
+@media screen and (max-width: 600px) {
+  .header-overlay h1 {
+    font-size: 22px;
+  }
+
+  .header-overlay p {
+    font-size: 14px;
+  }
+
+  .menu-link {
+    font-size: 14px;
+  }
+
+  nav a {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
   </style>
+  
 </head>
 <body>
 
-  <header>
-    <video src="videos/sample.mp4" autoplay muted loop playsinline></video>
-    <div class="header-overlay">
-      <h1>Loggers Auto Camp 那須高原</h1>
-      <p>SITE CHOICE™ × SPEC VALUE™ × 林業体験で、森と人をつなぐキャンプ場</p>
-    </div>
-    <div class="header-links">
-      <a href="#menu" class="menu-link">MENU</a>
-      <a href="https://www.instagram.com/loggers.auto.camp/" target="_blank" class="insta-link" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-2a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/>
-        </svg>
-      </a>
-    </div>
-  </header>
+<header class="video-header">
+  <video src="videos/sample.mp4" autoplay muted loop playsinline></video>
+
+  <div class="header-overlay">
+    <h1>Loggers Auto Camp 那須高原</h1>
+    <p>SITE CHOICE™ × SPEC VALUE™ × 林業体験で、森と人をつなぐキャンプ場</p>
+  </div>
+
+  <div class="header-links">
+    <a href="#menu" class="menu-link">MENU</a>
+    <a href="https://www.instagram.com/loggers.auto.camp/" target="_blank" class="insta-link" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-2a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="wave-container">
+    <svg id="wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 100" preserveAspectRatio="none"></svg>
+  </div>
+</header>
 
   <section>
     <h2>📷 360°ビューで、キャンプ場を探検</h2>
@@ -222,5 +275,6 @@
 
 </body>
 </html>
+
 
 
