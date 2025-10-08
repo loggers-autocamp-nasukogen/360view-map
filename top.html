@@ -97,32 +97,38 @@ header video {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 200%; /* 横に広げて流れるように */
+  width: 100%;
   height: 100px;
+  overflow: hidden;
   z-index: 1;
   pointer-events: none;
-  overflow: hidden;
 }
 
-#wave-svg {
-  width: 200%;
+.wave-svg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   height: 100%;
   fill: #f8f5f0;
-  animation: waveFlow 12s linear infinite, waveFloat 4s ease-in-out infinite;
+  animation: waveScroll 20s linear infinite, waveFloat 6s ease-in-out infinite;
 }
 
-/* 左右に流れる動き */
-@keyframes waveFlow {
+/* 2枚目の波を右に配置して連続表示 */
+.wave-svg:nth-child(2) {
+  left: 100%;
+}
+
+/* 左右に流れる動き（連続ループ） */
+@keyframes waveScroll {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-100%); }
 }
 
 /* ゆらぎ（上下にふわっと） */
 @keyframes waveFloat {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-4px); }
 }
-
 
 /* セクション共通 */
 section {
@@ -232,9 +238,15 @@ footer {
     </a>
   </div>
 
-  <div class="wave-container">
-    <svg id="wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 100" preserveAspectRatio="none"></svg>
-  </div>
+<div class="wave-container">
+  <svg class="wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 100" preserveAspectRatio="none">
+    <path id="wave-path-1" />
+  </svg>
+  <svg class="wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 100" preserveAspectRatio="none">
+    <path id="wave-path-2" />
+  </svg>
+</div>
+
 </header>
 
   <section>
@@ -288,7 +300,7 @@ footer {
   </footer>
 
 <script>
-  function generateSmoothWavePath(width, height, segments, amplitude, frequency) {
+function generateSmoothWavePath(width, height, segments, amplitude, frequency) {
     const step = width / segments;
     let path = `M0 ${height / 2}`;
     for (let i = 0; i <= segments; i++) {
@@ -300,27 +312,20 @@ footer {
     return path;
   }
 
-  const svg = document.getElementById("wave-svg");
   const width = 1920;
   const height = 100;
-  const segments = 60;         // 細かく分割して滑らかに
-  const amplitude = 20;        // 波の高さ（px）
-  const frequency = 1.5;       // 波の数（1.5回分の波）
+  const segments = 80;
+  const amplitude = 12;     // 波の高さを抑える
+  const frequency = 1.2;    // 緩やかな波
 
-  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  path.setAttribute("d", generateSmoothWavePath(width, height, segments, amplitude, frequency));
-  svg.appendChild(path);
-
-    window.addEventListener("DOMContentLoaded", function () {
-    const video = document.getElementById("main-video");
-    if (video) {
-      video.playbackRate = 0.66; // 1.5倍遅く（通常の約66%速度）
-    }
-  });
+  const pathData = generateSmoothWavePath(width, height, segments, amplitude, frequency);
+  document.getElementById("wave-path-1").setAttribute("d", pathData);
+  document.getElementById("wave-path-2").setAttribute("d", pathData);
 </script>
 
 </body>
 </html>
+
 
 
 
