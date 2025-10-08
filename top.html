@@ -93,41 +93,19 @@ header video {
 }
 
 /* 波線SVGコンテナ */
-.wave-container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  overflow: hidden;
-  z-index: 1;
-  pointer-events: none;
-}
-
 .wave-svg {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 100%;
   fill: #f8f5f0;
-  animation: waveScroll 20s linear infinite, waveFloat 6s ease-in-out infinite;
+  animation: waveScroll 20s linear infinite;
 }
 
-/* 2枚目の波を右に配置して連続表示 */
-.wave-svg:nth-child(2) {
-  left: 100%;
-}
-
-/* 左右に流れる動き（連続ループ） */
+/* 左右に流れる動きのみ */
 @keyframes waveScroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-100%); }
-}
-
-/* ゆらぎ（上下にふわっと） */
-@keyframes waveFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
 }
 
 /* セクション共通 */
@@ -300,12 +278,12 @@ footer {
   </footer>
 
 <script>
-function generateSmoothWavePath(width, height, segments, amplitude, frequency) {
+  function generateWavePath(width, height, segments, amplitude, frequency, phase = 0) {
     const step = width / segments;
     let path = `M0 ${height / 2}`;
     for (let i = 0; i <= segments; i++) {
       const x = i * step;
-      const y = height / 2 + Math.sin((i / segments) * frequency * Math.PI * 2) * amplitude;
+      const y = height / 2 + Math.sin((i / segments) * frequency * Math.PI * 2 + phase) * amplitude;
       path += ` L${x} ${y}`;
     }
     path += ` L${width} ${height} L0 ${height} Z`;
@@ -315,12 +293,23 @@ function generateSmoothWavePath(width, height, segments, amplitude, frequency) {
   const width = 1920;
   const height = 100;
   const segments = 80;
-  const amplitude = 12;     // 波の高さを抑える
-  const frequency = 1.2;    // 緩やかな波
+  const amplitude = 12;
+  const frequency = 1.2;
 
-  const pathData = generateSmoothWavePath(width, height, segments, amplitude, frequency);
-  document.getElementById("wave-path-1").setAttribute("d", pathData);
-  document.getElementById("wave-path-2").setAttribute("d", pathData);
+  const path1 = document.getElementById("wave-path-1");
+  const path2 = document.getElementById("wave-path-2");
+
+  let phase = 0;
+  function animateWave() {
+    phase += 0.02;
+    const d = generateWavePath(width, height, segments, amplitude, frequency, phase);
+    path1.setAttribute("d", d);
+    path2.setAttribute("d", d);
+    requestAnimationFrame(animateWave);
+  }
+
+  animateWave();
+
 
     window.addEventListener("DOMContentLoaded", function () {
     const video = document.getElementById("main-video");
@@ -332,6 +321,7 @@ function generateSmoothWavePath(width, height, segments, amplitude, frequency) {
 
 </body>
 </html>
+
 
 
 
