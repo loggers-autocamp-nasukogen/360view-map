@@ -97,17 +97,32 @@ header video {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 200%; /* 横に広げて流れるように */
   height: 100px;
   z-index: 1;
   pointer-events: none;
+  overflow: hidden;
 }
 
 #wave-svg {
-  width: 100%;
+  width: 200%;
   height: 100%;
-  fill: #f8f5f0; /* 波線の色（背景色と合わせる） */
+  fill: #f8f5f0;
+  animation: waveFlow 12s linear infinite, waveFloat 4s ease-in-out infinite;
 }
+
+/* 左右に流れる動き */
+@keyframes waveFlow {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ゆらぎ（上下にふわっと） */
+@keyframes waveFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
 
 /* セクション共通 */
 section {
@@ -300,6 +315,7 @@ footer {
 
 </body>
 </html>
+
 
 
 
