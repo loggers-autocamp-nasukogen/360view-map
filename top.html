@@ -93,19 +93,24 @@ header video {
 }
 
 /* 波線SVGコンテナ */
+.wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
 .wave-svg {
   position: absolute;
   bottom: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   fill: #f8f5f0;
-  animation: waveScroll 20s linear infinite;
-}
-
-/* 左右に流れる動きのみ */
-@keyframes waveScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
 }
 
 /* セクション共通 */
@@ -278,49 +283,51 @@ footer {
   </footer>
 
 <script>
-  function generateWavePath(width, height, segments, amplitude, frequency, phase = 0) {
-    const step = width / segments;
-    let path = `M0 ${height / 2}`;
-    for (let i = 0; i <= segments; i++) {
-      const x = i * step;
-      const y = height / 2 + Math.sin((i / segments) * frequency * Math.PI * 2 + phase) * amplitude;
-      path += ` L${x} ${y}`;
-    }
-    path += ` L${width} ${height} L0 ${height} Z`;
-    return path;
-  }
-
-  const width = 1920;
-  const height = 100;
-  const segments = 80;
-  const amplitude = 12;
-  const frequency = 1.2;
-
-  const path1 = document.getElementById("wave-path-1");
-  const path2 = document.getElementById("wave-path-2");
-
-  let phase = 0;
-  function animateWave() {
-    phase += 0.02;
-    const d = generateWavePath(width, height, segments, amplitude, frequency, phase);
-    path1.setAttribute("d", d);
-    path2.setAttribute("d", d);
-    requestAnimationFrame(animateWave);
-  }
-
-  animateWave();
-
-
-    window.addEventListener("DOMContentLoaded", function () {
+  window.addEventListener("DOMContentLoaded", function () {
+    // 動画再生速度設定
     const video = document.getElementById("main-video");
     if (video) {
-      video.playbackRate = 0.66; // 1.5倍遅く（通常の約66%速度）
+      video.playbackRate = 0.66;
     }
+
+    // 波形生成とアニメーション
+    function generateWavePath(width, height, segments, amplitude, frequency, phase = 0) {
+      const step = width / segments;
+      let path = `M0 ${height / 2}`;
+      for (let i = 0; i <= segments; i++) {
+        const x = i * step;
+        const y = height / 2 + Math.sin((i / segments) * frequency * Math.PI * 2 + phase) * amplitude;
+        path += ` L${x} ${y}`;
+      }
+      path += ` L${width} ${height} L0 ${height} Z`;
+      return path;
+    }
+
+    const width = 1920;
+    const height = 100;
+    const segments = 80;
+    const amplitude = 10;      // 波の高さを抑える
+    const frequency = 1.2;
+
+    const path1 = document.getElementById("wave-path-1");
+    const path2 = document.getElementById("wave-path-2");
+
+    let phase = 0;
+    function animateWave() {
+      phase += 0.015;
+      const d = generateWavePath(width, height, segments, amplitude, frequency, phase);
+      path1.setAttribute("d", d);
+      path2.setAttribute("d", d);
+      requestAnimationFrame(animateWave);
+    }
+
+    animateWave();
   });
 </script>
 
 </body>
 </html>
+
 
 
 
