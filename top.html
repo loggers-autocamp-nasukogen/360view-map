@@ -321,10 +321,18 @@ function generateSmoothWavePath(width, height, segments, amplitude, frequency) {
   const pathData = generateSmoothWavePath(width, height, segments, amplitude, frequency);
   document.getElementById("wave-path-1").setAttribute("d", pathData);
   document.getElementById("wave-path-2").setAttribute("d", pathData);
+
+    window.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("main-video");
+    if (video) {
+      video.playbackRate = 0.66; // 1.5倍遅く（通常の約66%速度）
+    }
+  });
 </script>
 
 </body>
 </html>
+
 
 
 
