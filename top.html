@@ -217,8 +217,7 @@ footer {
 <body>
 
 <header class="video-header">
-  <video src="videos/sample2.mp4" autoplay muted loop playsinline></video>
-
+  <video id="main-video" src="videos/sample2.mp4" autoplay muted loop playsinline></video>
   <div class="header-overlay">
     <h1>Loggers Auto Camp 那須高原</h1>
     <p>SITE CHOICE™ × SPEC VALUE™ × 林業体験で、森と人をつなぐキャンプ場</p>
@@ -311,10 +310,18 @@ footer {
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
   path.setAttribute("d", generateSmoothWavePath(width, height, segments, amplitude, frequency));
   svg.appendChild(path);
+
+    window.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("main-video");
+    if (video) {
+      video.playbackRate = 0.66; // 1.5倍遅く（通常の約66%速度）
+    }
+  });
 </script>
 
 </body>
 </html>
+
 
 
 
