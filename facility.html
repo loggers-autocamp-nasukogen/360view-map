@@ -4,117 +4,147 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>施設案内｜Loggers Auto Camp 那須高原</title>
-  <meta name="description" content="炊事場・トイレ・シャワー・管理棟など、Loggers Auto Camp 那須高原の施設をご紹介します。SITE CHOICE™ × SPEC VALUE™で安心・快適なキャンプ体験を。">
-  <link rel="stylesheet" href="style.css"> <!-- 共通CSS -->
+  <meta name="description" content="Loggers Auto Camp 那須高原の施設紹介。炊事場・トイレ・シャワー・管理棟など、安心・快適なキャンプ体験を支える設備をご案内します。">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      background-color: #f8f5f0;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    header {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 26px;
+      margin: 0;
+      color: #2c2c2c;
+    }
+
+    header p {
+      font-size: 15px;
+      margin-top: 8px;
+      color: #666;
+    }
+
+    .section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section h2 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: #444;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 4px;
+    }
+
+    .item-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .item {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    .item h3 {
+      font-size: 16px;
+      margin: 8px 0;
+      color: #2c2c2c;
+    }
+
+    .item p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+      color: #999;
+      background-color: #f0ede8;
+      border-top: 1px solid #ddd;
+      margin-top: 60px;
+    }
+  </style>
 </head>
 <body>
 
   <header>
-    <video id="main-video" src="videos/sample.mp4" autoplay muted loop playsinline></video>
-    <div class="header-overlay">
-      <h1>Loggers Auto Camp 那須高原</h1>
-      <p>施設案内｜SITE CHOICE™ × SPEC VALUE™ × 林業体験</p>
-    </div>
-    <div class="header-links">
-      <a href="#menu" class="menu-link">MENU</a>
-      <a href="https://www.instagram.com/loggers.auto.camp/" target="_blank" class="insta-link" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-2a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/>
-        </svg>
-      </a>
-    </div>
-    <div class="wave-container">
-      <svg class="wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 100" preserveAspectRatio="none">
-        <path id="wave-path-1" />
-      </svg>
-      <svg class="wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 100" preserveAspectRatio="none">
-        <path id="wave-path-2" />
-      </svg>
-    </div>
+    <h1>施設のご案内</h1>
+    <p>安心・快適なキャンプ体験を支える、Loggers Auto Campの設備をご紹介します。</p>
   </header>
 
-  <nav>
-    <a href="index.html">トップ</a>
-    <a href="concept.html">コンセプト</a>
-    <a href="rental.html">レンタル販売品</a>
-    <a href="facility.html">施設案内</a>
-    <a href="access.html">アクセス</a>
-  </nav>
-
-  <section>
-    <h2>施設全体について</h2>
-    <p>Loggers Auto Camp 那須高原では、SITE CHOICE™による区画選択と、SPEC VALUE™による価格透明性を軸に、快適で安心なキャンプ体験をご提供しています。以下に主要施設をご紹介します。</p>
-
-    <div class="highlight-box">
-      <h3>炊事場</h3>
-      <p>屋根付きで雨天でも安心。温水対応、照明完備で夜間も快適にご利用いただけます。</p>
-      <img src="images/suijo.jpg" alt="炊事場の写真" style="width:100%; border-radius:8px; margin-top:12px;">
+  <div class="section">
+    <h2>🚰 炊事場</h2>
+    <div class="item-grid">
+      <div class="item">
+        <img src="images/suijo.jpg" alt="炊事場の写真" loading="lazy">
+        <h3>屋根付き炊事場</h3>
+        <p>雨天でも安心。温水対応・照明完備で夜間も快適にご利用いただけます。</p>
+      </div>
     </div>
+  </div>
 
-    <div class="highlight-box">
-      <h3>トイレ</h3>
-      <p>清潔で明るい洋式トイレを完備。ウォシュレット付きで快適性を重視しています。</p>
-      <img src="images/toilet.jpg" alt="トイレの写真" style="width:100%; border-radius:8px; margin-top:12px;">
+  <div class="section">
+    <h2>🚻 トイレ</h2>
+    <div class="item-grid">
+      <div class="item">
+        <img src="images/toilet.jpg" alt="トイレの写真" loading="lazy">
+        <h3>洋式トイレ</h3>
+        <p>清潔で明るい空間。ウォシュレット付きで快適性を重視しています。</p>
+      </div>
     </div>
+  </div>
 
-    <div class="highlight-box">
-      <h3>シャワー室</h3>
-      <p>24時間利用可能な温水シャワー。鍵付き個室でプライバシーも安心です。</p>
-      <img src="images/shower.jpg" alt="シャワー室の写真" style="width:100%; border-radius:8px; margin-top:12px;">
+  <div class="section">
+    <h2>🚿 シャワー室</h2>
+    <div class="item-grid">
+      <div class="item">
+        <img src="images/shower.jpg" alt="シャワー室の写真" loading="lazy">
+        <h3>温水シャワー</h3>
+        <p>24時間利用可能。鍵付き個室でプライバシーも安心です。</p>
+      </div>
     </div>
+  </div>
 
-    <div class="highlight-box">
-      <h3>管理棟</h3>
-      <p>チェックイン・チェックアウトの受付、レンタル品の貸出、緊急対応などを行う拠点です。スタッフが常駐しています。</p>
-      <img src="images/kanritou.jpg" alt="管理棟の写真" style="width:100%; border-radius:8px; margin-top:12px;">
+  <div class="section">
+    <h2>🏡 管理棟</h2>
+    <div class="item-grid">
+      <div class="item">
+        <img src="images/kanritou.jpg" alt="管理棟の写真" loading="lazy">
+        <h3>受付・レンタル拠点</h3>
+        <p>チェックイン・レンタル品貸出・緊急対応など、スタッフが常駐しています。</p>
+      </div>
     </div>
-  </section>
+  </div>
 
   <footer>
     &copy; 2025 Loggers Auto Camp 那須高原｜Ikeda Forestry Co., Ltd.
   </footer>
 
-  <script>
-    window.addEventListener("DOMContentLoaded", function () {
-      const video = document.getElementById("main-video");
-      if (video) {
-        video.playbackRate = 0.66;
-      }
-
-      function generateWavePath(width, height, segments, amplitude, frequency, phase = 0) {
-        const step = width / segments;
-        let path = `M0 ${height / 2}`;
-        for (let i = 0; i <= segments; i++) {
-          const x = i * step;
-          const y = height / 2 + Math.sin((i / segments) * frequency * Math.PI * 2 + phase) * amplitude;
-          path += ` L${x} ${y}`;
-        }
-        path += ` L${width} ${height} L0 ${height} Z`;
-        return path;
-      }
-
-      const width = 1920;
-      const height = 100;
-      const segments = 80;
-      const amplitude = 10;
-      const frequency = 1.2;
-
-      const path1 = document.getElementById("wave-path-1");
-      const path2 = document.getElementById("wave-path-2");
-
-      let phase = 0;
-      function animateWave() {
-        phase += 0.015;
-        const d = generateWavePath(width, height, segments, amplitude, frequency, phase);
-        path1.setAttribute("d", d);
-        path2.setAttribute("d", d);
-        requestAnimationFrame(animateWave);
-      }
-
-      animateWave();
-    });
-  </script>
-
 </body>
 </html>
-
