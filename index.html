@@ -175,6 +175,23 @@
   100% { transform: rotate(0deg); } /* インターバル：50%〜100%は静止状態 */
 }
 
+
+/* 🎃🐱👻 共通の揺れ演出（逆パターン） */
+.pumpkin-shake-reverse {
+  animation: shakePumpkinReverse 1.2s infinite ease-in-out;
+  transform-origin: center;
+}
+
+@keyframes shakePumpkinReverse {
+  0%   { transform: rotate(0deg); } /* 静止開始 */
+  50%  { transform: rotate(0deg); } /* インターバル：0〜50%は静止状態 */
+  60%  { transform: rotate(1deg); }
+  70%  { transform: rotate(-1deg); }
+  80%  { transform: rotate(0.5deg); }
+  90%  { transform: rotate(-0.5deg); }
+  100% { transform: rotate(0deg); } /* 揺れ終了 */
+}
+    
     #back-to-nap {
   display: inline-block;
   margin: 20px 0 10px 10px; /* ✅ マップと距離を取る */
@@ -246,22 +263,22 @@
 
   <!-- ゴーストツリーの演出（揺れる） -->
 <g id="catGroup">
-  <image href="images/ghosttree.png" x="200" y="180" width="60" height="60" class="pumpkin-shake"></image>
+  <image href="images/ghosttree.png" x="200" y="180" width="60" height="60" class="pumpkin-shake-reverse"></image>
 </g>
 
     <!-- ゴーストツリー2の演出（揺れる） -->
 <g id="catGroup">
-  <image href="images/ghosttree2.png" x="90" y="1220" width="80" height="80" class="pumpkin-shake"></image>
+  <image href="images/ghosttree2.png" x="90" y="1220" width="80" height="80" class="pumpkin-shake-reverse"></image>
 </g>
 
       <!-- ゴーストツリー3の演出（揺れる） -->
 <g id="catGroup">
-  <image href="images/ghosttree3.png" x="230" y="350" width="80" height="80" class="pumpkin-shake"></image>
+  <image href="images/ghosttree3.png" x="230" y="350" width="80" height="80" class="pumpkin-shake-reverse"></image>
 </g>
 
         <!-- ゴーストツリー4の演出（揺れる） -->
 <g id="catGroup">
-  <image href="images/ghosttree4.png" x="600" y="330" width="60" height="60" class="pumpkin-shake"></image>
+  <image href="images/ghosttree4.png" x="600" y="330" width="60" height="60" class="pumpkin-shake-reverse"></image>
 </g>
 
   <!-- 👻 おばけ2の演出（揺れる） -->
@@ -448,3 +465,4 @@
 
 </body>
 </html>
+
