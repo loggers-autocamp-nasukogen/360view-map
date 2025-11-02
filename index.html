@@ -284,22 +284,22 @@
 </g>
   
   <!-- ゴーストツリーの演出（揺れる） -->
-<g id="ghostGroup" style="display: inline;">
+<g class="ghostGroup" style="display: inline;">
   <image href="images/ghosttree.png" x="200" y="180" width="60" height="60" class="pumpkin-shake-reverse"></image>
 </g>
 
     <!-- ゴーストツリー2の演出（揺れる） -->
-<g id="ghostGroup" style="display: inline;">
+<g class="ghostGroup" style="display: inline;">
   <image href="images/ghosttree2.png" x="90" y="1220" width="80" height="80" class="pumpkin-shake-reverse"></image>
 </g>
 
       <!-- ゴーストツリー3の演出（揺れる） -->
-<g id="ghostGroup" style="display: inline;">
+<g class="ghostGroup" style="display: inline;">
   <image href="images/ghosttree3.png" x="230" y="350" width="80" height="80" class="pumpkin-shake-reverse"></image>
 </g>
 
         <!-- ゴーストツリー4の演出（揺れる） -->
-<g id="ghostGroup" style="display: inline;">
+<g class="ghostGroup" style="display: inline;">
   <image href="images/ghosttree4.png" x="600" y="330" width="60" height="60" class="pumpkin-shake-reverse"></image>
 </g>
 
@@ -457,43 +457,50 @@
   const month = today.getMonth(); // 0 = Jan, 8 = Sep, 9 = Oct
   const date = today.getDate();
 
+  // 🎃 ハロウィン期間：9月25日〜10月31日
   const isHalloween =
     (month === 8 && date >= 25 && date <= 30) || // 9月25日〜30日
     (month === 9 && date >= 1 && date <= 31);    // 10月1日〜31日
 
-  const bird     = document.getElementById("birdGroup");
-  const ghost    = document.getElementById("ghostGroup");
-  const ghost2   = document.getElementById("ghost2Group");
-  const witch    = document.getElementById("witchGroup");
-  const stars    = document.getElementById("witchStars");
-  const pumpkin  = document.getElementById("pumpkinGroup");
-  const cat      = document.getElementById("catGroup");
-  const banner   = document.querySelector(".hw-banner"); // 🎃 バナー取得
+  // 🎃 複数のゴーストグループを一括制御
+  const ghostGroups = document.getElementsByClassName("ghostGroup");
+  for (let i = 0; i < ghostGroups.length; i++) {
+    ghostGroups[i].style.display = isHalloween ? "inline" : "none";
+  }
+
+  // 🎃 その他の演出要素
+  const elements = {
+    bird:     document.getElementById("birdGroup"),
+    ghost2:   document.getElementById("ghost2Group"),
+    witch:    document.getElementById("witchGroup"),
+    stars:    document.getElementById("witchStars"),
+    pumpkin:  document.getElementById("pumpkinGroup"),
+    cat:      document.getElementById("catGroup"),
+    banner:   document.querySelector(".hw-banner")
+  };
 
   if (isHalloween) {
-    if (bird)    bird.style.display = "none";
-    if (ghost)   ghost.style.display = "inline";
-    if (ghost2)  ghost2.style.display = "inline";
-    if (witch)   witch.style.display = "inline";
-    if (stars)   stars.style.display = "inline";
-    if (pumpkin) pumpkin.style.display = "inline";
-    if (cat)     cat.style.display = "inline";
-    if (banner)  banner.style.display = "block"; // 🎃 バナー表示
+    if (elements.bird)    elements.bird.style.display = "none";
+    if (elements.ghost2)  elements.ghost2.style.display = "inline";
+    if (elements.witch)   elements.witch.style.display = "inline";
+    if (elements.stars)   elements.stars.style.display = "inline";
+    if (elements.pumpkin) elements.pumpkin.style.display = "inline";
+    if (elements.cat)     elements.cat.style.display = "inline";
+    if (elements.banner)  elements.banner.style.display = "block";
   } else {
-    if (bird)    bird.style.display = "inline";
-    if (ghost)   ghost.style.display = "none";
-    if (ghost2)  ghost2.style.display = "none";
-    if (witch)   witch.style.display = "none";
-    if (stars)   stars.style.display = "none";
-    if (pumpkin) pumpkin.style.display = "none";
-    if (cat)     cat.style.display = "none";
-    if (banner)  banner.style.display = "none"; // 🎃 期間外は非表示
+    if (elements.bird)    elements.bird.style.display = "inline";
+    if (elements.ghost2)  elements.ghost2.style.display = "none";
+    if (elements.witch)   elements.witch.style.display = "none";
+    if (elements.stars)   elements.stars.style.display = "none";
+    if (elements.pumpkin) elements.pumpkin.style.display = "none";
+    if (elements.cat)     elements.cat.style.display = "none";
+    if (elements.banner)  elements.banner.style.display = "none";
   }
 </script>
 
-
 </body>
 </html>
+
 
 
 
