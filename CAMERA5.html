@@ -119,22 +119,22 @@
   <!-- 折りたたみメニュー -->
   <div id="zone-menu">
     <button class="zone-a" onclick="switchScene('a')">シャワー室　前🚿</button>
-    <button class="zone-b" onclick="switchScene('b')">ゴミステーション・出口</button>
-    <button class="zone-c" onclick="switchScene('c')">炊事場</button>
-    <button class="zone-d" onclick="switchScene('d')">センターハウス前①</button>
-    <button class="zone-e" onclick="switchScene('e')">センターハウス前②</button>
-    <button class="zone-f" onclick="switchScene('f')">しばふの公園</button>
+    <button class="zone-b" onclick="switchScene('b')">個室シャワー</button>
+    <button class="zone-c" onclick="switchScene('c')">ファミリーシャワー</button>
+    <button class="zone-d" onclick="switchScene('d')">パウダールーム</button>
+    <button class="zone-e" onclick="switchScene('e')">シャワー室　廊下</button>
+    <button class="zone-f" onclick="switchScene('f')">炊事場</button>
   </div>
 
   <!-- A-Frameシーン -->
 <a-scene embedded vr-mode-ui="enabled: false" xr-mode-ui="enabled: false">
   <a-assets>
     <img id="sky-a" src="images/front_shower_room.webp">
-    <img id="sky-b" src="images/garbage_station.webp">
-    <img id="sky-c" src="images/kitchen.webp">
-    <img id="sky-d" src="images/front_centerhouse.webp">
-    <img id="sky-e" src="images/front_centerhouse2.webp">
-    <img id="sky-f" src="images/grass_park.webp">
+    <img id="sky-b" src="images/shower_a.webp">
+    <img id="sky-c" src="images/family_shower.webp">
+    <img id="sky-d" src="images/powderroom.webp">
+    <img id="sky-e" src="images/shower_room.webp">
+    <img id="sky-f" src="images/kitchen.webp">
   </a-assets>
   <a-sky id="sky" src="#sky-a" rotation="0 -90 0"></a-sky>
 <a-entity id="camera" camera look-controls="smoothingFactor: 0.01" position="0 1.6 0"></a-entity>
@@ -185,6 +185,7 @@
     </script>
 </body>
 </html>
+
 
 
 
