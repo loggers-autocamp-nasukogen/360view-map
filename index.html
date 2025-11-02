@@ -458,19 +458,19 @@
   const date = today.getDate();
 
   const isHalloween =
-    (month === 8 && date >= 25) ||       // 9月25日〜30日
-    (month === 9 && date <= 31);         // 10月1日〜31日
+    (month === 8 && date >= 25 && date <= 30) || // 9月25日〜30日
+    (month === 9 && date >= 1 && date <= 31);    // 10月1日〜31日
+
+  const bird     = document.getElementById("birdGroup");
+  const ghost    = document.getElementById("ghostGroup");
+  const ghost2   = document.getElementById("ghost2Group");
+  const witch    = document.getElementById("witchGroup");
+  const stars    = document.getElementById("witchStars");
+  const pumpkin  = document.getElementById("pumpkinGroup");
+  const cat      = document.getElementById("catGroup");
+  const banner   = document.querySelector(".hw-banner"); // 🎃 バナー取得
 
   if (isHalloween) {
-    const bird     = document.getElementById("birdGroup");
-    const ghost    = document.getElementById("ghostGroup");
-    const ghost2   = document.getElementById("ghost2Group");
-    const witch    = document.getElementById("witchGroup");
-    const stars    = document.getElementById("witchStars");
-    const pumpkin  = document.getElementById("pumpkinGroup");
-    const cat      = document.getElementById("catGroup");
-    const banner   = document.querySelector(".hw-banner"); // 🎃 バナー取得
-
     if (bird)    bird.style.display = "none";
     if (ghost)   ghost.style.display = "inline";
     if (ghost2)  ghost2.style.display = "inline";
@@ -480,13 +480,21 @@
     if (cat)     cat.style.display = "inline";
     if (banner)  banner.style.display = "block"; // 🎃 バナー表示
   } else {
-    const banner = document.querySelector(".hw-banner");
-    if (banner) banner.style.display = "none"; // 🎃 期間外は非表示
+    if (bird)    bird.style.display = "inline";
+    if (ghost)   ghost.style.display = "none";
+    if (ghost2)  ghost2.style.display = "none";
+    if (witch)   witch.style.display = "none";
+    if (stars)   stars.style.display = "none";
+    if (pumpkin) pumpkin.style.display = "none";
+    if (cat)     cat.style.display = "none";
+    if (banner)  banner.style.display = "none"; // 🎃 期間外は非表示
   }
 </script>
 
+
 </body>
 </html>
+
 
 
 
