@@ -214,19 +214,31 @@
   100% { transform: rotate(0deg); } /* 揺れ終了 */
 }
     
-    #back-to-nap {
+#back-to-nap {
   display: inline-block;
-  margin: 20px 0 10px 10px; /* ✅ マップと距離を取る */
-  background: #fff;
-  color: #333;
-  padding: 14px 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  font-size: 20px;
+  margin: 20px 0 10px 10px;
+  background: linear-gradient(135deg, #ffffff, #e0f2f1); /* 柔らかなグラデーション */
+  color: #2E7D32; /* ロガーズの森の緑を意識 */
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-size: 18px;
   font-weight: bold;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid #A5D6A7; /* 優しいアクセント */
 }
+
+    #back-to-nap:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  color: #1B5E20;
+}
+    
   </style>
+  
 </defs>
   <!-- 背景画像 -->
   <image href="images/area_a_map7.png" x="0" y="0" width="900" height="1600"></image>
@@ -477,7 +489,7 @@
 
 </svg>
 
- <div id="back-to-nap" onclick="goToNap()">🔙 なっぷで予約</div>
+<div id="back-to-nap" role="button" tabindex="0" onclick="goToNap()">📅 なっぷで予約</div>
 
 <script>
   function goToNap() {
@@ -531,6 +543,7 @@
 
 </body>
 </html>
+
 
 
 
