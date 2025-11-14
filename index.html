@@ -89,6 +89,57 @@
   margin: 0 auto;
 }
 
+  .xmas-banner {
+  font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ffffff; /* 🎄 雪のような白文字 */
+  background: linear-gradient(135deg, #004d40, #002b2b); /* 🎄 深緑〜夜空風 */
+  padding: 20px 28px;
+  border-radius: 16px;
+  font-weight: 700;
+  display: inline-block;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+  margin-top: 24px;
+  margin-bottom: 20px;
+  border: 2px dashed #ff4444; /* 🎁 赤系点線枠 */
+  text-shadow: 1px 1px 3px #000;
+  text-align: center;
+  animation: fadeInBanner 1s ease-out;
+}
+
+.xmas-title {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #ffdddd; /* 🎅 柔らかい赤みの白 */
+  text-shadow: 2px 2px 4px #000;
+}
+
+.xmas-body {
+  font-size: 16px;
+}
+
+.xmas-count {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 10px;
+  background: rgba(255, 0, 0, 0.2); /* 🎁 赤系背景 */
+  border-radius: 8px;
+  border: 1px solid #ff4444;
+  color: #fff;
+}
+
+.xmas-visual {
+  margin: 12px auto;
+}
+
+.xmas-visual img {
+  width: 250px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 /* 🎬 フェードイン演出 */
 @keyframes fadeInBanner {
   from { opacity: 0; transform: translateY(-10px); }
@@ -599,6 +650,7 @@ if (isChristmas) {
 
 </body>
 </html>
+
 
 
 
