@@ -140,6 +140,30 @@
   margin: 0 auto;
 }
 
+  .xmas-visual-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px; /* 画像間の余白 */
+  margin: 12px auto;
+  flex-wrap: wrap; /* スマホ対応で折り返し可能に */
+}
+
+.xmas-img {
+  display: block;
+  height: auto;
+  max-width: 250px;
+}
+
+.santa-img {
+  width: 220px;
+}
+
+.deer-img {
+  width: 180px; /* 🦌 少し小さめに調整 */
+}
+
+
 /* 🎬 フェードイン演出 */
 @keyframes fadeInBanner {
   from { opacity: 0; transform: translateY(-10px); }
@@ -179,13 +203,10 @@
 
   <div class="xmas-title">🎄 クリスマス限定 サンタ探し 🎅</div>
 
-  <div class="xmas-visual">
-    <img src="images/find_grassanta2.png" alt="サンタ＆仲間リスト" loading="lazy">
-  </div>
-
-      <div class="xmas-visual">
-    <img src="images/find_deer.png" alt="トナカイ" loading="lazy">
-  </div>
+<div class="xmas-visual-row">
+  <img src="images/find_grassanta2.png" alt="サンタ＆仲間リスト" loading="lazy" class="xmas-img santa-img">
+  <img src="images/find_deer.png" alt="トナカイ" loading="lazy" class="xmas-img deer-img">
+</div>
 
   <div class="xmas-body">
     360°写真の中に隠れているよ！<br>
@@ -654,6 +675,7 @@ if (isChristmas) {
 
 </body>
 </html>
+
 
 
 
