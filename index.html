@@ -120,6 +120,27 @@
     <span class="hw-count">【全部で 7つ】見つけられるかな！？</span>
   </div>
 </div>
+
+  <div class="xmas-banner" style="display: none;">
+  <div class="xmas-visual">
+    <img src="images/Chiristmas_logo.png" alt="クリスマスビジュアルロゴ" loading="lazy">
+  </div>
+
+  <div class="xmas-title">🎄 クリスマス限定 サンタ探し 🎅</div>
+
+  <div class="xmas-visual">
+    <img src="images/find_grassanta2.png" alt="サンタ＆仲間リスト" loading="lazy">
+  </div>
+
+  <div class="xmas-body">
+    360°写真の中に隠れているよ！<br>
+    📷 カメラ選択でも探してみてね！<br><br>
+    🎅 ×4　🦌 ×1<br>
+    <span class="xmas-count">【全部で 4人と1匹】見つけられるかな！？</span>
+  </div>
+</div>
+
+
   
 
 <p class="map-caption">
@@ -492,58 +513,93 @@
 
 <div id="back-to-nap" role="button" tabindex="0" onclick="goToNap()">📅 なっぷで予約</div>
 
-<script>
-  function goToNap() {
-    window.location.href = "https://www.nap-camp.com/tochigi/15675?status=1005";
-  }
 
-  const today = new Date();
-  const month = today.getMonth(); // 0 = Jan, 8 = Sep, 9 = Oct
-  const date = today.getDate();
+  <script>
+function goToNap() {
+  window.location.href = "https://www.nap-camp.com/tochigi/15675?status=1005";
+}
 
-  // 🎃 ハロウィン期間：9月25日〜10月31日
-  const isHalloween =
-    (month === 8 && date >= 25 && date <= 30) || // 9月25日〜30日
-    (month === 9 && date >= 1 && date <= 31);    // 10月1日〜31日
+const today = new Date();
+const month = today.getMonth(); // 0 = Jan, 10 = Nov, 11 = Dec
+const date = today.getDate();
 
-  // 🎃 複数のゴーストグループを一括制御
-  const ghostGroups = document.getElementsByClassName("ghostGroup");
-  for (let i = 0; i < ghostGroups.length; i++) {
-    ghostGroups[i].style.display = isHalloween ? "inline" : "none";
-  }
+// 🎃 ハロウィン期間：9月25日〜10月31日
+const isHalloween =
+  (month === 8 && date >= 25) || // 9月25日〜30日
+  (month === 9);                 // 10月
 
-  // 🎃 その他の演出要素
-  const elements = {
-    bird:     document.getElementById("birdGroup"),
-    ghost2:   document.getElementById("ghost2Group"),
-    witch:    document.getElementById("witchGroup"),
-    stars:    document.getElementById("witchStars"),
-    pumpkin:  document.getElementById("pumpkinGroup"),
-    cat:      document.getElementById("catGroup"),
-    banner:   document.querySelector(".hw-banner")
-  };
+// 🎄 クリスマス期間：11月13日〜12月25日
+const isChristmas =
+  (month === 10 && date >= 13) || // 11月13日〜30日
+  (month === 11 && date <= 25);   // 12月1日〜25日
 
-  if (isHalloween) {
-    if (elements.bird)    elements.bird.style.display = "none";
-    if (elements.ghost2)  elements.ghost2.style.display = "inline";
-    if (elements.witch)   elements.witch.style.display = "inline";
-    if (elements.stars)   elements.stars.style.display = "inline";
-    if (elements.pumpkin) elements.pumpkin.style.display = "inline";
-    if (elements.cat)     elements.cat.style.display = "inline";
-    if (elements.banner)  elements.banner.style.display = "block";
-  } else {
-    if (elements.bird)    elements.bird.style.display = "inline";
-    if (elements.ghost2)  elements.ghost2.style.display = "none";
-    if (elements.witch)   elements.witch.style.display = "none";
-    if (elements.stars)   elements.stars.style.display = "none";
-    if (elements.pumpkin) elements.pumpkin.style.display = "none";
-    if (elements.cat)     elements.cat.style.display = "none";
-    if (elements.banner)  elements.banner.style.display = "none";
-  }
+// 🎃 ハロウィン演出制御
+const ghostGroups = document.getElementsByClassName("ghostGroup");
+for (let i = 0; i < ghostGroups.length; i++) {
+  ghostGroups[i].style.display = isHalloween ? "inline" : "none";
+}
+
+const hwElements = {
+  bird:     document.getElementById("birdGroup"),
+  ghost2:   document.getElementById("ghost2Group"),
+  witch:    document.getElementById("witchGroup"),
+  stars:    document.getElementById("witchStars"),
+  pumpkin:  document.getElementById("pumpkinGroup"),
+  cat:      document.getElementById("catGroup"),
+  banner:   document.querySelector(".hw-banner")
+};
+
+const xmasElements = {
+  santa:    document.getElementById("santaGroup"),
+  deer:     document.getElementById("deerGroup"),
+  snowman:  document.getElementById("snowmanGroup"),
+  gift:     document.getElementById("giftGroup"),
+  star:     document.getElementById("xmasStarGroup"),
+  banner:   document.querySelector(".xmas-banner")
+};
+
+// 🎃 ハロウィン表示
+if (isHalloween) {
+  if (hwElements.bird)    hwElements.bird.style.display = "none";
+  if (hwElements.ghost2)  hwElements.ghost2.style.display = "inline";
+  if (hwElements.witch)   hwElements.witch.style.display = "inline";
+  if (hwElements.stars)   hwElements.stars.style.display = "inline";
+  if (hwElements.pumpkin) hwElements.pumpkin.style.display = "inline";
+  if (hwElements.cat)     hwElements.cat.style.display = "inline";
+  if (hwElements.banner)  hwElements.banner.style.display = "block";
+} else {
+  if (hwElements.bird)    hwElements.bird.style.display = "inline";
+  if (hwElements.ghost2)  hwElements.ghost2.style.display = "none";
+  if (hwElements.witch)   hwElements.witch.style.display = "none";
+  if (hwElements.stars)   hwElements.stars.style.display = "none";
+  if (hwElements.pumpkin) hwElements.pumpkin.style.display = "none";
+  if (hwElements.cat)     hwElements.cat.style.display = "none";
+  if (hwElements.banner)  hwElements.banner.style.display = "none";
+}
+
+// 🎄 クリスマス表示
+if (isChristmas) {
+  if (xmasElements.santa)    xmasElements.santa.style.display = "inline";
+  if (xmasElements.deer)     xmasElements.deer.style.display = "inline";
+  if (xmasElements.snowman)  xmasElements.snowman.style.display = "inline";
+  if (xmasElements.gift)     xmasElements.gift.style.display = "inline";
+  if (xmasElements.star)     xmasElements.star.style.display = "inline";
+  if (xmasElements.banner)   xmasElements.banner.style.display = "block";
+} else {
+  if (xmasElements.santa)    xmasElements.santa.style.display = "none";
+  if (xmasElements.deer)     xmasElements.deer.style.display = "none";
+  if (xmasElements.snowman)  xmasElements.snowman.style.display = "none";
+  if (xmasElements.gift)     xmasElements.gift.style.display = "none";
+  if (xmasElements.star)     xmasElements.star.style.display = "none";
+  if (xmasElements.banner)   xmasElements.banner.style.display = "none";
+}
 </script>
+
+
 
 </body>
 </html>
+
 
 
 
