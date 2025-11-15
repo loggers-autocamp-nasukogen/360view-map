@@ -311,6 +311,38 @@
   90%  { transform: rotate(-0.5deg); }
   100% { transform: rotate(0deg); } /* 揺れ終了 */
 }
+
+        /* 🎅 クリスマス演出用 */
+@keyframes xmasShake {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+@keyframes xmasShakeReverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(6px) rotate(-2deg); }
+}
+
+.xmas-shake,
+.xmas-shake-reverse {
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  transform-origin: center;
+}
+
+.xmas-shake { animation-name: xmasShake; }
+.xmas-shake-reverse { animation-name: xmasShakeReverse; }
+
+/* 揺れのタイミングをずらすクラス */
+.delay-0 { animation-delay: 0s; }
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 1s; }
+.delay-3 { animation-delay: 1.5s; }
+.delay-4 { animation-delay: 2s; }
+.delay-5 { animation-delay: 2.5s; }
+.delay-6 { animation-delay: 3s; }
+
     
 #back-to-nap {
   display: inline-block;
@@ -430,6 +462,52 @@
   <text x="100" y="360" font-size="20" fill="#ffec8b" class="twinkle">⭐</text>
 </g>
   -->
+
+  <!-- 🎅 サンタの演出（空を滑空） -->
+<g id="santaGroup" style="display: inline;">
+  <path id="santaPath" d="M1000,150 C800,100 600,200 400,300 C300,350 150,400 -50,450" fill="none" stroke="none"></path>
+  <image href="images/santa_flying.png" width="220" height="220">
+    <animateMotion dur="18s" repeatCount="indefinite" rotate="auto">
+      <mpath href="#santaPath"></mpath>
+    </animateMotion>
+  </image>
+</g>
+
+<!-- 🦌 トナカイ -->
+<g id="deerGroup" style="display: inline;">
+  <image href="images/deer.png" x="80" y="1180" width="100" height="100" class="xmas-shake delay-0"></image>
+</g>
+
+<!-- 🎅 サンタ（緑） -->
+<g id="santaGreenGroup" style="display: inline;">
+  <image href="images/santa_green.png" x="80" y="1180" width="100" height="100" class="xmas-shake delay-1"></image>
+</g>
+
+<!-- 🎅 サンタ（オレンジ） -->
+<g id="santaOrangeGroup" style="display: inline;">
+  <image href="images/santa_ogrange.png" x="720" y="1240" width="80" height="80" class="xmas-shake-reverse delay-2"></image>
+</g>
+
+<!-- 🎅 サンタ（ピンク） -->
+<g id="santaPinkGroup" style="display: inline;">
+  <image href="images/santa_pink.png" x="500" y="160" width="60" height="60" class="xmas-shake delay-3"></image>
+</g>
+
+<!-- 🎅 サンタ（スカイブルー） -->
+<g id="santaSkyblueGroup" style="display: inline;">
+  <image href="images/santa_skyblue.png" x="500" y="160" width="60" height="60" class="xmas-shake delay-4"></image>
+</g>
+
+<!-- 👑 サンタキング -->
+<g id="santaKingGroup" style="display: inline;">
+  <image href="images/santa_king.png" x="400" y="160" width="60" height="60" class="xmas-shake delay-5"></image>
+</g>
+
+<!-- 👑 サンタクイーン -->
+<g id="santaQueenGroup" style="display: inline;">
+  <image href="images/santa_queen.png" x="300" y="160" width="60" height="60" class="xmas-shake delay-6"></image>
+</g>
+
 
   <!-- 区画ボタン（座標調整済） -->
   <!-- A01〜A06：上段 -->
@@ -589,8 +667,7 @@
 
 <div id="back-to-nap" role="button" tabindex="0" onclick="goToNap()">📅 なっぷで予約</div>
 
-
-  <script>
+<script>
 function goToNap() {
   window.location.href = "https://www.nap-camp.com/tochigi/15675?status=1005";
 }
@@ -626,12 +703,15 @@ const hwElements = {
 };
 
 const xmasElements = {
-  santa:    document.getElementById("santaGroup"),
-  deer:     document.getElementById("deerGroup"),
-  snowman:  document.getElementById("snowmanGroup"),
-  gift:     document.getElementById("giftGroup"),
-  star:     document.getElementById("xmasStarGroup"),
-  banner:   document.querySelector(".xmas-banner")
+  santaFlying:  document.getElementById("santaGroup"), // 🎅 空を滑空するサンタ
+  deer:         document.getElementById("deerGroup"),
+  santaGreen:   document.getElementById("santaGreenGroup"),
+  santaOrange:  document.getElementById("santaOrangeGroup"),
+  santaPink:    document.getElementById("santaPinkGroup"),
+  santaSkyblue: document.getElementById("santaSkyblueGroup"),
+  santaKing:    document.getElementById("santaKingGroup"),
+  santaQueen:   document.getElementById("santaQueenGroup"),
+  banner:       document.querySelector(".xmas-banner")
 };
 
 // 🎃 ハロウィン表示
@@ -655,26 +735,19 @@ if (isHalloween) {
 
 // 🎄 クリスマス表示
 if (isChristmas) {
-  if (xmasElements.santa)    xmasElements.santa.style.display = "inline";
-  if (xmasElements.deer)     xmasElements.deer.style.display = "inline";
-  if (xmasElements.snowman)  xmasElements.snowman.style.display = "inline";
-  if (xmasElements.gift)     xmasElements.gift.style.display = "inline";
-  if (xmasElements.star)     xmasElements.star.style.display = "inline";
-  if (xmasElements.banner)   xmasElements.banner.style.display = "block";
+  for (const key in xmasElements) {
+    if (xmasElements[key]) xmasElements[key].style.display = key === "banner" ? "block" : "inline";
+  }
 } else {
-  if (xmasElements.santa)    xmasElements.santa.style.display = "none";
-  if (xmasElements.deer)     xmasElements.deer.style.display = "none";
-  if (xmasElements.snowman)  xmasElements.snowman.style.display = "none";
-  if (xmasElements.gift)     xmasElements.gift.style.display = "none";
-  if (xmasElements.star)     xmasElements.star.style.display = "none";
-  if (xmasElements.banner)   xmasElements.banner.style.display = "none";
+  for (const key in xmasElements) {
+    if (xmasElements[key]) xmasElements[key].style.display = "none";
+  }
 }
 </script>
-
-
-
+  
 </body>
 </html>
+
 
 
 
