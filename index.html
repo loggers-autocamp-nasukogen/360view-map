@@ -223,7 +223,8 @@
   🌲 ロガーズオートキャンプ那須高原<br>
   各ボタンから <strong>360°ビュー</strong> を体験できます。
 </p>
-  
+
+
 <svg viewBox="0 0 900 1600" xmlns="http://www.w3.org/2000/svg">
 <defs>
   <filter id="shadow">
@@ -384,7 +385,7 @@
 </image>
   
 <!-- 🕊️ 鳥の演出（通常時のみ表示） -->
-<g id="birdGroup" style="display: none;">
+<g id="birdGroup" style="display: inline;">
   <path id="birdPath" d="M900,1000 Q700,900 500,1000 Q300,1100 100,1000" fill="none" stroke="none"></path>
   <image href="images/bird.png" width="250" height="250">
     <animateMotion dur="20s" repeatCount="indefinite" rotate="auto">
@@ -394,7 +395,7 @@
 </g>
 
 <!-- 👻 おばけの演出（下段をゆっくり移動） -->
-<g class="ghostGroup" style="display: inline;">
+<g class="ghostGroup" style="display: none;">
   <path id="ghostPath" d="M900,1150 Q700,1100 500,1150 Q300,1200 100,1150" fill="none" stroke="none"></path>
   <image href="images/ghost.png" width="350" height="350">
     <animateMotion dur="20s" repeatCount="indefinite" rotate="auto">
@@ -404,7 +405,7 @@
 </g>
 
 <!-- 🧙‍♀️ 魔女の演出（右上→左中段へ滑らかに滑空） -->
-<g id="witchGroup" style="display: inline;">
+<g id="witchGroup" style="display: none;">
   <!-- 魔女の飛行ルート：三次ベジェで滑らかに -->
   <path id="witchPath" d="M900,200 C700,250 500,350 300,450 C200,500 100,550 0,600" fill="none" stroke="none"></path>
 
@@ -416,37 +417,37 @@
 </g>
 
 <!-- 🎃 おばけかぼちゃの演出（揺れる） -->
-<g id="pumpkinGroup" style="display: inline;">
+<g id="pumpkinGroup" style="display: none;">
   <image href="images/pumpkin.png" x="760" y="1250" width="100" height="100" class="pumpkin-shake"></image>
 </g>
 
 <!-- 🐱 おばけ猫の演出（揺れる） -->
-<g id="catGroup" style="display: inline;">
+<g id="catGroup" style="display: none;">
   <image href="images/cat.png" x="25" y="245" width="40" height="40" class="pumpkin-shake"></image>
 </g>
   
   <!-- ゴーストツリーの演出（揺れる） -->
-<g class="ghostGroup" style="display: inline;">
+<g class="ghostGroup" style="display: none;">
   <image href="images/ghosttree.png" x="200" y="180" width="60" height="60" class="pumpkin-shake-reverse"></image>
 </g>
 
     <!-- ゴーストツリー2の演出（揺れる） -->
-<g class="ghostGroup" style="display: inline;">
+<g class="ghostGroup" style="display: none;">
   <image href="images/ghosttree2.png" x="90" y="1220" width="80" height="80" class="pumpkin-shake-reverse"></image>
 </g>
 
       <!-- ゴーストツリー3の演出（揺れる） -->
-<g class="ghostGroup" style="display: inline;">
+<g class="ghostGroup" style="display: none;">
   <image href="images/ghosttree3.png" x="230" y="350" width="80" height="80" class="pumpkin-shake-reverse"></image>
 </g>
 
         <!-- ゴーストツリー4の演出（揺れる） -->
-<g class="ghostGroup" style="display: inline;">
+<g class="ghostGroup" style="display: none;">
   <image href="images/ghosttree4.png" x="600" y="330" width="60" height="60" class="pumpkin-shake-reverse"></image>
 </g>
 
   <!-- 👻 おばけ2の演出（揺れる） -->
-<g id="ghost2Group" style="display: inline;">
+<g id="ghost2Group" style="display: none;">
   <image href="images/ghost2.png" x="35" y="1300" width="120" height="120" class="pumpkin-shake"></image>
 </g>
 
@@ -463,9 +464,9 @@
 </g>
   -->
 
-  <!-- 🎅 サンタの演出（空を滑空） -->
-  <g id="santaGroup" style="display: inline;">
-  <path id="santaPath" d="M1000,150 C800,100 600,200 400,300 C300,350 150,400 -50,450" fill="none" stroke="none"></path>
+<!-- 🎅 サンタの演出（空を滑空） -->
+<g id="santaGroup" style="display: inline;">
+  <path id="santaPath" d="M1000,250 C800,200 600,300 400,400 C300,450 150,500 -50,550" fill="none" stroke="none"></path>
   <image href="images/santa_flying.png" width="220" height="220" transform="rotate(180 110 110)">
     <animateMotion dur="18s" repeatCount="indefinite" rotate="auto">
       <mpath href="#santaPath"></mpath>
@@ -475,37 +476,37 @@
 
 <!-- 🦌 トナカイ -->
 <g id="deerGroup" style="display: inline;">
-  <image href="images/deer.png" x="80" y="1180" width="100" height="100" class="xmas-shake delay-0"></image>
+  <image href="images/deer.png" x="180" y="1195" width="100" height="100" class="xmas-shake delay-0"></image>
 </g>
 
 <!-- 🎅 サンタ（緑） -->
 <g id="santaGreenGroup" style="display: inline;">
-  <image href="images/santa_green.png" x="80" y="1180" width="100" height="100" class="xmas-shake delay-1"></image>
+  <image href="images/santa_green.png" x="335" y="572" width="80" height="80" class="xmas-shake delay-1"></image>
 </g>
 
 <!-- 🎅 サンタ（オレンジ） -->
 <g id="santaOrangeGroup" style="display: inline;">
-  <image href="images/santa_orange.png" x="720" y="1240" width="80" height="80" class="xmas-shake-reverse delay-2"></image>
+  <image href="images/santa_orange.png" x="680" y="1100" width="100" height="100" class="xmas-shake-reverse delay-2"></image>
 </g>
 
 <!-- 🎅 サンタ（ピンク） -->
 <g id="santaPinkGroup" style="display: inline;">
-  <image href="images/santa_pink.png" x="500" y="160" width="60" height="60" class="xmas-shake delay-3"></image>
+  <image href="images/santa_pink.png" x="460" y="350" width="60" height="60" class="xmas-shake delay-3"></image>
 </g>
 
 <!-- 🎅 サンタ（スカイブルー） -->
 <g id="santaSkyblueGroup" style="display: inline;">
-  <image href="images/santa_skyblue.png" x="500" y="160" width="60" height="60" class="xmas-shake delay-4"></image>
+  <image href="images/santa_skyblue.png" x="680" y="260" width="60" height="60" class="xmas-shake delay-4"></image>
 </g>
 
 <!-- 👑 サンタキング -->
 <g id="santaKingGroup" style="display: inline;">
-  <image href="images/santa_king.png" x="400" y="160" width="60" height="60" class="xmas-shake delay-5"></image>
+  <image href="images/santa_king.png" x="10" y="220" width="60" height="60" class="xmas-shake delay-5"></image>
 </g>
 
 <!-- 👑 サンタクイーン -->
 <g id="santaQueenGroup" style="display: inline;">
-  <image href="images/santa_queen.png" x="300" y="160" width="60" height="60" class="xmas-shake delay-6"></image>
+  <image href="images/santa_queen.png" x="224" y="450" width="60" height="60" class="xmas-shake delay-6"></image>
 </g>
 
 
@@ -665,6 +666,7 @@
 
 </svg>
 
+
 <div id="back-to-nap" role="button" tabindex="0" onclick="goToNap()">📅 なっぷで予約</div>
 
 <script>
@@ -747,6 +749,7 @@ if (isChristmas) {
   
 </body>
 </html>
+
 
 
 
