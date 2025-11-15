@@ -477,13 +477,7 @@
 <!-- 🎅 サンタの演出（空を滑空） -->
 <g id="santaGroup" style="display: inline;">
   <path id="santaPath" d="M1000,250 C800,200 600,300 400,400 C300,450 150,500 -50,550" fill="none" stroke="none"></path>
-<image
-  href="images/santa_flying.png"
-  width="300"
-  height="300"
-  transform="rotate(180 110 110)"
-  class="santa-fade"
->
+<image href="images/santa_flying.png" width="300" height="300" transform="rotate(180 110 110)" class="santa-fade">
   <animateMotion dur="18s" repeatCount="indefinite" rotate="auto">
     <mpath href="#santaPath"></mpath>
   </animateMotion>
@@ -517,12 +511,12 @@
 
 <!-- 👑 サンタキング -->
 <g id="santaKingGroup" style="display: inline;">
-  <image href="images/santa_king.png" x="10" y="220" width="60" height="60" class="xmas-shake delay-5"></image>
+  <image href="images/santa_king.png" x="10" y="220" width="80" height="80" class="xmas-shake delay-5"></image>
 </g>
 
 <!-- 👑 サンタクイーン -->
 <g id="santaQueenGroup" style="display: inline;">
-  <image href="images/santa_queen.png" x="224" y="450" width="60" height="60" class="xmas-shake delay-6"></image>
+  <image href="images/santa_queen.png" x="215" y="445" width="80" height="80" class="xmas-shake delay-6"></image>
 </g>
 
 
@@ -682,7 +676,6 @@
 
 </svg>
 
-
 <div id="back-to-nap" role="button" tabindex="0" onclick="goToNap()">📅 なっぷで予約</div>
 
 <script>
@@ -765,6 +758,7 @@ if (isChristmas) {
   
 </body>
 </html>
+
 
 
 
