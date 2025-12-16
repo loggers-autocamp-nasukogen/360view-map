@@ -676,7 +676,24 @@
 
 </svg>
 
-<div id="back-to-nap" role="button" tabindex="0" onclick="goToNap()">📅 なっぷで予約</div>
+<!-- 🔗 なっぷ予約ウィジェット -->
+<div id="nap-widget-container" style="text-align:center; margin: 10px 0;">
+  <iframe 
+    width="270" 
+    height="280" 
+    scrolling="no" 
+    style="border:none; margin:0; padding:0;" 
+    src="https://www.nap-camp.com/widget/search/15675/" 
+    allowtransparency="true">
+  </iframe>
+</div>
+
+<!-- 📅 ボタン -->
+<div id="back-to-nap" role="button" tabindex="0" onclick="goToNap()" 
+     style="cursor:pointer; text-align:center; margin-top:8px;">
+  📅 なっぷで予約
+</div>
+
 
 <script>
 function goToNap() {
@@ -758,45 +775,3 @@ if (isChristmas) {
   
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
