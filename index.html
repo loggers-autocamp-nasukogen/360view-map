@@ -677,7 +677,20 @@
 </svg>
 
 <!-- 🔗 なっぷ予約ウィジェット -->
-<div id="nap-widget-container" style="text-align:center; margin: 10px 0;">
+<div id="nap-widget-container" 
+     style="background:#f5f2e9; /* 木の温もりを感じる淡いベージュ */
+            border:3px solid #4a3c2a; /* ロガーズのロゴカラーに近いブラウン */
+            border-radius:12px;
+            padding:12px;
+            max-width:300px;
+            margin:20px auto;
+            box-shadow:0 4px 8px rgba(0,0,0,0.15);
+            font-family:'Noto Sans JP','Hiragino Sans','sans-serif';">
+  
+  <h3 style="text-align:center; color:#4a3c2a; margin-bottom:8px;">
+    🌲 LOGGERSで予約
+  </h3>
+  
   <iframe 
     width="270" 
     height="280" 
@@ -690,7 +703,9 @@
 
 <!-- 📅 ボタン -->
 <div id="back-to-nap" role="button" tabindex="0" onclick="goToNap()" 
-     style="cursor:pointer; text-align:center; margin-top:8px;">
+     style="cursor:pointer; text-align:center; margin-top:12px;
+            background:#4a3c2a; color:#fff; padding:10px 16px;
+            border-radius:8px; font-weight:bold;">
   📅 なっぷで予約
 </div>
 
@@ -775,3 +790,4 @@ if (isChristmas) {
   
 </body>
 </html>
+
