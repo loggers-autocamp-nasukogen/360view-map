@@ -2,194 +2,179 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>ロガーズオートキャンプ那須高原 360°ビュー</title>
+  <title>ロガーズオートキャンプ那須高原 360°ビュー (施設紹介)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
   <style>
-   html, body {
+    html, body {
       height: 100%;
       margin: 0;
       overflow: hidden;
       touch-action: manipulation;
       font-family: 'M PLUS Rounded 1c', sans-serif;
-      background-color: #f0f4f1;
     }
 
-   /* 戻る */
-   #back-button {
-  position: absolute;
-  top: 12px;
-  left: 12px; /* ✅ 右上 → 左上に変更 */
-  background:  #333;
-  color: #fff;
-  padding: 10px 14px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  font-size: 16px;
-  cursor: pointer;
-  z-index: 100;
-}
-
-#back-button:hover {
-  background: #f0f0f0;
-}
-
-
-    /* ハンバーガーメニュー */
-    #menu-toggle {
+    /* --- 上部：ナビゲーションエリア --- */
+    .top-nav {
       position: fixed;
       top: 12px;
-      right: 12px;
-      background-color: #333;
-      color: #fff;
-      padding: 10px 14px;
-      border-radius: 8px;
-      font-size: 16px;
-      z-index: 15;
-      cursor: pointer;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    }
-
-    /* 折りたたみメニュー本体 */
-    #zone-menu {
-      position: fixed;
-      bottom: 0;
       left: 0;
       width: 100%;
-      background-color: rgba(255,255,255,0.95);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0 8px;
+      box-sizing: border-box;
+      z-index: 100;
+    }
+
+    .nav-group-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+
+    .nav-btn-sub {
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: bold;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      white-space: nowrap;
+    }
+
+    /* 雪景色ボタンのスタイル */
+    #season-toggle { background: rgba(255, 255, 255, 0.9); color: #333; }
+    .winter-mode-active { background: #e3f2fd !important; color: #1565c0 !important; border: 1px solid #1565c0 !important; }
+    /* 雪景色がない地点ではボタンを半透明にする（オプション） */
+    .no-winter { opacity: 0.5; }
+
+    /* カメラ選択メニュー */
+    #zone-menu {
+      position: fixed;
+      top: 60px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
       padding: 10px;
       display: none;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      z-index: 15;
-      box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
+      flex-direction: column;
+      gap: 6px;
+      z-index: 110;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
     }
 
-    button {
-      padding: 10px 14px;
-      font-size: 14px;
-      font-weight: bold;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      color: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-
-    .zone-a { background-color: #2E7D32; }
-    .zone-b { background-color: #8D6E63; }
-    .zone-c { background-color: #283593; }
-    .zone-d { background-color: #BF360C; }
-    .zone-e { background-color: #EF6C00; }
-    .zone-f { background-color: #00796B; }
-
-    button:hover {
-      transform: scale(1.05);
-    }
-
-    @media screen and (min-width: 768px) {
-      #zone-menu {
-        position: absolute;
-        top: 60px;
-        left: 20px;
-        width: auto;
-        background-color: rgba(255,255,255,0.9);
-        flex-direction: column;
-        padding: 12px;
-        border-radius: 12px;
-      }
-
-      #menu-toggle {
-        top: 20px;
-        right: 20px;
-      }
-    }
+    .zone-btn { padding: 12px 16px; font-size: 14px; font-weight: bold; border: none; border-radius: 8px; color: #fff; cursor: pointer; text-align: left; }
+    .btn-facility { background-color: #546e7a; } 
+    .btn-house { background-color: #795548; }    
   </style>
 </head>
   
 <body>
- <!-- 戻る -->
-<div id="back-button" onclick="goBack()">🔙 MAPに戻る</div>
-  
-  <!-- ハンバーガーメニュー -->
-  <div id="menu-toggle" onclick="toggleMenu()">☰ 📷カメラ選択</div>
 
-  <!-- 折りたたみメニュー -->
-  <div id="zone-menu">
-    <button class="zone-a" onclick="switchScene('a')">センターハウス前①</button>
-    <button class="zone-b" onclick="switchScene('b')">センターハウス前②</button>
-    <button class="zone-c" onclick="switchScene('c')">炊事場</button>
-    <button class="zone-d" onclick="switchScene('d')">シャワー室　前🚿</button>
-    <button class="zone-e" onclick="switchScene('e')">ゴミステーション</button>
-    <button class="zone-f" onclick="switchScene('f')">シャワー室　廊下🚿</button>
+  <div class="top-nav">
+    <a href="https://loggers-autocamp-nasukogen.github.io/360view-map/" class="nav-btn-sub">🔙 MAPに戻る</a>
+    <div class="nav-group-right">
+      <div class="nav-btn-sub" onclick="toggleMenu()">📷 地点選択</div>
+      <div id="season-toggle" class="nav-btn-sub" onclick="toggleSeason()">⛄ <span id="season-text">雪景色</span></div>
+    </div>
   </div>
 
-  <!-- A-Frameシーン -->
-<a-scene embedded vr-mode-ui="enabled: false" xr-mode-ui="enabled: false">
-  <a-assets>
-    <img id="sky-a" src="images/frontcenterhouse2.webp">
-    <img id="sky-b" src="images/front_centerhouse.webp">
-    <img id="sky-c" src="images/kitchen.webp">
-    <img id="sky-d" src="images/front_shower_room.webp">
-    <img id="sky-e" src="images/garbage_station.webp">
-    <img id="sky-f" src="images/shower_room1.webp">
-  </a-assets>
-  <a-sky id="sky" src="#sky-a" rotation="0 -90 0"></a-sky>
-<a-entity id="camera" camera look-controls="smoothingFactor: 0.01" position="0 1.6 0"></a-entity>
-</a-scene>
+  <div id="zone-menu">
+    <button class="zone-btn btn-house" onclick="switchScene('a')">🏠 センターハウス前①</button>
+    <button class="zone-btn btn-house" onclick="switchScene('b')">🏠 センターハウス前②</button>
+    <button class="zone-btn btn-facility" onclick="switchScene('c')">🍽️ 炊事場</button>
+    <button class="zone-btn btn-facility" onclick="switchScene('d')">🚿 シャワー室 前</button>
+    <button class="zone-btn btn-facility" onclick="switchScene('f')">🚿 シャワー室 廊下</button>
+    <button class="zone-btn btn-facility" onclick="switchScene('e')">🚮 ゴミステーション</button>
+  </div>
 
-  <!-- JavaScript -->
- <script>
-     function goBack() {
-    // 例：トップページに戻る
-    window.location.href = "https://loggers-autocamp-nasukogen.github.io/360view-map/";
-  }
-     function toggleMenu() {
-    const menu = document.getElementById('zone-menu');
-    // 初期状態が display: none の場合、flex に切り替える
-    menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
-  }
-      function switchScene(zone) {
-        const sky = document.querySelector('#sky');
-        const camera = document.querySelector('#camera');
+  <a-scene embedded vr-mode-ui="enabled: false" xr-mode-ui="enabled: false">
+    <a-assets>
+      <img id="sky-a" src="images/frontcenterhouse2.webp">
+      <img id="sky-b" src="images/front_centerhouse.webp">
+      <img id="sky-c" src="images/kitchen.webp">
+      <img id="sky-d" src="images/front_shower_room.webp">
+      <img id="sky-e" src="images/garbage_station.webp">
+      <img id="sky-f" src="images/shower_room1.webp">
+      <img id="sky-a-winter" src="images/frontcenterhouse2_winter.webp">
+    </a-assets>
+    <a-sky id="sky" src="#sky-a" rotation="0 -90 0"></a-sky>
+    <a-entity id="camera" camera look-controls="smoothingFactor: 0.01" position="0 1.6 0"></a-entity>
+  </a-scene>
 
-        switch (zone) {
-          case 'a':
-            sky.setAttribute('src', '#sky-a');
-            camera.setAttribute('position', '0 1.6 0');
-            break;
-          case 'b':
-            sky.setAttribute('src', '#sky-b');
-            camera.setAttribute('position', '0 1.6 0');
-            break;
-          case 'c':
-            sky.setAttribute('src', '#sky-c');
-            camera.setAttribute('position', '0 1.6 0');
-            break;
-          case 'd':
-            sky.setAttribute('src', '#sky-d');
-            camera.setAttribute('position', '0 1.6 0');
-            break;
-          case 'e':
-            sky.setAttribute('src', '#sky-e');
-            camera.setAttribute('position', '0 1.6 0');
-            break;
-          case 'f':
-            sky.setAttribute('src', '#sky-f');
-            camera.setAttribute('position', '0 1.6 0');
-            break;
-        }
+  <script>
+    let isWinter = false;
+    let currentZone = 'a';
+
+    // 雪景色が存在するファイル名のリスト
+    const winterAvailable = ['a']; 
+
+    const zoneFiles = { 
+      'a':'frontcenterhouse2', 
+      'b':'front_centerhouse', 
+      'c':'kitchen', 
+      'd':'front_shower_room', 
+      'e':'garbage_station', 
+      'f':'shower_room1' 
+    };
+
+    function toggleMenu() {
+      const menu = document.getElementById('zone-menu');
+      menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+    }
+
+    function toggleSeason() {
+      isWinter = !isWinter;
+      updateScene();
+    }
+
+    function switchScene(zone) {
+      currentZone = zone;
+      document.getElementById('zone-menu').style.display = 'none';
+      updateScene();
+    }
+
+    function updateScene() {
+      const sky = document.querySelector('#sky');
+      const btn = document.getElementById('season-toggle');
+      const text = document.getElementById('season-text');
+      
+      // UIの更新
+      if (isWinter) {
+        btn.classList.add('winter-mode-active');
+        text.innerText = "通常表示";
+      } else {
+        btn.classList.remove('winter-mode-active');
+        text.innerText = "雪景色";
       }
-    </script>
+
+      // 画像の切り替え
+      // currentZoneが 'a' かつ isWinterがtrueの場合のみ冬景色、それ以外は通常
+      if (isWinter && winterAvailable.includes(currentZone)) {
+        sky.setAttribute('src', '#sky-a-winter');
+      } else {
+        sky.setAttribute('src', `#sky-${currentZone}`);
+      }
+
+      // 【おまけ】雪景色がない地点ではボタンを少し薄くして「今は使えない」ことを示す演出
+      if (winterAvailable.includes(currentZone)) {
+        btn.style.opacity = "1.0";
+      } else {
+        btn.style.opacity = "0.4"; 
+      }
+    }
+
+    // 初期化時にボタン状態を確認
+    updateScene();
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
