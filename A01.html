@@ -14,26 +14,34 @@
       font-family: 'M PLUS Rounded 1c', sans-serif;
     }
 
-    /* --- 上部：ナビゲーションエリア --- */
+/* --- 上部：ナビゲーションエリア --- */
     .top-nav {
       position: fixed;
-      top: 15px;
+      top: 12px;
       left: 0;
       width: 100%;
       display: flex;
       justify-content: space-between;
-      padding: 0 12px;
+      align-items: flex-start; /* 上揃え */
+      padding: 0 8px; /* 左右の余白を少し詰める */
       box-sizing: border-box;
       z-index: 100;
     }
 
-    /* 補助ボタン共通（戻る・カメラ・季節） */
+    .nav-group-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+
+    /* 補助ボタン共通 */
     .nav-btn-sub {
       background: rgba(0, 0, 0, 0.6);
       color: #fff;
-      padding: 10px 14px;
-      border-radius: 12px;
-      font-size: 13px;
+      padding: 8px 10px; /* 少しスリムに */
+      border-radius: 10px;
+      font-size: 12px; /* 1px小さくして1行に収める */
       font-weight: bold;
       text-decoration: none;
       border: 1px solid rgba(255, 255, 255, 0.2);
@@ -41,7 +49,12 @@
       align-items: center;
       cursor: pointer;
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      transition: background-color 0.3s;
+      white-space: nowrap; /* 改行を禁止 */
+    }
+
+    #season-toggle {
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
     }
 
     /* 雪景色切り替えボタン特有のデザイン */
@@ -129,17 +142,17 @@
   
 <body>
 
-  <div class="top-nav">
+<div class="top-nav">
     <a href="https://loggers-autocamp-nasukogen.github.io/360view-map/" class="nav-btn-sub">
-      🔙 全体マップ
+      🔙 MAP
     </a>
     
-    <div style="display: flex; flex-direction: column; align-items: flex-end;">
+    <div class="nav-group-right">
       <div class="nav-btn-sub" onclick="toggleMenu()">
         📷 カメラ選択
       </div>
       <div id="season-toggle" class="nav-btn-sub" onclick="toggleSeason()">
-        ⛄ <span id="season-text">雪景色を見る</span>
+        ⛄ <span id="season-text">雪景色</span>
       </div>
     </div>
   </div>
@@ -229,4 +242,5 @@
   </script>
 </body>
 </html>
+
 
