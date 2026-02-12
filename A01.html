@@ -12,80 +12,88 @@
       overflow: hidden;
       touch-action: manipulation;
       font-family: 'M PLUS Rounded 1c', sans-serif;
-      background-color: #f0f4f1;
     }
 
-    /* 共通ボタン設定 */
-    .ui-button {
-      position: absolute;
-      padding: 10px 14px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
+    /* --- 上部ナビゲーションエリア --- */
+    .top-nav {
+      position: fixed;
+      top: 15px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 15px;
+      box-sizing: border-box;
       z-index: 100;
+    }
+
+    .nav-btn {
+      background: rgba(0, 0, 0, 0.6); /* 背景を少し透過させて景観を邪魔しない */
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
       text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.3);
       display: flex;
       align-items: center;
-      transition: transform 0.2s, background-color 0.2s;
-      border: none;
+      cursor: pointer;
     }
 
-    .ui-button:active {
+    /* --- 予約ボタン（画面下中央） --- */
+    .reserve-container {
+      position: fixed;
+      bottom: 30px; /* 下から少し浮かせて押しやすく */
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: 90%;
+      max-width: 300px;
+    }
+
+    .btn-reserve-main {
+      display: block;
+      background: #ff9800; /* キャンプ予約で定番のオレンジ */
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      border-radius: 50px; /* 丸みのある目立つデザイン */
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      border: 2px solid #fff;
+      transition: transform 0.2s;
+    }
+
+    .btn-reserve-main:active {
       transform: scale(0.95);
     }
 
-    /* ✅ 戻るボタン（左上） */
-    #back-button {
-      top: 12px;
-      left: 12px;
-      background: rgba(51, 51, 51, 0.9);
-      color: #fff;
-    }
-
-    /* ✅ 予約ボタン（右上：オレンジ） */
-    #reserve-button {
-      top: 12px;
-      right: 12px;
-      background: #ff9800;
-      color: #fff;
-      border: 1px solid #ef6c00;
-    }
-
-    /* ハンバーガーメニュー（予約ボタンの下に配置） */
-    #menu-toggle {
-      top: 65px; /* 予約ボタンと重ならないよう調整 */
-      right: 12px;
-      background: rgba(51, 51, 51, 0.9);
-      color: #fff;
-    }
-
-    /* 折りたたみメニュー本体 */
+    /* カメラメニュー */
     #zone-menu {
       position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: rgba(255,255,255,0.95);
+      top: 60px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
       padding: 10px;
       display: none;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
       gap: 8px;
       z-index: 110;
-      box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
     .zone-btn {
-      padding: 10px 14px;
+      padding: 10px 15px;
       font-size: 14px;
       font-weight: bold;
       border: none;
-      border-radius: 10px;
-      cursor: pointer;
+      border-radius: 8px;
       color: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      cursor: pointer;
     }
 
     .zone-a { background-color: #2E7D32; }
@@ -95,41 +103,36 @@
     .zone-e { background-color: #EF6C00; }
     .zone-f { background-color: #00796B; }
 
-    @media screen and (min-width: 768px) {
-      #zone-menu {
-        position: absolute;
-        top: 120px;
-        left: 20px;
-        width: auto;
-        height: fit-content;
-        background-color: rgba(255,255,255,0.9);
-        flex-direction: column;
-        padding: 12px;
-        border-radius: 12px;
-        bottom: auto;
-      }
+    @media screen and (max-width: 480px) {
+      .btn-reserve-main { font-size: 16px; padding: 12px 0; }
     }
   </style>
 </head>
   
 <body>
-  <a href="https://loggers-autocamp-nasukogen.github.io/360view-map/" class="ui-button" id="back-button">
-    <span style="margin-right:5px;">🔙</span> MAPに戻る
-  </a>
 
-  <a href="https://www.nap-camp.com/tochigi/14717" target="_blank" class="ui-button" id="reserve-button">
-    <span style="margin-right:5px;">📅</span> 予約する
-  </a>
-  
-  <div class="ui-button" id="menu-toggle" onclick="toggleMenu()">☰ 📷 カメラ選択</div>
+  <div class="top-nav">
+    <a href="https://loggers-autocamp-nasukogen.github.io/360view-map/" class="nav-btn">
+      🔙 全体マップ
+    </a>
+    <div class="nav-btn" onclick="toggleMenu()">
+      📷 カメラ選択
+    </div>
+  </div>
+
+  <div class="reserve-container">
+    <a href="https://www.nap-camp.com/tochigi/15675/plans/20045691" target="_blank" class="btn-reserve-main">
+      📅 この区画を予約する
+    </a>
+  </div>
 
   <div id="zone-menu">
     <button class="zone-btn zone-a" onclick="switchScene('a')">A01⛺</button>
     <button class="zone-btn zone-b" onclick="switchScene('b')">センターハウス内</button>
     <button class="zone-btn zone-c" onclick="switchScene('c')">センターハウス前</button>
-    <button class="zone-btn zone-btn zone-d" onclick="switchScene('d')">こかげの公園</button>
-    <button class="zone-btn zone-btn zone-e" onclick="switchScene('e')">シャワー室</button>
-    <button class="zone-btn zone-btn zone-f" onclick="switchScene('f')">炊事場</button>
+    <button class="zone-btn zone-d" onclick="switchScene('d')">こかげの公園</button>
+    <button class="zone-btn zone-e" onclick="switchScene('e')">シャワー室</button>
+    <button class="zone-btn zone-f" onclick="switchScene('f')">炊事場</button>
   </div>
 
   <a-scene embedded vr-mode-ui="enabled: false" xr-mode-ui="enabled: false">
@@ -153,10 +156,7 @@
 
     function switchScene(zone) {
       const sky = document.querySelector('#sky');
-      const camera = document.querySelector('#camera');
-      // メニューを閉じる
       document.getElementById('zone-menu').style.display = 'none';
-
       switch (zone) {
         case 'a': sky.setAttribute('src', '#sky-a'); break;
         case 'b': sky.setAttribute('src', '#sky-b'); break;
@@ -165,7 +165,6 @@
         case 'e': sky.setAttribute('src', '#sky-e'); break;
         case 'f': sky.setAttribute('src', '#sky-f'); break;
       }
-      camera.setAttribute('rotation', '0 0 0'); // 視点をリセット
     }
   </script>
 </body>
