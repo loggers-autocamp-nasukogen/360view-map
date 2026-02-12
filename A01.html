@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>ロガーズオートキャンプ那須高原 360°ビュー</title>
+  <title>ロガーズオートキャンプ那須高原 360°ビュー (A01)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
   <style>
@@ -14,7 +14,7 @@
       font-family: 'M PLUS Rounded 1c', sans-serif;
     }
 
-    /* --- 上部ナビゲーションエリア --- */
+    /* --- 上部：ナビゲーションエリア --- */
     .top-nav {
       position: fixed;
       top: 15px;
@@ -22,47 +22,64 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
-      padding: 0 15px;
+      padding: 0 12px;
       box-sizing: border-box;
       z-index: 100;
     }
 
-    .nav-btn {
-      background: rgba(0, 0, 0, 0.6); /* 背景を少し透過させて景観を邪魔しない */
+    /* 補助ボタン共通（戻る・カメラ・季節） */
+    .nav-btn-sub {
+      background: rgba(0, 0, 0, 0.6);
       color: #fff;
-      padding: 8px 15px;
-      border-radius: 20px;
-      font-size: 14px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 13px;
       font-weight: bold;
       text-decoration: none;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       display: flex;
       align-items: center;
       cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      transition: background-color 0.3s;
     }
 
-    /* --- 予約ボタン（画面下中央） --- */
-    .reserve-container {
+    /* 雪景色切り替えボタン特有のデザイン */
+    #season-toggle {
+      margin-top: 8px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      border: 1px solid #ddd;
+    }
+    
+    .winter-mode-active {
+      background: #e3f2fd !important; /* 冬モード時に淡い青色へ */
+      color: #1565c0 !important;
+      border: 1px solid #1565c0 !important;
+    }
+
+    /* --- 下部中央：メイン予約ボタン --- */
+    .bottom-reserve-area {
       position: fixed;
-      bottom: 30px; /* 下から少し浮かせて押しやすく */
+      bottom: 25px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 100;
-      width: 90%;
-      max-width: 300px;
+      width: 85%;
+      max-width: 320px;
     }
 
     .btn-reserve-main {
       display: block;
-      background: #ff9800; /* キャンプ予約で定番のオレンジ */
+      background: #ff9800;
       color: #fff;
       text-align: center;
-      padding: 15px 0;
-      border-radius: 50px; /* 丸みのある目立つデザイン */
+      padding: 16px 0;
+      border-radius: 50px;
       font-size: 18px;
       font-weight: bold;
       text-decoration: none;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
       border: 2px solid #fff;
       transition: transform 0.2s;
     }
@@ -71,29 +88,30 @@
       transform: scale(0.95);
     }
 
-    /* カメラメニュー */
+    /* カメラ選択メニュー（右上に表示） */
     #zone-menu {
       position: fixed;
-      top: 60px;
-      right: 15px;
+      top: 65px;
+      right: 12px;
       background: rgba(255, 255, 255, 0.95);
       border-radius: 12px;
       padding: 10px;
       display: none;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
       z-index: 110;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
     }
 
     .zone-btn {
-      padding: 10px 15px;
+      padding: 12px 16px;
       font-size: 14px;
       font-weight: bold;
       border: none;
       border-radius: 8px;
       color: #fff;
       cursor: pointer;
+      text-align: left;
     }
 
     .zone-a { background-color: #2E7D32; }
@@ -104,7 +122,7 @@
     .zone-f { background-color: #00796B; }
 
     @media screen and (max-width: 480px) {
-      .btn-reserve-main { font-size: 16px; padding: 12px 0; }
+      .btn-reserve-main { font-size: 17px; padding: 14px 0; }
     }
   </style>
 </head>
@@ -112,22 +130,28 @@
 <body>
 
   <div class="top-nav">
-    <a href="https://loggers-autocamp-nasukogen.github.io/360view-map/" class="nav-btn">
+    <a href="https://loggers-autocamp-nasukogen.github.io/360view-map/" class="nav-btn-sub">
       🔙 全体マップ
     </a>
-    <div class="nav-btn" onclick="toggleMenu()">
-      📷 カメラ選択
+    
+    <div style="display: flex; flex-direction: column; align-items: flex-end;">
+      <div class="nav-btn-sub" onclick="toggleMenu()">
+        📷 カメラ選択
+      </div>
+      <div id="season-toggle" class="nav-btn-sub" onclick="toggleSeason()">
+        ⛄ <span id="season-text">雪景色を見る</span>
+      </div>
     </div>
   </div>
 
-  <div class="reserve-container">
-    <a href="https://www.nap-camp.com/tochigi/15675/plans/20045691" target="_blank" class="btn-reserve-main">
+  <div class="bottom-reserve-area">
+    <a href="https://www.nap-camp.com/tochigi/14717" target="_blank" class="btn-reserve-main">
       📅 この区画を予約する
     </a>
   </div>
 
   <div id="zone-menu">
-    <button class="zone-btn zone-a" onclick="switchScene('a')">A01⛺</button>
+    <button class="zone-btn zone-a" onclick="switchScene('a')">A01サイト ⛺</button>
     <button class="zone-btn zone-b" onclick="switchScene('b')">センターハウス内</button>
     <button class="zone-btn zone-c" onclick="switchScene('c')">センターハウス前</button>
     <button class="zone-btn zone-d" onclick="switchScene('d')">こかげの公園</button>
@@ -149,22 +173,58 @@
   </a-scene>
 
   <script>
+    let isWinter = false;
+    let currentZone = 'a';
+
     function toggleMenu() {
       const menu = document.getElementById('zone-menu');
       menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
     }
 
-    function switchScene(zone) {
-      const sky = document.querySelector('#sky');
-      document.getElementById('zone-menu').style.display = 'none';
-      switch (zone) {
-        case 'a': sky.setAttribute('src', '#sky-a'); break;
-        case 'b': sky.setAttribute('src', '#sky-b'); break;
-        case 'c': sky.setAttribute('src', '#sky-c'); break;
-        case 'd': sky.setAttribute('src', '#sky-d'); break;
-        case 'e': sky.setAttribute('src', '#sky-e'); break;
-        case 'f': sky.setAttribute('src', '#sky-f'); break;
+    // 季節切り替え
+    function toggleSeason() {
+      isWinter = !isWinter;
+      const btn = document.getElementById('season-toggle');
+      const text = document.getElementById('season-text');
+
+      if (isWinter) {
+        btn.classList.add('winter-mode-active');
+        text.innerText = "通常に戻す";
+      } else {
+        btn.classList.remove('winter-mode-active');
+        text.innerText = "雪景色を見る";
       }
+      updateScene();
+    }
+
+    // エリア切り替え
+    function switchScene(zone) {
+      currentZone = zone;
+      document.getElementById('zone-menu').style.display = 'none';
+      updateScene();
+    }
+
+    // 画像の実際の更新処理
+    function updateScene() {
+      const sky = document.querySelector('#sky');
+      let targetSrc = "";
+
+      // 冬モードかつA01の場合のみ A01_winter.webp を使用
+      if (isWinter && currentZone === 'a') {
+        targetSrc = "images/A01_winter.webp";
+      } else {
+        // 通常時、またはA01以外（冬画像がない場合）の分岐
+        switch (currentZone) {
+          case 'a': targetSrc = "#sky-a"; break;
+          case 'b': targetSrc = "#sky-b"; break;
+          case 'c': targetSrc = "#sky-c"; break;
+          case 'd': targetSrc = "#sky-d"; break;
+          case 'e': targetSrc = "#sky-e"; break;
+          case 'f': targetSrc = "#sky-f"; break;
+        }
+      }
+      
+      sky.setAttribute('src', targetSrc);
     }
   </script>
 </body>
