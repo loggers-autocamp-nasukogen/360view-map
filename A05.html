@@ -119,8 +119,8 @@
       text-align: left;
     }
 
-    .zone-a { background-color: #2E7D32; } /* A05 中央 */
-    .zone-b { background-color: #546E7A; } /* A05 駐車場 */
+    .zone-a { background-color: #2E7D32; }
+    .zone-b { background-color: #546E7A; }
     .zone-c { background-color: #283593; }
     .zone-d { background-color: #BF360C; }
     .zone-e { background-color: #EF6C00; }
@@ -189,7 +189,9 @@
 
       if (isWinter) {
         btn.classList.add('winter-mode-active');
-        text.innerText = "通常";
+        text.innerText = "通常表示";
+        // 雪景色画像があるのは中央サイト(a)のみなので、強制的に視点を移動させる
+        currentZone = 'a';
       } else {
         btn.classList.remove('winter-mode-active');
         text.innerText = "雪景色";
@@ -199,6 +201,15 @@
 
     function switchScene(zone) {
       currentZone = zone;
+      // 雪景色モード中に「冬画像がない視点（駐車場など）」に切り替えようとした場合、雪景色モードを自動解除する
+      if (isWinter && zone !== 'a') {
+        isWinter = false;
+        const btn = document.getElementById('season-toggle');
+        const text = document.getElementById('season-text');
+        btn.classList.remove('winter-mode-active');
+        text.innerText = "雪景色";
+      }
+      
       document.getElementById('zone-menu').style.display = 'none';
       updateScene();
     }
@@ -207,34 +218,21 @@
       const sky = document.querySelector('#sky');
       let targetSrc = "";
 
-      // 雪景色モードの判定
-      if (isWinter) {
-        if (currentZone === 'a') {
-          targetSrc = "images/A05_up_winter.webp";
-        } else if (currentZone === 'b') {
-          targetSrc = "images/A05_park_up_winter.webp";
-        } else {
-          // A05以外（共用施設）に雪景色画像がない場合は通常画像を表示
-          targetSrc = getDefaultSrc(currentZone);
-        }
+      // 雪景色は「中央(a) かつ 冬モード(isWinter)」の時だけ表示
+      if (isWinter && currentZone === 'a') {
+        targetSrc = "images/A05_up_winter.webp";
       } else {
-        targetSrc = getDefaultSrc(currentZone);
+        // それ以外はすべて通常の登録画像
+        switch (currentZone) {
+          case 'a': targetSrc = "#sky-a"; break;
+          case 'b': targetSrc = "#sky-b"; break;
+          case 'c': targetSrc = "#sky-c"; break;
+          case 'd': targetSrc = "#sky-d"; break;
+          case 'e': targetSrc = "#sky-e"; break;
+          case 'f': targetSrc = "#sky-f"; break;
+        }
       }
-      
       sky.setAttribute('src', targetSrc);
-    }
-
-    // 通常画像のソースを取得する補助関数
-    function getDefaultSrc(zone) {
-      switch (zone) {
-        case 'a': return "#sky-a";
-        case 'b': return "#sky-b";
-        case 'c': return "#sky-c";
-        case 'd': return "#sky-d";
-        case 'e': return "#sky-e";
-        case 'f': return "#sky-f";
-        default: return "#sky-a";
-      }
     }
   </script>
 </body>
