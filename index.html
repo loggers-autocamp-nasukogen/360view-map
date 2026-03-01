@@ -10,11 +10,19 @@
 <meta name="keywords" content="ロガーズ,那須,キャンプ場,360度,パノラマ,SITE CHOICE">
   
 <style>
-  body {
-    font-family: "Rounded Mplus 1c, Noto Sans JP", "Helvetica Neue", sans-serif;
-    background-color: #f0f8ff;
-    text-align: center;
-  }
+body {
+      margin: 0;
+      padding: 20px 10px;
+      /* 羊皮紙の質感を表現するベースカラーとパターン */
+      background-color: #dcd0b9; 
+      background-image: 
+        radial-gradient(#e6dabf 1px, transparent 1px),
+        linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 20px 20px, 100% 4px;
+      font-family: "Rounded Mplus 1c", "Hiragino Maru Gothic ProN", sans-serif;
+      color: #4a3c2a;
+      text-align: center;
+    }
 
   h2 {
     margin-top: 20px;
@@ -40,6 +48,16 @@
   border-left: 6px solid #D1B077; /* アクセントラインで視線誘導 */
   line-height: 1.6;
 }
+
+  /* マップ配置用コンテナ */
+    .map-container {
+      display: inline-block;
+      position: relative;
+      max-width: 100%;
+      margin: 0 auto;
+      /* 羊皮紙が浮いているような影 */
+      filter: drop-shadow(0 15px 35px rgba(0,0,0,0.4));
+    }
 
 .hw-banner {
   font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", sans-serif;
@@ -181,6 +199,68 @@
 .santa-fade {
   animation: santaFade 6s ease-in-out infinite;
 }
+
+/* --- なっぷウィジェット（手記・額縁風デザイン） --- */
+  #nap-widget-container {
+    /* インラインで書かれていた色味を、背景画像に合うように統合 */
+    background: #fdf6e3; 
+    border: 10px double #68492F; 
+    border-radius: 4px; /* 羊皮紙に合わせて少し角を立たせる */
+    padding: 20px;
+    max-width: 320px;
+    margin: 40px auto 15px auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    position: relative;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+
+  /* 装飾ラベル：なっぷリザーブの高級感 */
+  #nap-widget-container::before {
+    content: "OFFICIAL RESERVATION";
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    color: #8b6b4d;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #d1b077;
+  }
+
+  #nap-widget-container h3 {
+    margin: 0 0 15px 0;
+    color: #4a3c2a;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  /* --- なっぷTOPボタン（ヴィンテージ看板風） --- */
+  .btn-nap-top {
+    display: inline-block;
+    background: #4a3c2a; 
+    color: #fdf6e3;
+    padding: 16px 45px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 50px;
+    border: 3px solid #D1B077;
+    transition: all 0.2s ease;
+    box-shadow: 0 6px 0 #3e2b1c; /* 立体的なボタン */
+    margin-bottom: 40px;
+    cursor: pointer;
+  }
+
+  /* ボタンを押した時の演出 */
+  .btn-nap-top:hover {
+    background: #68492F;
+    transform: translateY(2px);
+    box-shadow: 0 4px 0 #3e2b1c;
+  }
+
+  .btn-nap-top:active {
+    transform: translateY(6px);
+    box-shadow: none;
+  }
   
 </style>
 
@@ -679,38 +759,21 @@
 
 </svg>
 
-<!-- 🔗 なっぷ予約ウィジェット -->
-<div id="nap-widget-container" 
-     style="background:#f5f2e9; /* 木の温もりを感じる淡いベージュ */
-            border:3px solid #4a3c2a; /* ロガーズのロゴカラーに近いブラウン */
-            border-radius:12px;
-            padding:12px;
-            max-width:300px;
-            margin:20px auto;
-            box-shadow:0 4px 8px rgba(0,0,0,0.15);
-            font-family:'Noto Sans JP','Hiragino Sans','sans-serif';">
-  
-  <h3 style="text-align:center; color:#4a3c2a; margin-bottom:8px;">
-    🌲 なっぷで空き検索
-  </h3>
-  
+<div id="nap-widget-container">
+  <h3>🌲 空き状況をチェック</h3>
   <iframe 
     width="270" 
     height="280" 
     scrolling="no" 
-    style="border:none; margin:0; padding:0;" 
+    style="border:none; background: transparent; display: block; margin: 0 auto;" 
     src="https://www.nap-camp.com/widget/search/15675/" 
     allowtransparency="true">
   </iframe>
 </div>
 
-<!-- 📅 ボタン -->
-<div id="back-to-nap" role="button" tabindex="0" onclick="goToNap()" 
-     style="cursor:pointer; text-align:center; margin-top:12px;
-            background:#4a3c2a; color:#fff; padding:10px 16px;
-            border-radius:8px; font-weight:bold;">
-  📅 なっぷTOP
-</div>
+<a href="https://www.nap-camp.com/tochigi/15675?status=1005" class="btn-nap-top">
+  📅 なっぷ予約サイトへ戻る
+</a>
 
 
 <script>
@@ -793,6 +856,7 @@ if (isChristmas) {
   
 </body>
 </html>
+
 
 
 
