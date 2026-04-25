@@ -67,6 +67,46 @@ body {
   line-height: 1.6;
 }
 
+    /* --- エリアB専用ボタンコンテナ --- */
+.area-b-container {
+  margin: 20px auto;
+  max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px;
+}
+
+.btn-area-b {
+  display: inline-block;
+  background: #fdf6e3;
+  color: #4a3c2a;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #D1B077;
+  box-shadow: 0 4px 0 #b09462;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-area-b:hover {
+  background: #f5ecd5;
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #b09462;
+}
+
+.btn-area-b small {
+  display: block;
+  font-size: 10px;
+  color: #8b6b4d;
+  font-weight: normal;
+  margin-top: 2px;
+}
+
   /* マップ配置用コンテナ */
     .map-container {
       display: inline-block;
@@ -325,7 +365,25 @@ body {
 
     <div style="text-align: center; margin-top: 10px;">
         </div>
-
+    
+<div class="area-b-container">
+  <a href="B01.html" target="_blank" class="btn-area-b">
+    🏕️ B01 <small>プレオープン</small>
+  </a>
+  <a href="B02.html" target="_blank" class="btn-area-b">
+    🏕️ B02 <small>プレオープン</small>
+  </a>
+  <a href="B03.html" target="_blank" class="btn-area-b">
+    🏕️ B03 <small>プレオープン</small>
+  </a>
+  <a href="B05.html" target="_blank" class="btn-area-b">
+    🏕️ B05 <small>プレオープン</small>
+  </a>
+  <a href="B06.html" target="_blank" class="btn-area-b">
+    🏕️ B06 <small>プレオープン</small>
+  </a>
+</div>
+    
 <svg viewBox="0 0 900 1600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="svg-title svg-desc">
   
   <title id="svg-title">ロガーズ那須高原 エリアA 区画詳細マップ</title>
