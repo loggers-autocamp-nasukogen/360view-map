@@ -117,12 +117,13 @@
     <img id="sky-outside" src="images/loggers-house-outside.webp">
   </a-assets>
 
-  <a-sky id="sky" src="#sky-ent" rotation="0 -90 0"></a-sky>
+  <a-sky id="sky" src="#sky-right" rotation="0 -90 0"></a-sky>
   <a-entity id="camera" camera look-controls="smoothingFactor: 0.01" position="0 1.6 0"></a-entity>
 </a-scene>
 
 <script>
-  let currentZone = 'ent';
+  // 初期表示を右側エリア（right）に変更
+  let currentZone = 'right';
 
   function toggleMenu() {
     const menu = document.getElementById('zone-menu');
