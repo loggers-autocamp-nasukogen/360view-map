@@ -99,21 +99,21 @@
 </div>
 
 <div id="zone-menu">
-  <button class="zone-btn zone-ent" onclick="switchScene('ent')">玄関・入口</button>
-  <button class="zone-btn zone-left" onclick="switchScene('left')">左側エリア</button>
   <button class="zone-btn zone-right" onclick="switchScene('right')">右側エリア</button>
+  <button class="zone-btn zone-left" onclick="switchScene('left')">左側エリア</button>
   <button class="zone-btn zone-restroom" onclick="switchScene('restroom')">トイレ</button>
   <button class="zone-btn zone-accessible" onclick="switchScene('accessible')">多目的トイレ</button>
+  <button class="zone-btn zone-ent" onclick="switchScene('ent')">玄関・入口</button>
   <button class="zone-btn zone-outside" onclick="switchScene('outside')">外観</button>
 </div>
 
 <a-scene embedded vr-mode-ui="enabled: false" xr-mode-ui="enabled: false">
   <a-assets>
-    <img id="sky-ent" src="images/loggers-house-ent.webp">
-    <img id="sky-left" src="images/loggers-house-left.webp">
     <img id="sky-right" src="images/loggers-house-right.webp">
+    <img id="sky-left" src="images/loggers-house-left.webp">
     <img id="sky-restroom" src="images/loggers-house-restroom.webp">
     <img id="sky-accessible" src="images/loggers-house-accessible-restroom.webp">
+    <img id="sky-ent" src="images/loggers-house-ent.webp">
     <img id="sky-outside" src="images/loggers-house-outside.webp">
   </a-assets>
 
