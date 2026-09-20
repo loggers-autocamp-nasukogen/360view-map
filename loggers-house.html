@@ -24,6 +24,7 @@
       justify-content: space-between;
       padding: 0 8px;
       z-index: 100;
+      box-sizing: border-box;
     }
 
     .nav-group-right {
@@ -51,7 +52,7 @@
 
     #zone-menu {
       position: fixed;
-      top: 65px;
+      top: 60px;
       right: 12px;
       background: rgba(255,255,255,0.95);
       border-radius: 12px;
@@ -61,17 +62,21 @@
       gap: 6px;
       z-index: 110;
       box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+      box-sizing: border-box;
     }
 
     .zone-btn {
-      padding: 12px 16px;
-      font-size: 14px;
+      padding: 10px 14px;
+      font-size: 13px;
       font-weight: bold;
       border: none;
       border-radius: 8px;
       color: #fff;
       cursor: pointer;
       text-align: left;
+      white-space: nowrap;
     }
 
     .zone-ent { background-color: #6d4c41; }
@@ -122,7 +127,6 @@
 </a-scene>
 
 <script>
-  // 初期表示を右側エリア（right）に変更
   let currentZone = 'right';
 
   function toggleMenu() {
