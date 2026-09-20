@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>しばふの公園 360°ビュー</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      touch-action: manipulation;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 12px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 8px;
+      z-index: 100;
+    }
+
+    .nav-group-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+
+    .nav-btn-sub {
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: bold;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      white-space: nowrap;
+    }
+
+    #zone-menu {
+      position: fixed;
+      top: 65px;
+      right: 12px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 12px;
+      padding: 10px;
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      z-index: 110;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    .zone-btn {
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .zone-ent { background-color: #6d4c41; }
+    .zone-left { background-color: #455a64; }
+    .zone-right { background-color: #2e7d32; }
+    .zone-restroom { background-color: #283593; }
+    .zone-accessible { background-color: #ef6c00; }
+    .zone-outside { background-color: #8d6e63; }
+
+  </style>
+</head>
+
+<body>
+
+<div class="top-nav">
+  <a href="https://loggers-autocamp-nasukogen.github.io/360view-map/" class="nav-btn-sub">
+    🔙 MAP
+  </a>
+
+  <div class="nav-group-right">
+    <div class="nav-btn-sub" onclick="toggleMenu()">
+      📷 カメラ選択
+    </div>
+  </div>
+</div>
+
+<div id="zone-menu">
+  <button class="zone-btn zone-ent" onclick="switchScene('ent')">しばふの公園</button>
+  <button class="zone-btn zone-left" onclick="switchScene('left')">B棟室内</button>
+  <button class="zone-btn zone-restroom" onclick="switchScene('restroom')">B棟トイレ</button>
+  <button class="zone-btn zone-accessible" onclick="switchScene('accessible')">B棟多目的トイレ</button>
+</div>
+
+<a-scene embedded vr-mode-ui="enabled: false" xr-mode-ui="enabled: false">
+  <a-assets>
+    <img id="sky-ent" src="images/grassy-park.webp">
+    <img id="sky-left" src="images/loggers-house-left.webp">
+    <img id="sky-restroom" src="images/loggers-house-restroom.webp">
+    <img id="sky-accessible" src="images/loggers-house-accessible-restroom.webp">
+  </a-assets>
+
+  <a-sky id="sky" src="#sky-ent" rotation="0 -90 0"></a-sky>
+  <a-entity id="camera" camera look-controls="smoothingFactor: 0.01" position="0 1.6 0"></a-entity>
+</a-scene>
+
+<script>
+  let currentZone = 'ent';
+
+  function toggleMenu() {
+    const menu = document.getElementById('zone-menu');
+    menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+  }
+
+  function switchScene(zone) {
+    currentZone = zone;
+    document.getElementById('zone-menu').style.display = 'none';
+    updateScene();
+  }
+
+  function updateScene() {
+    const sky = document.querySelector('#sky');
+    let targetSrc = "";
+
+    switch (currentZone) {
+      case 'ent': targetSrc = "#sky-ent"; break;
+      case 'left': targetSrc = "#sky-left"; break;
+      case 'right': targetSrc = "#sky-right"; break;
+      case 'restroom': targetSrc = "#sky-restroom"; break;
+      case 'accessible': targetSrc = "#sky-accessible"; break;
+      case 'outside': targetSrc = "#sky-outside"; break;
+    }
+
+    sky.setAttribute('src', targetSrc);
+  }
+
+  window.onload = function() {
+    switchScene(currentZone);
+  };
+</script>
+
+</body>
+</html>
