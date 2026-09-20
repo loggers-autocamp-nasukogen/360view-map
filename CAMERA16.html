@@ -15,7 +15,6 @@
       font-family: 'M PLUS Rounded 1c', sans-serif;
     }
 
-    /* --- 上部ナビ（はみ出し修正済） --- */
     .top-nav {
       position: fixed;
       top: 12px;
@@ -23,8 +22,9 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
-      padding: 0 12px;   /* ← 修正：左右に余裕を追加 */
+      padding: 0 8px;
       z-index: 100;
+      box-sizing: border-box;
     }
 
     .nav-group-right {
@@ -32,7 +32,6 @@
       flex-direction: column;
       align-items: flex-end;
       gap: 6px;
-      margin-right: 6px;  /* ← 修正：右側に余白追加 */
     }
 
     .nav-btn-sub {
@@ -49,13 +48,11 @@
       cursor: pointer;
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
       white-space: nowrap;
-      min-width: 110px;   /* ← 修正：ボタンの最低幅を確保 */
     }
 
-    /* --- カメラ選択メニュー --- */
     #zone-menu {
       position: fixed;
-      top: 65px;
+      top: 60px;
       right: 12px;
       background: rgba(255,255,255,0.95);
       border-radius: 12px;
@@ -65,23 +62,29 @@
       gap: 6px;
       z-index: 110;
       box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+      box-sizing: border-box;
     }
 
     .zone-btn {
-      padding: 12px 16px;
-      font-size: 14px;
+      padding: 10px 14px;
+      font-size: 13px;
       font-weight: bold;
       border: none;
       border-radius: 8px;
       color: #fff;
       cursor: pointer;
       text-align: left;
+      white-space: nowrap;
     }
 
     .zone-ent { background-color: #6d4c41; }
     .zone-left { background-color: #455a64; }
+    .zone-right { background-color: #2e7d32; }
     .zone-restroom { background-color: #283593; }
     .zone-accessible { background-color: #ef6c00; }
+    .zone-outside { background-color: #8d6e63; }
 
   </style>
 </head>
