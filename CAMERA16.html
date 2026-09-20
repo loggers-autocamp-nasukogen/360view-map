@@ -15,6 +15,7 @@
       font-family: 'M PLUS Rounded 1c', sans-serif;
     }
 
+    /* --- 上部ナビ（はみ出し修正済） --- */
     .top-nav {
       position: fixed;
       top: 12px;
@@ -22,7 +23,7 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
-      padding: 0 8px;
+      padding: 0 12px;   /* ← 修正：左右に余裕を追加 */
       z-index: 100;
     }
 
@@ -31,6 +32,7 @@
       flex-direction: column;
       align-items: flex-end;
       gap: 6px;
+      margin-right: 6px;  /* ← 修正：右側に余白追加 */
     }
 
     .nav-btn-sub {
@@ -47,8 +49,10 @@
       cursor: pointer;
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
       white-space: nowrap;
+      min-width: 110px;   /* ← 修正：ボタンの最低幅を確保 */
     }
 
+    /* --- カメラ選択メニュー --- */
     #zone-menu {
       position: fixed;
       top: 65px;
@@ -76,10 +80,8 @@
 
     .zone-ent { background-color: #6d4c41; }
     .zone-left { background-color: #455a64; }
-    .zone-right { background-color: #2e7d32; }
     .zone-restroom { background-color: #283593; }
     .zone-accessible { background-color: #ef6c00; }
-    .zone-outside { background-color: #8d6e63; }
 
   </style>
 </head>
@@ -138,10 +140,8 @@
     switch (currentZone) {
       case 'ent': targetSrc = "#sky-ent"; break;
       case 'left': targetSrc = "#sky-left"; break;
-      case 'right': targetSrc = "#sky-right"; break;
       case 'restroom': targetSrc = "#sky-restroom"; break;
       case 'accessible': targetSrc = "#sky-accessible"; break;
-      case 'outside': targetSrc = "#sky-outside"; break;
     }
 
     sky.setAttribute('src', targetSrc);
