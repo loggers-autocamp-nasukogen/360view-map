@@ -324,7 +324,6 @@ body {
         ロガーズ那須高原 360度パノラマビューマップ
     </h1>
     
-    <!-- スマホで邪魔にならないよう、折りたためるSEOテキストにする -->
     <details style="background: #f9f9f9; padding: 12px 15px; border-radius: 8px; border-left: 4px solid #2d5a27; font-size: 13px; color: #444;">
         <summary style="font-weight: bold; cursor: pointer; color: #2d5a27;">
             💡 このマップについて（初めての方へ・サイト選びのコツ）
@@ -393,6 +392,14 @@ body {
         10%, 30% { transform: rotate(1deg); }
         20%, 40% { transform: rotate(-1deg); }
       }
+
+      /* ゴーストツリー用の逆揺れアニメーション（新規追加） */
+      .pumpkin-shake-reverse { animation: shakePumpkinReverse 1.3s infinite ease-in-out; transform-origin: center; }
+      @keyframes shakePumpkinReverse {
+        0%, 50%, 100% { transform: rotate(0deg); }
+        10%, 30% { transform: rotate(-1deg); }
+        20%, 40% { transform: rotate(1deg); }
+      }
       
       .xmas-shake { animation: xmasShake 3s infinite ease-in-out; transform-origin: center; }
       @keyframes xmasShake {
@@ -425,9 +432,9 @@ body {
 <!-- ▼▼▼ 位置調整グループ：ここから旧マップ座標の要素を丸ごと包む ▼▼▼ -->
 <g id="overlay" transform="translate(211,176) scale(2.34)">
 
-<!-- 👻 おばけの演出 -->
+<!-- 👻 おばけの演出（軌道をマップ全幅に拡張） -->
 <g class="ghostGroup" style="display: none;">
-  <path id="ghostPath" d="M900,1150 Q700,1100 500,1150 Q300,1200 100,1150" fill="none" stroke="none"></path>
+  <path id="ghostPath" d="M1550,1150 Q1150,1080 750,1150 Q350,1220 50,1150" fill="none" stroke="none"></path>
   <image href="images/ghost.png" width="350" height="350">
     <animateMotion dur="20s" repeatCount="indefinite" rotate="auto">
       <mpath href="#ghostPath"></mpath>
@@ -435,9 +442,9 @@ body {
   </image>
 </g>
 
-<!-- 🧙‍♀️ 魔女の演出 -->
+<!-- 🧙‍♀️ 魔女の演出（軌道をマップ全幅に拡張） -->
 <g id="witchGroup" style="display: none;">
-  <path id="witchPath" d="M900,200 C700,250 500,350 300,450 C200,500 100,550 0,600" fill="none" stroke="none"></path>
+  <path id="witchPath" d="M1550,150 C1300,220 1050,300 800,380 C600,440 350,500 100,560" fill="none" stroke="none"></path>
   <image href="images/witch.png" width="200" height="200">
     <animateMotion dur="12s" repeatCount="indefinite" rotate="auto">
       <mpath href="#witchPath"></mpath>
