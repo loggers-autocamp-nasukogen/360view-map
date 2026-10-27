@@ -397,7 +397,7 @@ body {
         20%, 40% { transform: rotate(-1deg); }
       }
 
-      /* ゴーストツリー用の逆揺れアニメーション（新規追加） */
+      /* ゴーストツリー用の逆揺れアニメーション */
       .pumpkin-shake-reverse { animation: shakePumpkinReverse 1.3s infinite ease-in-out; transform-origin: center; }
       @keyframes shakePumpkinReverse {
         0%, 50%, 100% { transform: rotate(0deg); }
@@ -411,8 +411,18 @@ body {
         50% { transform: translateY(-6px) rotate(2deg); }
       }
 
+      /* 【追加】クリスマス用 逆揺れアニメーション（サンタ・オレンジ用） */
+      .xmas-shake-reverse { animation: xmasShakeReverse 3s infinite ease-in-out; transform-origin: center; }
+      @keyframes xmasShakeReverse {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-6px) rotate(-2deg); }
+      }
+
       .delay-0 { animation-delay: 0s; } .delay-1 { animation-delay: 0.5s; }
       .delay-2 { animation-delay: 1s; } .delay-3 { animation-delay: 1.5s; }
+      /* 【追加】delay-4〜6 */
+      .delay-4 { animation-delay: 2s; } .delay-5 { animation-delay: 2.5s; }
+      .delay-6 { animation-delay: 3s; }
 
       #back-to-nap {
         /* ...スタイル設定は維持... */
@@ -760,7 +770,15 @@ function goToNap() {
   window.location.href = "https://www.nap-camp.com/tochigi/15675?status=1005";
 }
 
-const today = new Date();
+/* ===== 季節演出の自動切り替え =====
+   判定は「日本時間」で固定（閲覧者の端末の時差に左右されない）
+   月は0始まり：8=9月 / 9=10月 / 10=11月 / 11=12月
+
+   ハロウィン：9月25日 0:00 〜 10月31日 23:59
+   クリスマス：11月4日 17:00 〜 12月25日 23:59
+   ※10月31日 23:59 〜 11月4日 16:59 は季節演出なし（通常表示）
+*/
+const today = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Tokyo" }));
 const month = today.getMonth();
 const date = today.getDate();
 
@@ -768,9 +786,10 @@ const isHalloween =
   (month === 8 && date >= 25) ||
   (month === 9);
 
-const isChristmas =
-  (month === 10 && date >= 13) ||
-  (month === 11 && date <= 25);
+// クリスマス：11月4日 17:00 〜 12月25日 23:59:59（12月26日 0:00 に終了）
+const christmasStart = new Date(today.getFullYear(), 10, 4, 17, 0, 0);
+const christmasEnd   = new Date(today.getFullYear(), 11, 26, 0, 0, 0);
+const isChristmas = today >= christmasStart && today < christmasEnd;
 
 const ghostGroups = document.getElementsByClassName("ghostGroup");
 for (let i = 0; i < ghostGroups.length; i++) {
